@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net5;net6</TargetFrameworks>
+		<RootNamespace>EasyTestFileXunit.Tests</RootNamespace>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\EasyTestFile.Json\EasyTestFile.Json.csproj" />
+		<ProjectReference Include="..\..\src\EasyTestFile.Xunit\EasyTestFile.Xunit.csproj" />
+		<ProjectReference Include="..\..\src\EasyTestFile\EasyTestFile.csproj" />
+		<ProjectReference Include="..\EasyTestFile.Xunit.Resources\EasyTestFile.Xunit.Resources.csproj" />
+		<PackageReference Include="Verify" Version="13.0.3" />
+		<PackageReference Include="Verify.Xunit" Version="13.0.3" />
+		<PackageReference Include="xunit" />
+		<PackageReference Include="xunit.analyzers" />
+		<PackageReference Include="xunit.categories" />
+		<PackageReference Include="xunit.runner.console" />
+		<PackageReference Include="xunit.runner.visualstudio">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="xunit.runner.reporters">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+</Project>

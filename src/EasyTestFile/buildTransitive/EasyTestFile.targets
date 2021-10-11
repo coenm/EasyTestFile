@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Choose>
+		<When Condition=" '$(EasyTestFileMode)'=='CopyAlways' OR  '$(EasyTestFileMode)'=='CopyPreseverNewest' OR '$(EasyTestFileMode)'=='None'">
+			<ItemGroup>
+				<None Update="**\*.testfile.*" Condition="$(Language) == 'C#'" >
+					<ParentFile>$([System.String]::Copy('%(FileName)').Split('_')[0])</ParentFile>
+					<ParentCsFile>%(ParentFile).cs</ParentCsFile>
+					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
+					<FileEx>$([System.String]::Copy('%(FullPath)').Replace('%(FileName)%(Extension)', '%(ParentCsFile)'))</FileEx>
+					<DependentUpon Condition="Exists('%(FileEx)') ">%(ParentCsFile)</DependentUpon>
+
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyAlways'">Always</CopyToOutputDirectory>
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyPreseverNewest'">PreserveNewest</CopyToOutputDirectory>
+				</None>
+
+				<None Update=".EasyTestFile\**\*.*" >
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyAlways'">Always</CopyToOutputDirectory>
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyPreseverNewest'">PreserveNewest</CopyToOutputDirectory>
+				</None>
+
+				<None Update=".EasyTestFiles\**\*.*" >
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyAlways'">Always</CopyToOutputDirectory>
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyPreseverNewest'">PreserveNewest</CopyToOutputDirectory>
+				</None>
+
+				<None Update="EasyTestFile\**\*.*" >
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyAlways'">Always</CopyToOutputDirectory>
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyPreseverNewest'">PreserveNewest</CopyToOutputDirectory>
+				</None>
+
+				<None Update="EasyTestFiles\**\*.*" >
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyAlways'">Always</CopyToOutputDirectory>
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyPreseverNewest'">PreserveNewest</CopyToOutputDirectory>
+				</None>
+			</ItemGroup>
+		</When>
+
+		<Otherwise>
+			<ItemGroup>
+				<EmbeddedResource Include="**\*.testfile.*" Condition="$(Language) == 'C#'" >
+					<ParentFile>$([System.String]::Copy('%(FileName)').Split('_')[0])</ParentFile>
+					<ParentCsFile>%(ParentFile).cs</ParentCsFile>
+					<!-- <ParentCsFile2>$([System.IO.Path]::Combine('$(ProjectDir)','%(ParentCsFile)').ToString()</ParentCsFile2> -->
+					<!-- <ParentCsFileExists>$(Exists('%(ParentCsFile)'))</ParentCsFileExists> -->
+					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
+					<FileEx>$([System.String]::Copy('%(FullPath)').Replace('%(FileName)%(Extension)', '%(ParentCsFile)'))</FileEx>
+					<DependentUpon Condition="Exists('%(FileEx)') ">%(ParentCsFile)</DependentUpon>
+					<!-- <CopyToOutputDirectory>Always</CopyToOutputDirectory> -->
+					<!-- <LogicalName>%(EmbeddedResource.Identity).COEN</LogicalName> -->
+
+					<!-- <LogicalName>%(FullPath).CO3E2</LogicalName> -->
+					<LogicalName>%(SanitezedFileName)</LogicalName>
+				</EmbeddedResource>
+
+				<EmbeddedResource Include=".EasyTestFile\**\*.*" Condition="$(Language) == 'C#'"  >
+					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
+					<LogicalName>%(SanitezedFileName)</LogicalName>
+				</EmbeddedResource>
+
+				<EmbeddedResource Include=".EasyTestFiles\**\*.*" Condition="$(Language) == 'C#'"  >
+					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
+					<LogicalName>%(SanitezedFileName)</LogicalName>
+				</EmbeddedResource>
+
+				<EmbeddedResource Include="EasyTestFile\**\*.*" Condition="$(Language) == 'C#'"  >
+					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
+					<LogicalName>%(SanitezedFileName)</LogicalName>
+				</EmbeddedResource>
+
+				<EmbeddedResource Include="EasyTestFiles\**\*.*" Condition="$(Language) == 'C#'"  >
+					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
+					<LogicalName>%(SanitezedFileName)</LogicalName>
+				</EmbeddedResource>
+			</ItemGroup>
+		</Otherwise>
+	</Choose>
+</Project>

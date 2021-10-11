@@ -1,0 +1,12 @@
+﻿[
+  {
+    Key: EasyTestFile.ProjectDirectory,
+    Value: {SolutionDirectory}tests\EasyTestFile.Xunit.Resources\,
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
+    Key: EasyTestFile.SolutionDirectory,
+    Value: {SolutionDirectory},
+    TypeId: AssemblyMetadataAttribute
+  }
+]

@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net5;net6</TargetFrameworks>
+		<RootNamespace>EasyTestFile.Json</RootNamespace>
+	</PropertyGroup>
+	<!-- <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' "> -->
+	<!-- 	<TargetFrameworks>netstandard2.0;netstandard2.1;net472;net5;net6</TargetFrameworks> -->
+	<!-- </PropertyGroup> -->
+
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
+	</ItemGroup>
+</Project>

@@ -1,0 +1,23 @@
+﻿[
+  .customBaseFolder\CustomPath\CustomProjectPath_CustomPathTest1.testfile.txt,
+  .customBaseFolder\CustomPath\CustomProjectPath_CustomPathTest3.1.testfile.txt,
+  .customBaseFolder\CustomPath\CustomProjectPath_CustomPathTest3.2.testfile.txt,
+  .EasyTestFile\test.txt,
+  .easytestfile\test2.testfile.txt,
+  .EasyTestFile\test2.testfile.txt,
+  Att\Testing_NewtonsoftLoad.testfile.txt,
+  Att\Testing_Settings.testfile.json,
+  Att\Testing_Test1.testfile.txt,
+  Att\Testing_Test2.testfile.txt,
+  CustomPath\CustomProjectPath_CustomPathTest2.1.testfile.txt,
+  CustomPath\CustomProjectPath_CustomPathTest2.2.testfile.txt,
+  easytestfiles\EasyTestFilesPath_Test1.testfile.txt,
+  EasyTestFiles\EasyTestFilesPath_Test1.testfile.txt,
+  EasyTestFiles\test.txt,
+  Folder1\Folder2\PropertyTest_PropertyFile1.testfile.txt,
+  Folder1\Folder2\PropertyTest_PropertyFile2.testfile.json,
+  Folder1\Partial\MyPartialTest_Test1.testfile.txt,
+  Folder1\Partial\MyPartialTest_Test2.testfile.txt,
+  Folder1\Partial\Sub\MyPartialTest_Test2.testfile.txt,
+  Folder1\Partial\Sub\MyPartialTest_Test4.testfile.txt
+]
