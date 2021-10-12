@@ -4,6 +4,8 @@ namespace EasyTestFile
     using System.IO;
     using System.Reflection;
     using System.Threading.Tasks;
+    using EasyTestFile.Internals;
+
 
     public sealed class TestFile
     {
@@ -24,54 +26,7 @@ namespace EasyTestFile
             _testMethodInfo = testMethodInfo;
             _assembly = _settings.Assembly ?? _testAssemblyInfo.Assembly;
 
-            // tmp
-            _physicalFilename = _testMethodInfo.SourceFile;
-            if (_physicalFilename.EndsWith(".cs"))
-            {
-                _physicalFilename = _physicalFilename[..(_testMethodInfo.SourceFile.Length - 3)];
-            }
-
-            var extension = _settings.ExtensionOrTxt();
-
-            var suffix = string.Empty;
-            if (!string.IsNullOrWhiteSpace(_settings.TestFileNamingSuffix))
-            {
-                suffix = "." + _settings.TestFileNamingSuffix;
-            }
-
-            var dotTestFileSuffix = string.Empty;
-            if (_settings.UseDotTestFileSuffix)
-            {
-                dotTestFileSuffix = ".testfile";
-            }
-
-            _physicalFilename = _physicalFilename + "_" + _testMethodInfo.Method + suffix + dotTestFileSuffix + "." + extension;
-
-            if (!string.IsNullOrWhiteSpace(_settings.FileName))
-            {
-                if (string.IsNullOrWhiteSpace(_settings.BaseDirectory))
-                {
-                    var xx = _testMethodInfo.SourceFileInfo!.Directory.FullName;
-                    _physicalFilename = Path.Combine(xx, _settings.FileName!);
-                }
-                else
-                {
-                    _physicalFilename = Path.Combine(_testAssemblyInfo.ProjectDirectory, _settings.FileName!);
-                }
-            }
-
-
-            if (string.IsNullOrWhiteSpace(_settings.BaseDirectory))
-            {
-
-                _relativeFilename = StringReplaceIgnoreCase(_physicalFilename, _testAssemblyInfo.ProjectDirectory, string.Empty);
-            }
-            else
-            {
-                _relativeFilename = StringReplaceIgnoreCase(_physicalFilename, _testAssemblyInfo.ProjectDirectory, string.Empty);
-                _relativeFilename = Path.Combine(_settings.BaseDirectory!, _relativeFilename);
-                _physicalFilename = StringReplaceIgnoreCase(_physicalFilename, _testAssemblyInfo.ProjectDirectory, Path.Combine(_testAssemblyInfo.ProjectDirectory, _settings.BaseDirectory!) + Path.DirectorySeparatorChar);
-            }
+            (_relativeFilename, _physicalFilename) =  FileNameResolver.Find(_settings, _testAssemblyInfo, _testMethodInfo);
         }
 
         public Stream AsStream()
@@ -139,22 +94,6 @@ namespace EasyTestFile
             }
 
             return stream;
-        }
-
-        public async Task<string> AsText()
-        {
-            Stream stream = AsStream();
-            using var sr = new StreamReader(stream);
-            return await sr.ReadToEndAsync().ConfigureAwait(false);
-        }
-
-        private static string StringReplaceIgnoreCase(in string input, in string search, in string replace)
-        {
-#if NETSTANDARD2_0
-            return System.Text.RegularExpressions.Regex.Replace(input, search, replace, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
-#else
-            return input.Replace(search, replace, StringComparison.InvariantCultureIgnoreCase);
-#endif
         }
     }
 }

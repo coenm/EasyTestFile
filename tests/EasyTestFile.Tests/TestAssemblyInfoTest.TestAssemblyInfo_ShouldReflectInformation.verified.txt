@@ -1,0 +1,5 @@
+﻿{
+  AssemblyName: EasyTestFile.Tests,
+  ProjectDirectory: {ProjectDirectory},
+  SolutionDirectory: {SolutionDirectory}
+}

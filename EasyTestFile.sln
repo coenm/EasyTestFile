@@ -30,6 +30,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Json", "src\Ea
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Xunit.Resources", "tests\EasyTestFile.Xunit.Resources\EasyTestFile.Xunit.Resources.csproj", "{82529167-644B-4BAF-9105-3132F7FE8CE4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Tests", "tests\EasyTestFile.Tests\EasyTestFile.Tests.csproj", "{1C89726B-517D-40AC-A2C2-7BB1DC477EE7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +66,10 @@ Global
 		{82529167-644B-4BAF-9105-3132F7FE8CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82529167-644B-4BAF-9105-3132F7FE8CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82529167-644B-4BAF-9105-3132F7FE8CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C89726B-517D-40AC-A2C2-7BB1DC477EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C89726B-517D-40AC-A2C2-7BB1DC477EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C89726B-517D-40AC-A2C2-7BB1DC477EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C89726B-517D-40AC-A2C2-7BB1DC477EE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{534F4B31-7B90-4D6A-8C4D-4D2B5D1ACE63} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
 		{10B5E000-BA89-40B2-96C6-3628AF08F089} = {FA1F5DF0-A7AC-4E68-B875-E7F1D71329B6}
 		{82529167-644B-4BAF-9105-3132F7FE8CE4} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
+		{1C89726B-517D-40AC-A2C2-7BB1DC477EE7} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E0B06F3E-E0CF-486F-9251-DB617317FE44}

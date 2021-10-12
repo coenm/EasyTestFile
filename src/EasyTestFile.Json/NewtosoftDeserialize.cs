@@ -11,7 +11,7 @@ namespace EasyTestFile.Json
             return Task.FromResult(DeserializeFromStream<T>(testFile.AsStream()));
         }
 
-        private static T DeserializeFromStream<T>(Stream stream)
+        internal static T DeserializeFromStream<T>(Stream stream)
         {
             var serializer = new JsonSerializer();
             using var sr = new StreamReader(stream);

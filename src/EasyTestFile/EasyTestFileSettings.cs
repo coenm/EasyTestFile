@@ -18,14 +18,9 @@ namespace EasyTestFile
                 return;
             }
 
-            // folder, filename strategy,
-            // embedded, source, bin
-
             _extension = settings._extension;
             disableAutoCreateMissingTestFile = settings.disableAutoCreateMissingTestFile;
 
-            _methodName = settings._methodName;
-            Directory = settings.Directory;
             FileName = settings.FileName;
             BaseDirectory = settings.BaseDirectory;
             TestFileNamingSuffix = settings.TestFileNamingSuffix;
