@@ -6,11 +6,8 @@
 		<Description>..</Description>
 		<Authors>Coen van den Munckhof</Authors>
 		<Owners>$(Authors)</Owners>
-		<!-- <TargetFrameworks Condition="'$(OS)' != 'Unix'">$(TargetFrameworks);net461;net472</TargetFrameworks> -->
 		<!-- <TreatWarningsAsErrors>true</TreatWarningsAsErrors> -->
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
-		<!-- <PackageId>EasyTestFile</PackageId> -->
-		<!-- <PackageTags>EasyTestFile;Unittest</PackageTags> -->
 		<PackageProjectUrl>https://github.com/coenm/EasyTestFile/</PackageProjectUrl>
 		<!-- deprecated, maintain backward compatibility, https://docs.microsoft.com/en-us/nuget/reference/msbuild-targets#packageiconurl  -->
 		<!-- <PackageIconUrl>https://raw.githubusercontent.com/coenm/ImageHash/master/icon/ImageHash.128.png</PackageIconUrl> -->

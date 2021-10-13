@@ -26,7 +26,7 @@ namespace EasyTestFileXunit.Tests.CustomPath
         public async Task CustomPathTest2(int input, string expectedContent, int __)
         {
             var settings = new EasyTestFileSettings();
-            settings.UseArgument(input);
+            settings.SetTestFileNameSuffix(input);
 
             var content = await EasyTestFile.LoadAsText(settings);
             _ = content.Should().Be(expectedContent);
@@ -40,7 +40,7 @@ namespace EasyTestFileXunit.Tests.CustomPath
         {
             var settings = new EasyTestFileSettings();
             settings.UseBaseDirectory(".customBaseFolder");
-            settings.UseArgument(input);
+            settings.SetTestFileNameSuffix(input);
 
             var content = await EasyTestFile.LoadAsText(settings);
             _ = content.Should().Be(expectedContent);

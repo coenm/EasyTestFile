@@ -13,7 +13,6 @@
 				<None Update="**\*.testfile.*" Condition="$(Language) == 'C#'" >
 					<ParentFile>$([System.String]::Copy('%(FileName)').Split('_')[0])</ParentFile>
 					<ParentCsFile>%(ParentFile).cs</ParentCsFile>
-					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
 					<FileEx>$([System.String]::Copy('%(FullPath)').Replace('%(FileName)%(Extension)', '%(ParentCsFile)'))</FileEx>
 					<DependentUpon Condition="Exists('%(FileEx)') ">%(ParentCsFile)</DependentUpon>
 
@@ -25,7 +24,6 @@
 
 		<Otherwise>
 			<ItemGroup>
-
 				<EmbeddedResource Include="EasyTestFiles\**\*.*" Condition="$(Language) == 'C#'" >
 					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
 					<LogicalName>%(SanitezedFileName)</LogicalName>
@@ -36,18 +34,12 @@
 				<EmbeddedResource Include="**\*.testfile.*" Condition="$(Language) == 'C#'" >
 					<ParentFile>$([System.String]::Copy('%(FileName)').Split('_')[0])</ParentFile>
 					<ParentCsFile>%(ParentFile).cs</ParentCsFile>
-					<!-- <ParentCsFile2>$([System.IO.Path]::Combine('$(ProjectDir)','%(ParentCsFile)').ToString()</ParentCsFile2> -->
-					<!-- <ParentCsFileExists>$(Exists('%(ParentCsFile)'))</ParentCsFileExists> -->
-					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
 					<FileEx>$([System.String]::Copy('%(FullPath)').Replace('%(FileName)%(Extension)', '%(ParentCsFile)'))</FileEx>
 					<DependentUpon Condition="Exists('%(FileEx)') ">%(ParentCsFile)</DependentUpon>
-					<!-- <CopyToOutputDirectory>Always</CopyToOutputDirectory> -->
-					<!-- <LogicalName>%(EmbeddedResource.Identity).COEN</LogicalName> -->
 
-					<!-- <LogicalName>%(FullPath).CO3E2</LogicalName> -->
+					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
 					<LogicalName>%(SanitezedFileName)</LogicalName>
 				</EmbeddedResource>
-
 			</ItemGroup>
 		</Otherwise>
 	</Choose>

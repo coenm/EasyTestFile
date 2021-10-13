@@ -70,7 +70,7 @@ namespace EasyTestFile
                 // create file
                 if (!string.IsNullOrWhiteSpace(_physicalFilename))
                 {
-                    if (!_settings.disableAutoCreateMissingTestFile)
+                    if (!_settings.AutoCreateMissingTestFileDisabled)
                     {
                         var dir = new FileInfo(_physicalFilename).DirectoryName;
 

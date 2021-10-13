@@ -2,14 +2,12 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
 	<PropertyGroup>
-		<!-- Embed;CopyAlways;CopyPreseverNewest;None -->
-		<EasyTestFileMode>Embed</EasyTestFileMode>
-	</PropertyGroup>
-
-	<PropertyGroup>
         <Deterministic>false</Deterministic>
         <DeterministicSourcePaths>false</DeterministicSourcePaths>
         <EasyTestFileAttributesFile>EasyTestFile.Attributes$(MSBuildProjectExtension.Replace('proj', ''))</EasyTestFileAttributesFile>
+		
+		<!-- Valid values are 'Embed', 'CopyAlways', 'CopyPreseverNewest', 'None' -->
+		<EasyTestFileMode>Embed</EasyTestFileMode>
 	</PropertyGroup>
 	
 	<Target Name="WriteEasyTestFileAttributes"

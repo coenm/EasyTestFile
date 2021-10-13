@@ -6,6 +6,8 @@ namespace EasyTestFile
 
     public partial class EasyTestFileSettings
     {
+        private static readonly List<char> _chars = new List<char> { ' ', '\\', '/', };
+
         internal string? FileName;
 
         /// <summary>
@@ -22,7 +24,8 @@ namespace EasyTestFile
             }
 
             var firstChar = fileName[0];
-            if (new List<char> {' ', '\\', '/'}.Contains(firstChar))
+            
+            if (_chars.Contains(firstChar))
             {
                 throw new ArgumentException("Invalid first char as filename");
             }

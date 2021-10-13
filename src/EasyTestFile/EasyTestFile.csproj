@@ -2,22 +2,34 @@
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;netstandard2.1;net5;net6</TargetFrameworks>
 		<RootNamespace>EasyTestFile</RootNamespace>
+		<PackageId>EasyTestFile</PackageId>
+		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;TestFiles</PackageTags>
 	</PropertyGroup>
-    <!-- <PropertyGroup Condition=" '$(OS)' == 'Windows_NT' "> -->
-	<!-- 	<TargetFrameworks>netstandard2.0;netstandard2.1;net472;net5;net6</TargetFrameworks> -->
-	<!-- </PropertyGroup> -->
 
     <ItemGroup>
 		<Content Include="buildTransitive\EasyTestFile.props" PackagePath="buildTransitive\LoadTestData.props" />
 		<Content Include="buildTransitive\EasyTestFile.targets" PackagePath="buildTransitive\LoadTestData.targets" />
 	</ItemGroup>
-  
-	<ItemGroup>
-		<PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
-		<PackageReference Include="IndexRange" Version="1.0.0" Condition="$(TargetFramework) == 'netstandard2.0' OR $(TargetFramework) == 'net472'" PrivateAssets="all" />
-		<PackageReference Include="Nullable" Version="1.3.0" Condition="$(TargetFramework) == 'netstandard2.0' OR $(TargetFramework) == 'net472'" PrivateAssets="all" />
-	</ItemGroup>
-  
+
+    <ItemGroup>
+	    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
+    </ItemGroup>
+
+	<Choose>
+		<When Condition=" $(TargetFramework)=='netstandard2.1' OR $(TargetFramework)=='net5' OR $(TargetFramework)=='net6' ">
+			<PropertyGroup>
+				<DefineConstants>$(DefineConstants);FEATURE_STRING_REPLACE_IGNORE_CASE</DefineConstants>
+			</PropertyGroup>
+		</When>
+
+		<Otherwise>
+			<ItemGroup>
+				<PackageReference Include="IndexRange" Version="1.0.0" PrivateAssets="all" />
+				<PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
+			</ItemGroup>
+		</Otherwise>
+	</Choose>
+
 	<ItemGroup>
 	  <Folder Include="Internals\" />
 	</ItemGroup>

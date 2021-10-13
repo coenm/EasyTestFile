@@ -5,20 +5,18 @@ namespace EasyTestFile
     using System.Runtime.Serialization;
     using System.Security.Permissions;
 
+    /// <summary>
+    /// Exception when TestFile cannot be found.
+    /// </summary>
     [Serializable]
     public class TestFileNotFoundException : Exception
     {
-        public TestFileNotFoundException(string filename, bool created)
+        internal TestFileNotFoundException(string filename, bool created)
         {
             Filename = filename;
             TestFileCreated = created;
         }
 
-
-        public string Filename { get; private set; }
-
-        public bool TestFileCreated { get; private set; }
-        
         private TestFileNotFoundException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
@@ -26,6 +24,17 @@ namespace EasyTestFile
             TestFileCreated = info.GetBoolean("TestFileCreated");
         }
 
+        /// <summary>
+        /// Name of the missing filename.
+        /// </summary>
+        public string Filename { get; private set; }
+
+        /// <summary>
+        /// Boolean specifying if the TestFile was created. If so, the path of the filename is visible through the <seealso cref="Filename"/> property.
+        /// </summary>
+        public bool TestFileCreated { get; private set; }
+
+        /// <inheritdoc />
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             if (info == null)

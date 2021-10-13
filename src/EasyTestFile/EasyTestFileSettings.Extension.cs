@@ -12,6 +12,8 @@ namespace EasyTestFile
         /// <summary>
         /// Use a custom file extension for the test file.
         /// </summary>
+        /// <exception cref="ArgumentNullException">Thrown when argument is <c>null</c>.</exception>
+        /// <exception cref="ArgumentException">Thrown when argument is not a valid extension.</exception>
         public EasyTestFileSettings UseExtension(string extension)
         {
             Guard.AgainstBadExtension(extension, nameof(extension));
