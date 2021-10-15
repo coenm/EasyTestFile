@@ -13,6 +13,6 @@
 		<!--Unittesting-->
 		<PackageReference Update="Microsoft.NET.Test.Sdk" Version="16.11.0" IsImplicitlyDefined="true"/>
 		<PackageReference Update="FluentAssertions" Version="6.1.0" IsImplicitlyDefined="true"/>
-		<PackageReference Update="FluentAssertions.Analyzers" Version="0.11.4" IsImplicitlyDefined="true"/>
+		<PackageReference Update="FluentAssertions.Analyzers" Version="0.12.0" IsImplicitlyDefined="true"/>
 	</ItemGroup>
 </Project>
