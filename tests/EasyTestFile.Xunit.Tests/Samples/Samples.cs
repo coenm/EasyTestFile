@@ -20,7 +20,7 @@ namespace EasyTestFileXunit.Tests.Samples2
     using global::EasyTestFile.Json;
     using Xunit;
 
-    
+    [UsesEasyTestFile]
     public class UnitTestClass
     {
         // begin-snippet: LoadAsText
