@@ -16,6 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7F514257-78A1-47F0-B75C-B9832A5496FA}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		version.json = version.json
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Xunit", "src\EasyTestFile.Xunit\EasyTestFile.Xunit.csproj", "{9B9AE90F-848D-4F66-87FE-83F755BEDFB4}"
