@@ -16,5 +16,8 @@
   Folder1\Partial\MyPartialTest_Test1.testfile.txt,
   Folder1\Partial\MyPartialTest_Test2.testfile.txt,
   Folder1\Partial\Sub\MyPartialTest_Test2.testfile.txt,
-  Folder1\Partial\Sub\MyPartialTest_Test4.testfile.txt
+  Folder1\Partial\Sub\MyPartialTest_Test4.testfile.txt,
+  Samples\Samples_LoadAsStream.testfile.txt,
+  Samples\Samples_LoadAsTestFile.testfile.txt,
+  Samples\Samples_LoadAsText.testfile.txt
 ]
