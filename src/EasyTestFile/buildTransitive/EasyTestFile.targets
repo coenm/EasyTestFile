@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Choose>
+		<When Condition=" '$(EasyTestFileMode)'=='CopyAlways' OR  '$(EasyTestFileMode)'=='CopyPreseverNewest' OR '$(EasyTestFileMode)'=='None'">
+			<ItemGroup>
+				<None Include="EasyTestFiles\**\*.*" Condition="$(Language) == 'C#'" >
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyAlways'">Always</CopyToOutputDirectory>
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyPreseverNewest'">PreserveNewest</CopyToOutputDirectory>
+				</None>
+
+				<None Remove="EasyTestFiles\**\*.testfile.*" Condition="$(Language) == 'C#'" />
+
+				<None Update="**\*.testfile.*" Condition="$(Language) == 'C#'" >
+					<ParentFile>$([System.String]::Copy('%(FileName)').Split('_')[0])</ParentFile>
+					<ParentCsFile>%(ParentFile).cs</ParentCsFile>
+					<FileEx>$([System.String]::Copy('%(FullPath)').Replace('%(FileName)%(Extension)', '%(ParentCsFile)'))</FileEx>
+					<DependentUpon Condition="Exists('%(FileEx)') ">%(ParentCsFile)</DependentUpon>
+
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyAlways'">Always</CopyToOutputDirectory>
+					<CopyToOutputDirectory Condition="$(EasyTestFileMode) == 'CopyPreseverNewest'">PreserveNewest</CopyToOutputDirectory>
+				</None>
+			</ItemGroup>
+		</When>
+
+		<Otherwise>
+			<ItemGroup>
+				<EmbeddedResource Include="EasyTestFiles\**\*.*" Condition="$(Language) == 'C#'" >
+					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
+					<LogicalName>%(SanitezedFileName)</LogicalName>
+				</EmbeddedResource>
+
+				<EmbeddedResource Remove="EasyTestFiles\**\*.testfile.*" Condition="$(Language) == 'C#'" />
+
+				<EmbeddedResource Include="**\*.testfile.*" Condition="$(Language) == 'C#'" >
+					<ParentFile>$([System.String]::Copy('%(FileName)').Split('_')[0])</ParentFile>
+					<ParentCsFile>%(ParentFile).cs</ParentCsFile>
+					<FileEx>$([System.String]::Copy('%(FullPath)').Replace('%(FileName)%(Extension)', '%(ParentCsFile)'))</FileEx>
+					<DependentUpon Condition="Exists('%(FileEx)') ">%(ParentCsFile)</DependentUpon>
+
+					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
+					<LogicalName>%(SanitezedFileName)</LogicalName>
+				</EmbeddedResource>
+			</ItemGroup>
+		</Otherwise>
+	</Choose>
+</Project>

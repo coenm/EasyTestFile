@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net5;net6</TargetFrameworks>
+		<RootNamespace>EasyTestFile.Json</RootNamespace>
+		<PackageId>EasyTestFile.NewtonsoftJson</PackageId>
+		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;Json</PackageTags>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
+	</ItemGroup>
+</Project>

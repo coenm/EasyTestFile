@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+        <Deterministic>false</Deterministic>
+        <DeterministicSourcePaths>false</DeterministicSourcePaths>
+        <EasyTestFileAttributesFile>EasyTestFile.Attributes$(MSBuildProjectExtension.Replace('proj', ''))</EasyTestFileAttributesFile>
+		
+		<!-- Valid values are 'Embed', 'CopyAlways', 'CopyPreseverNewest', 'None' -->
+		<EasyTestFileMode>Embed</EasyTestFileMode>
+	</PropertyGroup>
+	
+	<Target Name="WriteEasyTestFileAttributes"
+	        Condition="$(Language) == 'VB' or $(Language) == 'C#' or $(Language) == 'F#'"
+	        BeforeTargets="BeforeCompile;CoreCompile"
+	        Inputs="$(MSBuildAllProjects)"
+	        Outputs="$(IntermediateOutputPath)$(EasyTestFileAttributesFile)">
+		<PropertyGroup>
+			<EasyTestFileAttributesFilePath>$(IntermediateOutputPath)$(EasyTestFileAttributesFile)</EasyTestFileAttributesFilePath>
+		</PropertyGroup>
+		<ItemGroup>
+			<Attributes Include="System.Reflection.AssemblyMetadata">
+				<_Parameter1>EasyTestFile.ProjectDirectory</_Parameter1>
+				<_Parameter2>$(ProjectDir)</_Parameter2>
+			</Attributes>
+			<Attributes Include="System.Reflection.AssemblyMetadata" Condition="$(SolutionDir) != '' And $(SolutionDir) != '*Undefined*'">
+				<_Parameter1>EasyTestFile.SolutionDirectory</_Parameter1>
+				<_Parameter2>$(SolutionDir)</_Parameter2>
+			</Attributes>
+			
+			<!-- Ensure not part of Compile, as a workaround for https://github.com/dotnet/sdk/issues/114 -->
+			<Compile Remove="$(EasyTestFileAttributesFilePath)" />
+		</ItemGroup>
+		
+		<WriteCodeFragment AssemblyAttributes="@(Attributes)" Language="$(Language)" OutputFile="$(EasyTestFileAttributesFilePath)">
+			<Output TaskParameter="OutputFile" ItemName="Compile" Condition="$(Language) != 'F#'" />
+			<Output TaskParameter="OutputFile" ItemName="CompileBefore" Condition="$(Language) == 'F#'" />
+			<Output TaskParameter="OutputFile" ItemName="FileWrites" />
+		</WriteCodeFragment>
+	</Target>
+</Project>

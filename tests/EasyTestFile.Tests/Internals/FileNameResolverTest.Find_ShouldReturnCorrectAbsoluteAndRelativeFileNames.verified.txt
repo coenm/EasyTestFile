@@ -1,0 +1,4 @@
+{
+  relativeFilename: Internals\FileNameResolverTest_Find_ShouldReturnCorrectAbsoluteAndRelativeFileNames.testfile.txt,
+  absoluteFilename: {ProjectDirectory}Internals\FileNameResolverTest_Find_ShouldReturnCorrectAbsoluteAndRelativeFileNames.testfile.txt
+}
