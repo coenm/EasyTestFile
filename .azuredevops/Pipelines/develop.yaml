@@ -101,19 +101,21 @@ stages:
           displayName: "DotNet Build"
           inputs:
             command: 'build'
-            projects: '**/*.csproj'
-        
+            projects: '**/*.sln'
+            configuration: 'release'
+
         - task: DotNetCoreCLI@2
           displayName: "DotNet Test"
           inputs:
             command: test
             projects: '**/*[Tt]ests/*.csproj'
+            configuration: 'release'
 
         - task: DotNetCoreCLI@2
           displayName: 'DotNet Pack'
           inputs:
             command: pack
-            configuration: '$(BuildConfiguration)'
+            configuration: 'release'
             nobuild: false
             includesymbols: true
 
