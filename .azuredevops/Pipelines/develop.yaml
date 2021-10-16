@@ -141,4 +141,15 @@ stages:
         - task: PublishBuildArtifacts@1
           displayName: 'Publish Artifact'
           inputs:
-            PathtoPublish: '$(build.artifactstagingdirectory)'            
+            PathtoPublish: '$(build.artifactstagingdirectory)'
+            
+        - task: NuGetAuthenticate@0
+          displayName: Nuget authenticate
+
+        - task: DotNetCoreCLI@2
+          displayName: DotNet Push
+          inputs:
+            command: 'push'
+            packagesToPush: '$(Pipeline.Workspace)/**/*.nupkg;$(Pipeline.Workspace)/**/*.snupkg;!$(Pipeline.Workspace)/**/*.symbols.nupkg'
+            nuGetFeedType: 'internal'
+            publishVstsFeed: '39ce9363-a308-4580-8610-ee11f4953539/01001223-8651-4b73-a7ca-ba27c3e10a3c'        
