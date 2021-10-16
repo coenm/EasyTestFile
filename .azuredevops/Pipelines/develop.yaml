@@ -43,6 +43,34 @@ stages:
         - script: dotnet --info
           displayName: Show dotnet SDK info
       
+        - task: PowerShell@2
+          displayName: "Use JDK11 by default"
+          inputs:
+            targetType: 'inline'
+            script: |
+              $jdkPath = $env:JAVA_HOME_11_X64
+              Write-Host "##vso[task.setvariable variable=JAVA_HOME]$jdkPath"
+
+        - task: NuGetToolInstaller@1
+          displayName: Install Nuget 5x
+          inputs:
+            versionSpec: '5.*'
+            checkLatest: true
+
+        - task: DotNetCoreCLI@2
+          displayName: "Install tool: dotnet-sonarscanner"
+          inputs:
+            command: "custom"
+            custom: "tool"
+            arguments: "update --global dotnet-sonarscanner"
+
+        - task: DotNetCoreCLI@2
+          displayName: "Install tool: dotnet-reportgenerator-globaltool"
+          inputs:
+            command: "custom"
+            custom: "tool"
+            arguments: "update --global dotnet-reportgenerator-globaltool"
+
         - pwsh: |
             dotnet tool install --tool-path . nbgv
             ./nbgv cloud -a
@@ -62,12 +90,11 @@ stages:
             errorActionPreference: 'silentlyContinue'
             ignoreLASTEXITCODE: true
 
-        - task: NuGetToolInstaller@1
-
-        - task: NuGetCommand@2
+        - task: DotNetCoreCLI@2
+          displayName: Restore
           inputs:
             command: 'restore'
-            restoreSolution: '**/*.sln'
+            projects: '**/*.csproj'
 
         - task: DotNetCoreCLI@2
           displayName: "Dotnet Build"
