@@ -54,12 +54,6 @@ stages:
             includePreviewVersions: false
 
         - task: UseDotNet@2
-          displayName: "Use dotnet sdk 5.0.x"
-          inputs:
-            version: 5.0.x
-            includePreviewVersions: false
-
-        - task: UseDotNet@2
           displayName: "Use dotnet sdk 6.0.x"
           inputs:
             version: 6.0.x
