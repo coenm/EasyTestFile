@@ -110,6 +110,7 @@ stages:
             command: test
             projects: '**/*[Tt]ests/*.csproj'
             configuration: 'release'
+            nobuild: true
 
         - task: DotNetCoreCLI@2
           displayName: 'DotNet Pack'
