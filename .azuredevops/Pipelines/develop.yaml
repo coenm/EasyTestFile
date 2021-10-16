@@ -33,11 +33,12 @@ stages:
             value: $[contains(variables['Build.SourceBranch'], 'refs/heads/feature/')]
           - name: COENM_IS_DEVELOP_BRANCH
             value: $[contains(variables['Build.SourceBranch'], 'refs/heads/develop')]
+
         steps:
         - task: UseDotNet@2
-          displayName: "Use dotnet sdk 5.0.x"
+          displayName: "Use dotnet sdk 6.0.x"
           inputs:
-            version: 5.0.x
+            version: 6.0.x
             includePreviewVersions: false
 
         - script: dotnet --info
@@ -91,19 +92,32 @@ stages:
             ignoreLASTEXITCODE: true
 
         - task: DotNetCoreCLI@2
-          displayName: Restore
+          displayName: DotNet Restore
           inputs:
             command: 'restore'
             projects: '**/*.csproj'
 
         - task: DotNetCoreCLI@2
-          displayName: "Dotnet Build"
+          displayName: "DotNet Build"
           inputs:
             command: 'build'
             projects: '**/*.csproj'
         
         - task: DotNetCoreCLI@2
-          displayName: "Dotnet Test"
+          displayName: "DotNet Test"
           inputs:
             command: test
             projects: '**/*[Tt]ests/*.csproj'
+
+        - task: DotNetCoreCLI@2
+          displayName: 'DotNet Pack'
+          inputs:
+            command: pack
+            configuration: '$(BuildConfiguration)'
+            nobuild: false
+            includesymbols: true
+
+        - task: PublishBuildArtifacts@1
+          displayName: 'Publish Artifact'
+          inputs:
+            PathtoPublish: '$(build.artifactstagingdirectory)'            
