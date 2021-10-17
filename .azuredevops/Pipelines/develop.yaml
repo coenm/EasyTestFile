@@ -5,9 +5,9 @@
 
 trigger:
   - main
-  - feature/*
-  - master
-  - main
+  # - feature/*
+  - release/*
+  
 
 pr: none
 
