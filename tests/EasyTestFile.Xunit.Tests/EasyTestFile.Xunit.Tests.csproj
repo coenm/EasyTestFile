@@ -10,7 +10,7 @@
 		<ProjectReference Include="..\..\src\EasyTestFile\EasyTestFile.csproj" />
 		<ProjectReference Include="..\EasyTestFile.Xunit.Resources\EasyTestFile.Xunit.Resources.csproj" />
 		<PackageReference Include="Verify" Version="13.3.0" />
-		<PackageReference Include="Verify.Xunit" Version="13.2.2" />
+		<PackageReference Include="Verify.Xunit" Version="13.3.0" />
 		<PackageReference Include="xunit" />
 		<PackageReference Include="xunit.analyzers" />
 		<PackageReference Include="xunit.categories" />
