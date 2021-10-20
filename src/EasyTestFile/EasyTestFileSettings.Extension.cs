@@ -1,49 +1,48 @@
-namespace EasyTestFile
+namespace EasyTestFile;
+
+using System;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
+
+public partial class EasyTestFileSettings
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Reflection;
+    private string? _extension;
 
-    public partial class EasyTestFileSettings
+    /// <summary>
+    /// Use a custom file extension for the test file.
+    /// </summary>
+    /// <exception cref="ArgumentNullException">Thrown when argument is <c>null</c>.</exception>
+    /// <exception cref="ArgumentException">Thrown when argument is not a valid extension.</exception>
+    public EasyTestFileSettings UseExtension(string extension)
     {
-        private string? _extension;
+        Guard.AgainstBadExtension(extension, nameof(extension));
+        _extension = extension;
+        return this;
+    }
 
-        /// <summary>
-        /// Use a custom file extension for the test file.
-        /// </summary>
-        /// <exception cref="ArgumentNullException">Thrown when argument is <c>null</c>.</exception>
-        /// <exception cref="ArgumentException">Thrown when argument is not a valid extension.</exception>
-        public EasyTestFileSettings UseExtension(string extension)
+    /// <summary>
+    /// Retrieves the value passed into <see cref="UseExtension"/>, if it exists.
+    /// </summary>
+    public bool TryGetExtension([NotNullWhen(true)] out string? extension)
+    {
+        if (_extension is null)
         {
-            Guard.AgainstBadExtension(extension, nameof(extension));
-            _extension = extension;
-            return this;
+            extension = null;
+            return false;
         }
 
-        /// <summary>
-        /// Retrieves the value passed into <see cref="UseExtension"/>, if it exists.
-        /// </summary>
-        public bool TryGetExtension([NotNullWhen(true)] out string? extension)
-        {
-            if (_extension is null)
-            {
-                extension = null;
-                return false;
-            }
+        extension = _extension;
+        return true;
+    }
 
-            extension = _extension;
-            return true;
-        }
+    internal string ExtensionOrDefault(string defaultValue)
+    {
+        return _extension ?? defaultValue;
+    }
 
-        internal string ExtensionOrDefault(string defaultValue)
-        {
-            return _extension ?? defaultValue;
-        }
-
-        internal string ExtensionOrTxt()
-        {
-            return ExtensionOrDefault("txt");
-        }
+    internal string ExtensionOrTxt()
+    {
+        return ExtensionOrDefault("txt");
     }
 }

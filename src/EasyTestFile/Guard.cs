@@ -1,124 +1,123 @@
-namespace EasyTestFile
+namespace EasyTestFile;
+
+using System;
+using System.IO;
+using System.Linq;
+
+internal static class Guard
 {
-    using System;
-    using System.IO;
-    using System.Linq;
+    private static readonly char[] _invalidFileChars = Path.GetInvalidFileNameChars();
+    private static readonly char[] _invalidPathChars = Path.GetInvalidPathChars()
+                                                           .Concat(_invalidFileChars.Except(new[] { '/', '\\', ':' }))
+                                                           .Distinct()
+                                                           .ToArray();
 
-    internal static class Guard
+    public static void FileExists(string path, string argumentName)
     {
-        private static readonly char[] _invalidFileChars = Path.GetInvalidFileNameChars();
-        private static readonly char[] _invalidPathChars = Path.GetInvalidPathChars()
-                                                               .Concat(_invalidFileChars.Except(new[] { '/', '\\', ':' }))
-                                                               .Distinct()
-                                                               .ToArray();
-
-        public static void FileExists(string path, string argumentName)
+        AgainstNullOrEmpty(path, argumentName);
+        if (!File.Exists(path))
         {
-            AgainstNullOrEmpty(path, argumentName);
-            if (!File.Exists(path))
-            {
-                throw new ArgumentException($"File not found. Path: {path}", argumentName);
-            }
+            throw new ArgumentException($"File not found. Path: {path}", argumentName);
         }
+    }
         
-        public static void BadFileNameNullable(string? name, string argumentName)
+    public static void BadFileNameNullable(string? name, string argumentName)
+    {
+        if (name is null)
         {
-            if (name is null)
-            {
-                return;
-            }
-
-            BadFileName(name, argumentName);
+            return;
         }
 
-        public static void BadFileName(string name, string argumentName)
-        {
-            AgainstNullOrEmpty(name, argumentName);
-            foreach (var invalidChar in _invalidFileChars)
-            {
-                if (name.IndexOf(invalidChar) == -1)
-                {
-                    continue;
-                }
+        BadFileName(name, argumentName);
+    }
 
-                throw new ArgumentException($"Invalid character for file name. Value: {name}. Char:{invalidChar}", argumentName);
+    public static void BadFileName(string name, string argumentName)
+    {
+        AgainstNullOrEmpty(name, argumentName);
+        foreach (var invalidChar in _invalidFileChars)
+        {
+            if (name.IndexOf(invalidChar) == -1)
+            {
+                continue;
             }
+
+            throw new ArgumentException($"Invalid character for file name. Value: {name}. Char:{invalidChar}", argumentName);
+        }
+    }
+
+    public static void BadDirectoryName(string? name, string argumentName)
+    {
+        if (name is null)
+        {
+            return;
         }
 
-        public static void BadDirectoryName(string? name, string argumentName)
+        AgainstEmpty(name, argumentName);
+        foreach (var invalidChar in _invalidPathChars)
         {
-            if (name is null)
+            if (name.IndexOf(invalidChar) == -1)
             {
-                return;
+                continue;
             }
 
-            AgainstEmpty(name, argumentName);
-            foreach (var invalidChar in _invalidPathChars)
-            {
-                if (name.IndexOf(invalidChar) == -1)
-                {
-                    continue;
-                }
+            throw new ArgumentException($"Invalid character for directory. Value: {name}. Char:{invalidChar}", argumentName);
+        }
+    }
 
-                throw new ArgumentException($"Invalid character for directory. Value: {name}. Char:{invalidChar}", argumentName);
-            }
+    public static void AgainstNullOrEmpty(string value, string argumentName)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            throw new ArgumentNullException(argumentName);
+        }
+    }
+
+    public static void AgainstEmpty(string? value, string argumentName)
+    {
+        if (value is null)
+        {
+            return;
         }
 
-        public static void AgainstNullOrEmpty(string value, string argumentName)
+        if (string.IsNullOrWhiteSpace(value))
         {
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentNullException(argumentName);
-            }
+            throw new ArgumentNullException(argumentName);
+        }
+    }
+
+    public static void AgainstNullOrEmpty(object?[] value, string argumentName)
+    {
+        if (value is null)
+        {
+            throw new ArgumentNullException(argumentName);
         }
 
-        public static void AgainstEmpty(string? value, string argumentName)
+        if (value.Length == 0)
         {
-            if (value is null)
-            {
-                return;
-            }
+            throw new ArgumentNullException(argumentName, "Argument cannot be empty.");
+        }
+    }
 
-            if (string.IsNullOrWhiteSpace(value))
-            {
-                throw new ArgumentNullException(argumentName);
-            }
+    public static void AgainstNullOrEmpty<T>(T[] value, string argumentName)
+    {
+        if (value is null)
+        {
+            throw new ArgumentNullException(argumentName);
         }
 
-        public static void AgainstNullOrEmpty(object?[] value, string argumentName)
+        if (value.Length == 0)
         {
-            if (value is null)
-            {
-                throw new ArgumentNullException(argumentName);
-            }
-
-            if (value.Length == 0)
-            {
-                throw new ArgumentNullException(argumentName, "Argument cannot be empty.");
-            }
+            throw new ArgumentNullException(argumentName, "Argument cannot be empty.");
         }
+    }
 
-        public static void AgainstNullOrEmpty<T>(T[] value, string argumentName)
+    public static void AgainstBadExtension(string value, string argumentName)
+    {
+        AgainstNullOrEmpty(value, argumentName);
+
+        if (value.StartsWith("."))
         {
-            if (value is null)
-            {
-                throw new ArgumentNullException(argumentName);
-            }
-
-            if (value.Length == 0)
-            {
-                throw new ArgumentNullException(argumentName, "Argument cannot be empty.");
-            }
-        }
-
-        public static void AgainstBadExtension(string value, string argumentName)
-        {
-            AgainstNullOrEmpty(value, argumentName);
-
-            if (value.StartsWith("."))
-            {
-                throw new ArgumentException("Must not start with a period ('.').", argumentName);
-            }
+            throw new ArgumentException("Must not start with a period ('.').", argumentName);
         }
     }
 }

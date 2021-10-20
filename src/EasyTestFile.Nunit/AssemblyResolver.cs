@@ -1,14 +1,13 @@
-namespace EasyTestFileNunit
-{
-    using System;
-    using System.Reflection;
+namespace EasyTestFileNunit;
 
-    internal static class AssemblyResolver
+using System;
+using System.Reflection;
+
+internal static class AssemblyResolver
+{
+    public static Assembly Get(MethodInfo methodInfo)
     {
-        public static Assembly Get(MethodInfo methodInfo)
-        {
-            Type type = methodInfo.ReflectedType!;
-            return type.Assembly;
-        }
+        Type type = methodInfo.ReflectedType!;
+        return type.Assembly;
     }
 }

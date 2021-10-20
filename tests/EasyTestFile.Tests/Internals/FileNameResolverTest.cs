@@ -21,7 +21,7 @@ public class FileNameResolverTest
         TestMethodInfo testMethodInfo = CreateTestMethodInfo(MethodBase.GetCurrentMethod()!);
 
         // act
-        var (relativeFilename, absoluteFilename) = Sut.Find(settings, testAssemblyInfo, testMethodInfo);
+        (string relativeFilename, string absoluteFilename) = Sut.Find(settings, testAssemblyInfo, testMethodInfo);
 
         // assert
         await VerifyXunit.Verifier.Verify(new
