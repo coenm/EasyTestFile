@@ -21,8 +21,6 @@ jobs:
 
     - uses: dotnet/nbgv@master
       id: nbgv
-    
-    - run: echo 'SemVer2: ${{ steps.nbgv.outputs.SemVer2 }}'
 
     - name: Restore dependencies
       run: dotnet restore
