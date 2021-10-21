@@ -71,6 +71,9 @@ public partial class EasyTestFileSettings
         
     internal bool UseDotTestFileSuffix = true;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public void WithoutDotTestFileSuffix()
     {
         UseDotTestFileSuffix = false;

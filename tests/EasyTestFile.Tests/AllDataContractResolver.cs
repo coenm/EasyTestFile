@@ -9,7 +9,7 @@ using Newtonsoft.Json.Serialization;
 
 internal class AllDataContractResolver : Newtonsoft.Json.Serialization.DefaultContractResolver
 {
-    // copied from https://stackoverflow.com/questions/24106986/json-net-force-serialization-of-all-private-fields-and-all-fields-in-sub-classe
+    // Copied from https://stackoverflow.com/questions/24106986/json-net-force-serialization-of-all-private-fields-and-all-fields-in-sub-classe
     protected override IList<JsonProperty> CreateProperties(Type type, MemberSerialization memberSerialization)
     {
         var props = type.GetProperties(BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
