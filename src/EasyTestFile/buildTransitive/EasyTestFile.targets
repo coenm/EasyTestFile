@@ -10,7 +10,7 @@
 
 				<None Remove="EasyTestFiles\**\*.testfile.*" Condition="$(Language) == 'C#'" />
 
-				<None Update="**\*.testfile.*" Condition="$(Language) == 'C#'" >
+				<None Include="**\*.testfile.*" Condition="$(Language) == 'C#'" >
 					<ParentFile>$([System.String]::Copy('%(FileName)').Split('_')[0])</ParentFile>
 					<ParentCsFile>%(ParentFile).cs</ParentCsFile>
 					<FileEx>$([System.String]::Copy('%(FullPath)').Replace('%(FileName)%(Extension)', '%(ParentCsFile)'))</FileEx>
