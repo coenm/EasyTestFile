@@ -12,6 +12,14 @@ using System.Security.Permissions;
 public class TestFileNotFoundException : Exception
 {
     internal TestFileNotFoundException(string filename, bool created)
+        : base(CreateExceptionMessage(filename, created))
+    {
+        Filename = filename;
+        TestFileCreated = created;
+    }
+
+    internal TestFileNotFoundException(string filename, bool created, Exception innerException)
+        : base(CreateExceptionMessage(filename, created), innerException)
     {
         Filename = filename;
         TestFileCreated = created;
@@ -46,5 +54,12 @@ public class TestFileNotFoundException : Exception
         info.AddValue("TestFileCreated", TestFileCreated);
 
         base.GetObjectData(info, context);
+    }
+
+    private static string CreateExceptionMessage(string filename, bool created)
+    {
+        return created
+            ? $"TestFile '{filename}' didn't exist but was created."
+            : $"TestFile '{filename}' didn't exist. Please create the file yourself.";
     }
 }

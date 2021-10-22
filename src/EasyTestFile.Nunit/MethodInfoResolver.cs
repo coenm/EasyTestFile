@@ -26,11 +26,9 @@ internal static class MethodInfoResolver
         {
             methodInfo = null;
             return false;
-            // throw new("Expected Test.TypeInfo and Test.Method to not be null. Raise a Pull Request with a test that replicates this problem.");
         }
 
         // Type type = test.TypeInfo!.Type;
-
         methodInfo = test.Method!.MethodInfo;
         return true;
     }

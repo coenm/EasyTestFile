@@ -11,14 +11,14 @@ using System.Reflection;
 public partial class EasyTestFileSettings
 {
     /// <summary>
-    /// Empty Constructor
+    /// Creates default settings
     /// </summary>
     public EasyTestFileSettings()
     {
     }
 
     /// <summary>
-    /// Creates EasyTestFileSettings based on <paramref name="settings"/>.
+    /// Creates settings based on <paramref name="settings"/>.
     /// </summary>
     public EasyTestFileSettings(EasyTestFileSettings? settings)
     {
@@ -72,10 +72,11 @@ public partial class EasyTestFileSettings
     internal bool UseDotTestFileSuffix = true;
 
     /// <summary>
-    /// 
+    /// Filename without the `.testfile` suffix.
     /// </summary>
     public void WithoutDotTestFileSuffix()
     {
+        // todo warning..
         UseDotTestFileSuffix = false;
     }
         

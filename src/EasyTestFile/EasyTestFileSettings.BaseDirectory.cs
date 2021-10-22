@@ -3,6 +3,7 @@ namespace EasyTestFile;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using EasyTestFile.Internals;
 
 public partial class EasyTestFileSettings
 {

@@ -1,15 +1,15 @@
 namespace EasyTestFile.Internals;
 
-using System.IO;
+using System;
 
 internal static class FileNameResolver
 {
     internal static (string RelativeFilename, string AbsoluteFilename) Find(EasyTestFileSettings settings, TestAssemblyInfo testAssemblyInfo, TestMethodInfo testMethodInfo)
     {
-        var physicalFilename = testMethodInfo.SourceFile;
+        var physicalFilename = testMethodInfo.SanitizedFullSourceFile;
         if (physicalFilename.EndsWith(".cs"))
         {
-            physicalFilename = physicalFilename[..(testMethodInfo.SourceFile.Length - 3)];
+            physicalFilename = physicalFilename[..(testMethodInfo.SanitizedFullSourceFile.Length - 3)];
         }
 
         var suffix = string.Empty;
@@ -30,24 +30,28 @@ internal static class FileNameResolver
         {
             if (string.IsNullOrWhiteSpace(settings.BaseDirectory))
             {
-                var testMethodDirectory = testMethodInfo.SourceFileInfo!.Directory.FullName;
-                physicalFilename = Path.Combine(testMethodDirectory, settings.FileName!);
+                var testMethodDirectory = testMethodInfo.SanitizedDirectory;
+                physicalFilename = DirectorySanitizer.PathCombine(testMethodDirectory, settings.FileName!);
             }
             else
             {
-                physicalFilename = Path.Combine(testAssemblyInfo.ProjectDirectory, settings.FileName!);
+                physicalFilename = DirectorySanitizer.PathCombine(testAssemblyInfo.ProjectDirectory, settings.FileName!);
             }
         }
+        else
+        {
+            physicalFilename = DirectorySanitizer.Sanitize(physicalFilename);
+        }
 
-        var relativeFilename = StringHelpers.StringReplaceIgnoreCase(physicalFilename, testAssemblyInfo.ProjectDirectory, string.Empty);
+        var relativeFilename = StringHelpers.StringReplaceIgnoreCase(physicalFilename, DirectorySanitizer.Sanitize(testAssemblyInfo.ProjectDirectory), string.Empty);
 
         if (!string.IsNullOrWhiteSpace(settings.BaseDirectory))
         {
-            relativeFilename = Path.Combine(settings.BaseDirectory!, relativeFilename);
+            relativeFilename = DirectorySanitizer.PathCombine(settings.BaseDirectory!, relativeFilename);
             physicalFilename = StringHelpers.StringReplaceIgnoreCase(
                 physicalFilename,
-                testAssemblyInfo.ProjectDirectory,
-                Path.Combine(testAssemblyInfo.ProjectDirectory, settings.BaseDirectory!) + Path.DirectorySeparatorChar);
+                DirectorySanitizer.Sanitize(testAssemblyInfo.ProjectDirectory),
+                DirectorySanitizer.PathCombine(testAssemblyInfo.ProjectDirectory, settings.BaseDirectory!) + DirectorySanitizer.DIRECTORY_SEPARATOR_CHAR);
         }
 
         return (relativeFilename, physicalFilename);

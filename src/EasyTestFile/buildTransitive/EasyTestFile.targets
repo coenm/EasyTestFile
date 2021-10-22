@@ -25,7 +25,8 @@
 		<Otherwise>
 			<ItemGroup>
 				<EmbeddedResource Include="EasyTestFiles\**\*.*" Condition="$(Language) == 'C#'" >
-					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
+					<!-- <SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName> -->
+					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', '{EasyTestFile}/').Replace('\', '/'))</SanitezedFileName>
 					<LogicalName>%(SanitezedFileName)</LogicalName>
 				</EmbeddedResource>
 
@@ -37,7 +38,7 @@
 					<FileEx>$([System.String]::Copy('%(FullPath)').Replace('%(FileName)%(Extension)', '%(ParentCsFile)'))</FileEx>
 					<DependentUpon Condition="Exists('%(FileEx)') ">%(ParentCsFile)</DependentUpon>
 
-					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', ''))</SanitezedFileName>
+					<SanitezedFileName>$([System.String]::Copy('%(FullPath)').Replace('$(ProjectDir)', '{EasyTestFile}/').Replace('\', '/'))</SanitezedFileName>
 					<LogicalName>%(SanitezedFileName)</LogicalName>
 				</EmbeddedResource>
 			</ItemGroup>

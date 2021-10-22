@@ -38,68 +38,39 @@ public sealed class TestFile
     /// <exception cref="TestFileNotFoundException">Thrown when stream cannot be found.</exception>
     public Stream AsStream()
     {
-        //todo make case insensitive
-        var fileName = _relativeFilename;
-        fileName = fileName.Replace('\\', '/');
+        Stream? stream =  StreamResolver.Resolve(_relativeFilename, _physicalFilename, _assembly);
 
-        Stream? stream = _assembly.GetManifestResourceStream(fileName);
-
-        if (stream == null)
+        if (stream != null)
         {
-            fileName = fileName.TrimStart(new[] { '/', '\\' });
-            stream = _assembly.GetManifestResourceStream(fileName);
+            return stream;
         }
-
-        if (stream == null)
-        {
-            fileName = _relativeFilename;
-            fileName = fileName.Replace('/', '\\');
-            stream = _assembly.GetManifestResourceStream(fileName);
-        }
-
-        if (stream == null)
-        {
-            fileName = fileName.TrimStart(new[] { '/', '\\' });
-            stream = _assembly.GetManifestResourceStream(fileName);
-        }
-
-        if (stream == null)
-        {
-            if (!string.IsNullOrWhiteSpace(_physicalFilename) && File.Exists(_physicalFilename))
-            {
-                stream = File.OpenRead(_physicalFilename);
-            }
-        }
-
+        
+        var operatingSystemFullFilename = DirectorySanitizer.ToOperatingSystemPath(_physicalFilename);
         var created = false;
-        if (stream == null)
+
+        if (!_settings.AutoCreateMissingTestFileDisabled)
         {
-            // create file
-            if (!string.IsNullOrWhiteSpace(_physicalFilename))
+            try
             {
-                if (!_settings.AutoCreateMissingTestFileDisabled)
+                var dir = new FileInfo(operatingSystemFullFilename).DirectoryName;
+
+                if (dir != null)
                 {
-                    var dir = new FileInfo(_physicalFilename).DirectoryName;
-
-                    if (dir != null)
+                    if (!Directory.Exists(dir))
                     {
-                        if (!Directory.Exists(dir))
-                        {
-                            _ = Directory.CreateDirectory(dir);
-                        }
-
-                        _ = File.Create(_physicalFilename);
-                        created = true;
+                        Directory.CreateDirectory(dir);
                     }
+
+                    File.Create(operatingSystemFullFilename);
+                    created = true;
                 }
             }
+            catch (Exception exception)
+            {
+                throw new TestFileNotFoundException(operatingSystemFullFilename, created, exception);
+            }
         }
 
-        if (stream == null)
-        {
-            throw new TestFileNotFoundException(_physicalFilename, created);
-        }
-
-        return stream;
+        throw new TestFileNotFoundException(operatingSystemFullFilename, created);
     }
 }

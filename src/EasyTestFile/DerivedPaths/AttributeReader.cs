@@ -19,7 +19,7 @@ internal static class AttributeReader
     /// <exception cref="AssemblyMetadataAttributeNotFoundException">Thrown when the `CallingAssembly` doesn't contain an <seealso cref="AssemblyMetadataAttribute"/> with the ProjectDirectory.</exception>
     public static string GetProjectDirectory(Assembly assembly)
     {
-        return GetValue(assembly, PROJECT_DIRECTORY);
+        return GetValue(assembly, PROJECT_DIRECTORY).Replace('/', '\\');
     }
 
     public static bool TryGetProjectDirectory([NotNullWhen(true)] out string? projectDirectory)
@@ -59,6 +59,7 @@ internal static class AttributeReader
         value = assembly.GetCustomAttributes<AssemblyMetadataAttribute>()
                         .SingleOrDefault(x => x.Key == key)
                         ?.Value;
+        value = value?.Replace('/', '\\');
         return value != null;
     }
 

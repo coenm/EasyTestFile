@@ -1,0 +1,5 @@
+{
+  SanitizedFullSourceFile: {ProjectDirectory}TestMethodInfoTest.cs,
+  SanitizedDirectory: {ProjectDirectory},
+  Method: Find_ShouldReturnCorrectAbsoluteAndRelativeFileNames
+}

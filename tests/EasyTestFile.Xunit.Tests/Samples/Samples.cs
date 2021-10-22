@@ -1,3 +1,5 @@
+// ReSharper disable SuggestVarOrType_BuiltInTypes, justification: sample code.
+
 namespace EasyTestFileXunit.Tests.Samples1
 {
     using System.Threading.Tasks;
@@ -11,6 +13,7 @@ namespace EasyTestFileXunit.Tests.Samples1
     }
     // end-snippet
 }
+
 
 namespace EasyTestFileXunit.Tests.Samples2
 {

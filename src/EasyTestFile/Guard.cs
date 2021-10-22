@@ -3,12 +3,13 @@ namespace EasyTestFile;
 using System;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 
 internal static class Guard
 {
     private static readonly char[] _invalidFileChars = Path.GetInvalidFileNameChars();
     private static readonly char[] _invalidPathChars = Path.GetInvalidPathChars()
-                                                           .Concat(_invalidFileChars.Except(new[] { '/', '\\', ':' }))
+                                                           .Concat(_invalidFileChars.Except(new[] { '/', '\\', ':', }))
                                                            .Distinct()
                                                            .ToArray();
 
@@ -119,5 +120,51 @@ internal static class Guard
         {
             throw new ArgumentException("Must not start with a period ('.').", argumentName);
         }
+    }
+
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="value"/> is <c>null</c>.</exception>
+    /// <exception cref="ArgumentException">Thrown when <paramref name="value"/> contains an invalid character.</exception>
+    public static void AgainstBadMethodName(string value, string argumentName)
+    {
+        AgainstNullOrEmpty(value, argumentName);
+
+        var invalidChar = ' ';
+        if (value[0] == invalidChar)
+        {
+            throw new ArgumentException($"Value: {value} starts with an invalid character (space)", argumentName);
+        }
+
+        if (value[IndexX.FromEnd(1)] == invalidChar)
+        {
+            throw new ArgumentException($"Value: {value} ends with an invalid character (space)", argumentName);
+        }
+
+        invalidChar = '\\';
+        if (value.Contains(invalidChar))
+        {
+            throw new ArgumentException($"Value: {value} contains an invalid character ('{invalidChar}')", argumentName);
+        }
+
+        invalidChar = '/';
+        if (value.Contains(invalidChar))
+        {
+            throw new ArgumentException($"Value: {value} contains an invalid character ('{invalidChar}')", argumentName);
+        }
+    }
+}
+
+internal static class IndexX
+{
+    /// <summary>Create an Index from the end at the position indicated by the value.</summary>
+    /// <param name="value">The index value from the end.</param>
+    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    public static Index FromEnd(int value)
+    {
+        if (value < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(value), "value must be non-negative");
+        }
+
+        return new Index(value, true);
     }
 }

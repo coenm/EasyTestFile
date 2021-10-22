@@ -1,4 +1,4 @@
-namespace EasyTestFile;
+namespace EasyTestFile.Internals;
 
 internal static class EasyTestFileConstants
 {
