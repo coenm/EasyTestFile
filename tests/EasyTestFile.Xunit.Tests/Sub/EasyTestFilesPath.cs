@@ -8,17 +8,17 @@ using Xunit;
 [UsesEasyTestFile]
 public class EasyTestFilesPath
 {
-    [Fact]
-    public async Task Test1()
-    {
-        var settings = new EasyTestFileSettings();
-        settings.UseEasyTestFileBaseDirectory();
-        settings.UseFileName("test.txt");
+    // [Fact]
+    // public async Task Test1()
+    // {
+    //     var settings = new EasyTestFileSettings();
+    //     settings.UseEasyTestFileBaseDirectory();
+    //     settings.UseFileName("test.txt");
 
-        var txt = await EasyTestFile.LoadAsText(settings);
+    //     var txt = await EasyTestFile.LoadAsText(settings);
 
-        _ = txt.Should().Be("settings.UseFileName(\"test.txt\");");
-    }
+    //     _ = txt.Should().Be("settings.UseFileName(\"test.txt\");");
+    // }
 
 /*
     [Fact]
