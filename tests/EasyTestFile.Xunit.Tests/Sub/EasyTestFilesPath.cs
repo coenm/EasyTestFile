@@ -20,6 +20,7 @@ public class EasyTestFilesPath
         _ = txt.Should().Be("settings.UseFileName(\"test.txt\");");
     }
 
+/*
     [Fact]
     public async Task Test2()
     {
@@ -30,7 +31,7 @@ public class EasyTestFilesPath
 
         _ = txt.Should().Be("settings.UseFileName(\"test.txt\");");
     }
-        
+ */       
     [Fact]
     public async Task Test3()
     {
