@@ -41,7 +41,7 @@ public class VerifyEmbedded
     {
         Assembly assembly = GetAssemblyOfType(typeof(R));
         IOrderedEnumerable<AssemblyMetadataAttribute> values = assembly.GetCustomAttributes<AssemblyMetadataAttribute>().OrderBy(item => item.Key);
-        await VerifyXunit.Verifier.Verify(values);
+        await VerifyXunit.Verifier.Verify(values).UniqueForOSPlatform();
     }
 
     private static Assembly GetAssemblyOfType(Type t)
