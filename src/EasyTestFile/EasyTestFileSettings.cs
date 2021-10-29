@@ -29,8 +29,6 @@ public partial class EasyTestFileSettings
 
         _extension = settings._extension;
         AutoCreateMissingTestFileDisabled = settings.AutoCreateMissingTestFileDisabled;
-
-        FileName = settings.FileName;
         TestFileNamingSuffix = settings.TestFileNamingSuffix;
         Assembly = settings.Assembly;
     }

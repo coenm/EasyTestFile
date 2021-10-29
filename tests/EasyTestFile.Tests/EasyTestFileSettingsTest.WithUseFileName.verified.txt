@@ -1,7 +1,0 @@
-﻿{
-  Assembly: null,
-  AutoCreateMissingTestFileDisabled: false,
-  FileName: filename.txt,
-  TestFileNamingSuffix: null,
-  _extension: null
-}

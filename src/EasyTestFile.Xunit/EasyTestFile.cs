@@ -59,40 +59,4 @@ namespace EasyTestFileXunit
             return Task.FromResult(testFile.AsStream());
         }
     }
-
-    public static partial class EasyTestFile
-    {
-        public static TestFile Load(
-            string filename,
-            EasyTestFileSettings? settings = null,
-            [CallerFilePath] string sourceFile = "",
-            [CallerMemberName] string method = "")
-        {
-            var s = new EasyTestFileSettings(settings);
-            s.UseFileName(filename);
-            return Load(s, sourceFile, method);
-        }
-
-        public static Task<string> LoadAsText(
-            string filename,
-            EasyTestFileSettings? settings = null,
-            [CallerFilePathAttribute] string sourceFile = "",
-            [CallerMemberName] string method = "")
-        {
-            var s = new EasyTestFileSettings(settings);
-            s.UseFileName(filename);
-            return LoadAsText(s, sourceFile, method);
-        }
-
-        public static Task<Stream> LoadAsStream(
-            string filename,
-            EasyTestFileSettings? settings = null,
-            [CallerFilePathAttribute] string sourceFile = "",
-            [CallerMemberName] string method = "")
-        {
-            var s = new EasyTestFileSettings(settings);
-            s.UseFileName(filename);
-            return LoadAsStream(s, sourceFile, method);
-        }
-    }
 }
