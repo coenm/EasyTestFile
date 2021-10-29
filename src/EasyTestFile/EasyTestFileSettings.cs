@@ -48,18 +48,20 @@ public partial class EasyTestFileSettings
     internal string? TestFileNamingSuffix;
 
     /// <summary>
-        
+    /// Use <paramref name="input"/>  as suffix for naming the testfile.
+    /// In this case, the testfile will be named `{Directory}/{TestClassName}.{TestMethodName}_{Suffix}.testfile.{extension}`.
     /// </summary>
-    /// <param name="input"></param>
+    /// <param name="input">The suffix.</param>
     public void SetTestFileNameSuffix(int input)
     {
         SetTestFileNameSuffix($"{input}");
     }
 
     /// <summary>
-    /// 
+    /// Use <paramref name="input"/> as suffix for naming the testfile.
+    /// In this case, the testfile will be named `{Directory}/{TestClassName}.{TestMethodName}_{Suffix}.testfile.{extension}`.
     /// </summary>
-    /// <param name="input"></param>
+    /// <param name="input">The suffix.</param>
     /// <exception cref="ArgumentNullException">Throw when argument is <c>null</c> or empty.</exception>
     public void SetTestFileNameSuffix(string input)
     {
