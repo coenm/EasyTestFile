@@ -9,7 +9,7 @@ using Xunit;
 [UsesVerify]
 public class EasyTestFileSettingsTest
 {
-    private static readonly JsonSerializerSettings _jsonSettings = new JsonSerializerSettings() { ContractResolver = new AllDataContractResolver(), };
+    private static readonly JsonSerializerSettings _jsonSettings = new () { ContractResolver = new AllDataContractResolver(), };
 
     [Fact]
     public async Task WhenCreatedFromSettings()

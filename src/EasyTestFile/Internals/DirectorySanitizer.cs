@@ -8,7 +8,7 @@ internal static class DirectorySanitizer
 {
     public const char DIRECTORY_SEPARATOR_CHAR = '/'; // Path.DirectorySeparatorChar
 
-    private static readonly Lazy<bool> _executingOnWindows = new Lazy<bool>(() => RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
+    private static readonly Lazy<bool> _executingOnWindows = new (() => RuntimeInformation.IsOSPlatform(OSPlatform.Windows));
 
     public static string Sanitize(in string input)
     {

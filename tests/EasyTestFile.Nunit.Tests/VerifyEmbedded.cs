@@ -24,7 +24,7 @@ public class VerifyEmbedded
         await VerifyNUnit.Verifier.Verify(values);
     }
 
-    private Assembly GetAssemblyOfType(Type t)
+    private static Assembly GetAssemblyOfType(Type t)
     {
         var currentAssembly = Assembly.GetAssembly(t);
         Assert.NotNull(currentAssembly);
