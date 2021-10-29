@@ -20,7 +20,7 @@ public class PropertyTest
     public async Task UseProperty_ShouldLoadFileWithPropertyName()
     {
         var text = await PropertyFile1.AsText();
-        _ = text.Should().Be("content of PropertyFile1 testfiles");
+        text.Should().Be("content of PropertyFile1 testfiles");
     }
 
     [Test]
@@ -28,7 +28,7 @@ public class PropertyTest
     {
         var text = await PropertyFile2.AsText();
         text = text.Replace("\r\n", "\n");
-        _ = text.Should().Be("{\n    \"message\": \"this is json\"\n}");
+        text.Should().Be("{\n    \"message\": \"this is json\"\n}");
     }
 
     [Test]
@@ -39,6 +39,6 @@ public class PropertyTest
         s1.Position = s1.Length - 1;
         s1.Dispose();
 
-        _ = s2.Position.Should().Be(0);
+        s2.Position.Should().Be(0);
     }
 }

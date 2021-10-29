@@ -19,6 +19,6 @@ public class CustomProjectPath
         settings.SetTestFileNameSuffix(input);
 
         var content = await EasyTestFile.LoadAsText(settings);
-        _ = content.Should().Be(expectedContent);
+        content.Should().Be(expectedContent);
     }
 }

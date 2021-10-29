@@ -6,6 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile", "src\EasyTestFile\EasyTestFile.csproj", "{97537E1D-C80B-4EC2-ABED-2C90507498B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FA1F5DF0-A7AC-4E68-B875-E7F1D71329B6}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+		src\Directory.Build.targets = src\Directory.Build.targets
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{3A849D71-FEE8-4494-A8A6-C303AAB18A42}"
 	ProjectSection(SolutionItems) = preProject

@@ -16,7 +16,7 @@ public class EasyTestFilesPath
 
         var txt = await EasyTestFile.LoadAsText(settings);
 
-        _ = txt.Should().Be("settings.UseFileName(\"test_ddd.txt\");");
+        txt.Should().Be("settings.UseFileName(\"test_ddd.txt\");");
     }
 
     [Fact] 
@@ -24,7 +24,7 @@ public class EasyTestFilesPath
     {
         var txt = await EasyTestFile.LoadAsText("test_ddd.txt");
 
-        _ = txt.Should().Be("settings.UseFileName(\"test_ddd.txt\");");
+        txt.Should().Be("settings.UseFileName(\"test_ddd.txt\");");
     }        
 
     [Fact]
@@ -35,7 +35,7 @@ public class EasyTestFilesPath
 
         var txt = await EasyTestFile.LoadAsText(settings);
 
-        _ = txt.Should().Be("subdir Subdir");
+        txt.Should().Be("subdir Subdir");
     }
 
     [Fact] 
@@ -43,7 +43,7 @@ public class EasyTestFilesPath
     {
         var txt = await EasyTestFile.LoadAsText("Subdir\\test_123.txt");
 
-        _ = txt.Should().Be("subdir Subdir");
+        txt.Should().Be("subdir Subdir");
     }
 
     [Fact]
@@ -54,7 +54,7 @@ public class EasyTestFilesPath
 
         var txt = await EasyTestFile.LoadAsText(settings);
 
-        _ = txt.Should().Be("subdir Subdir");
+        txt.Should().Be("subdir Subdir");
     }
 
     [Fact]
@@ -62,6 +62,6 @@ public class EasyTestFilesPath
     {
         var txt = await EasyTestFile.LoadAsText("Subdir/test_123.txt");
 
-        _ = txt.Should().Be("subdir Subdir");
+        txt.Should().Be("subdir Subdir");
     }
 }

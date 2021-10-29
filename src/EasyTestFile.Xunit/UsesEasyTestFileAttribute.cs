@@ -14,11 +14,13 @@ namespace EasyTestFileXunit
     {
         private static readonly AsyncLocal<MethodInfo?> _local = new();
 
+        /// <inheritdoc/>
         public override void Before(MethodInfo methodUnderTest)
         {
             _local.Value = methodUnderTest;
         }
 
+        /// <inheritdoc/>
         public override void After(MethodInfo methodUnderTest)
         {
             _local.Value = null;

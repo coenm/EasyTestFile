@@ -4,10 +4,7 @@ using System;
 using System.Reflection;
 using EasyTestFile.DerivedPaths;
 
-/// <summary>
-/// 
-/// </summary>
-public readonly struct TestAssemblyInfo
+internal readonly struct TestAssemblyInfo
 {
     /// <summary>
     /// 
@@ -18,7 +15,7 @@ public readonly struct TestAssemblyInfo
     {
         Assembly = assembly ?? throw new ArgumentNullException(nameof(assembly));
         ProjectDirectory = AttributeReader.GetProjectDirectory(assembly);
-        _ = AttributeReader.TryGetSolutionDirectory(assembly, out var solutionDirectory);
+        AttributeReader.TryGetSolutionDirectory(assembly, out var solutionDirectory);
         SolutionDirectory = solutionDirectory;
     }
 

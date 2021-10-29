@@ -1,8 +1,8 @@
-namespace EasyTestFileXunit
+namespace EasyTestFileNunit.Internal
 {
     using System.Reflection;
     using System.Runtime.CompilerServices;
-    using global::EasyTestFile;
+    using EasyTestFile;
 
     internal static class TestFileFactory
     {
@@ -38,18 +38,6 @@ namespace EasyTestFileXunit
             MethodInfo methodInfo = MethodInfoResolver.Get();
             Assembly assembly = AssemblyResolver.Get(methodInfo);
             return Create(settings, assembly, methodInfo, sourceFile, method);
-        }
-
-        internal static TestFile Create(
-            Assembly callingAssembly,
-            EasyTestFileSettings? settings = null,
-            [CallerFilePath] string sourceFile = "",
-            [CallerMemberName] string method = "")
-        {
-            MethodInfo methodInfo = MethodInfoResolver.Get();
-            Assembly assembly1 = AssemblyResolver.Get(methodInfo);
-            Assembly assembly2 = callingAssembly;
-            return Create(settings, assembly1, methodInfo, sourceFile, method);
         }
     }
 }

@@ -1,7 +1,8 @@
-namespace EasyTestFileXunit
+namespace EasyTestFileNunit.Internal
 {
     using System;
     using System.Reflection;
+    using EasyTestFileXunit;
 
     internal static class MethodInfoResolver
     {

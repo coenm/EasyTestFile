@@ -14,7 +14,7 @@ public class Testing
     {
         TestEntity entity = await EasyTestFile.Load().AsObjectUsingNewtonsoft<TestEntity>();
 
-        _ = entity.Should().BeEquivalentTo(new TestEntity()
+        entity.Should().BeEquivalentTo(new TestEntity()
             {
                 Name = "Martin Luther King",
                 DateOfBirth = new DateTime(1929, 01, 15),
@@ -25,10 +25,10 @@ public class Testing
     public async Task Settings()
     {
         var settings = new EasyTestFileSettings();
-        _ = settings.UseExtension("json");
+        settings.UseExtension("json");
         TestEntity entity = await EasyTestFile.Load(settings).AsObjectUsingNewtonsoft<TestEntity>();
 
-        _ = entity.Should().BeEquivalentTo(new TestEntity()
+        entity.Should().BeEquivalentTo(new TestEntity()
             {
                 Name = "Martin Luther King",
                 DateOfBirth = new DateTime(1929, 01, 15),
@@ -41,27 +41,27 @@ public class Testing
         var settings = new EasyTestFileSettings();
         settings.DisableAutoCreateMissingTestFile();
         Func<Task<string>> act = async () => await EasyTestFile.Load(settings, method: "does_not_exist").AsText();
-        _ = await act.Should().ThrowAsync<TestFileNotFoundException>();
+        await act.Should().ThrowAsync<TestFileNotFoundException>();
     }
 
     [Test]
     public async Task Test1()
     {
         var content = await EasyTestFile.LoadAsText();
-        _ = content.Should().Be("test1");
+        content.Should().Be("test1");
     }
 
     [Test]
     public async Task Test2()
     {
         var content = await EasyTestFile.LoadAsText();
-        _ = content.Should().Be("test2");
+        content.Should().Be("test2");
     }
 
     [Test]
     public async Task Test3()
     {
         var content = await EasyTestFile.LoadAsText(method: nameof(Test2));
-        _ = content.Should().Be("test2");
+        content.Should().Be("test2");
     }
 }

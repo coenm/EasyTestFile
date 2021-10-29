@@ -12,13 +12,13 @@ public partial class MyPartialTest
     public async Task Test3()
     {
         var content = await EasyTestFile.LoadAsText(method: nameof(Test2));
-        _ = content.Should().Be("partial test3");
+        content.Should().Be("partial test3");
     }
 
     [Fact]
     public async Task Test4()
     {
         var content = await EasyTestFile.LoadAsText();
-        _ = content.Should().Be("partial test4");
+        content.Should().Be("partial test4");
     }
 }
