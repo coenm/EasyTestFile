@@ -40,6 +40,6 @@ public partial class EasyTestFileSettings
             throw new ArgumentNullException(nameof(fileName));
         }
 
-        this.FileName = fileName;
+        FileName = fileName;
     }
 }

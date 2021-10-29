@@ -86,21 +86,6 @@ public class EasyTestFileSettingsTest
     }
 
     [Fact]
-    public async Task WithWithoutDotTestFileSuffix()
-    {
-        // arrange
-        var settings1 = new EasyTestFileSettings();
-        settings1.WithoutDotTestFileSuffix();
-
-        // act
-        var settings2 = new EasyTestFileSettings(settings1);
-
-        // assert
-        var json = AssertSettingsUsingJson(settings1, settings2);
-        await VerifyXunit.Verifier.VerifyJson(json);
-    }
-
-    [Fact]
     public async Task WithUseExtension()
     {
         // arrange

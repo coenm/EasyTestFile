@@ -3,6 +3,5 @@
   AutoCreateMissingTestFileDisabled: false,
   FileName: null,
   TestFileNamingSuffix: null,
-  UseDotTestFileSuffix: true,
   _extension: json
 }

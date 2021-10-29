@@ -32,7 +32,6 @@ public partial class EasyTestFileSettings
 
         FileName = settings.FileName;
         TestFileNamingSuffix = settings.TestFileNamingSuffix;
-        UseDotTestFileSuffix = settings.UseDotTestFileSuffix;
         Assembly = settings.Assembly;
     }
 
@@ -66,17 +65,6 @@ public partial class EasyTestFileSettings
     {
         Guard.AgainstNullOrEmpty(input, nameof(input));
         TestFileNamingSuffix = input.Trim();
-    }
-        
-    internal bool UseDotTestFileSuffix = true;
-
-    /// <summary>
-    /// Filename without the `.testfile` suffix.
-    /// </summary>
-    public void WithoutDotTestFileSuffix()
-    {
-        // todo warning..
-        UseDotTestFileSuffix = false;
     }
         
     internal Assembly? Assembly = null;

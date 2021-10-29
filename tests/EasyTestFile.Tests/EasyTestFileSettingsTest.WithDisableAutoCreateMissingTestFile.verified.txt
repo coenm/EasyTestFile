@@ -3,6 +3,5 @@
   AutoCreateMissingTestFileDisabled: true,
   FileName: null,
   TestFileNamingSuffix: null,
-  UseDotTestFileSuffix: true,
   _extension: null
 }

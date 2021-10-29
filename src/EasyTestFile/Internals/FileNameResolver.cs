@@ -18,13 +18,7 @@ internal static class FileNameResolver
             suffix = "." + settings.TestFileNamingSuffix;
         }
 
-        var dotTestFileSuffix = string.Empty;
-        if (settings.UseDotTestFileSuffix)
-        {
-            dotTestFileSuffix = EasyTestFileConstants.EASY_TEST_FILE_SUFFIX;
-        }
-
-        physicalFilename = physicalFilename + "_" + testMethodInfo.Method + suffix + dotTestFileSuffix + "." + settings.ExtensionOrTxt();
+        physicalFilename = physicalFilename + "_" + testMethodInfo.Method + suffix + EasyTestFileConstants.EASY_TEST_FILE_SUFFIX + "." + settings.ExtensionOrTxt();
 
         if (!string.IsNullOrWhiteSpace(settings.FileName))
         {
