@@ -28,7 +28,8 @@ public class PropertyTest
     public async Task UseProperty_ShouldRespectConfig()
     {
         var text = await PropertyFile2.AsText();
-        _ = text.Should().Be("{\r\n    \"message\": \"this is json\"\r\n}");
+        text = text.Replace("\r\n", "\n");
+        _ = text.Should().Be("{\n    \"message\": \"this is json\"\n}");
     }
 
     [Fact]
