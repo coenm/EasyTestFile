@@ -1,4 +1,6 @@
 // ReSharper disable SuggestVarOrType_BuiltInTypes, justification: sample code.
+#pragma warning disable IDE0059 // Unnecessary assignment of a value
+#pragma warning disable IDE0007 // Use implicit type
 
 namespace EasyTestFileXunit.Tests.Samples1
 {
@@ -67,8 +69,11 @@ namespace EasyTestFileXunit.Tests.Samples2
             Person person = await testFile.AsObjectUsingNewtonsoft<Person>();
 
             // or like
+
             string text = await testFile.AsText();
         }
         // end-snippet
     }
 }
+#pragma warning restore IDE0007 // Use implicit type
+#pragma warning restore IDE0059 // Unnecessary assignment of a value

@@ -11,10 +11,10 @@ using NUnit.Framework;
 
 public class PropertyTest
 {
-    private TestFile PropertyFile1 => EasyTestFileNunit.EasyTestFile.Load();
+    private static TestFile PropertyFile1 => EasyTestFileNunit.EasyTestFile.Load();
 
     // ReSharper disable once MemberCanBePrivate.Global
-    public TestFile PropertyFile2 => EasyTestFileNunit.EasyTestFile.Load(new EasyTestFileSettings().UseExtension("json"));
+    public static TestFile PropertyFile2 => EasyTestFileNunit.EasyTestFile.Load(new EasyTestFileSettings().UseExtension("json"));
 
     [Test]
     public async Task UseProperty_ShouldLoadFileWithPropertyName()

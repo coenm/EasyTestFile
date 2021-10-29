@@ -12,10 +12,10 @@ using Xunit;
 [UsesEasyTestFile]
 public class PropertyTest
 {
-    private TestFile PropertyFile1 => EasyTestFile.Load();
+    private static TestFile PropertyFile1 => EasyTestFile.Load();
 
     // ReSharper disable once MemberCanBePrivate.Global
-    public TestFile PropertyFile2 => EasyTestFile.Load(new EasyTestFileSettings().UseExtension("json"));
+    public static TestFile PropertyFile2 => EasyTestFile.Load(new EasyTestFileSettings().UseExtension("json"));
 
     [Fact]
     public async Task UseProperty_ShouldLoadFileWithPropertyName()

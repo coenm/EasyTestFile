@@ -17,13 +17,11 @@ public class TestAssemblyInfoTest
         var sut = new TestAssemblyInfo(typeof(TestAssemblyInfoTest).Assembly);
 
         // assert
-        // await VerifyXunit.Verifier.Verify(new
-        //     {
-        //         AssemblyName = sut.Assembly.GetName().Name,
-        //         sut.ProjectDirectory,
-        //         sut.SolutionDirectory,
-        //     });
-await Task.Yield();
-
+        await VerifyXunit.Verifier.Verify(new
+            {
+                AssemblyName = sut.Assembly.GetName().Name,
+                sut.ProjectDirectory,
+                sut.SolutionDirectory,
+            });
     }
 }   

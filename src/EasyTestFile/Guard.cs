@@ -37,7 +37,7 @@ internal static class Guard
         AgainstNullOrEmpty(name, argumentName);
         foreach (var invalidChar in _invalidFileChars)
         {
-            if (name.IndexOf(invalidChar) == -1)
+            if (!name.Contains(invalidChar))
             {
                 continue;
             }
@@ -54,9 +54,10 @@ internal static class Guard
         }
 
         AgainstEmpty(name, argumentName);
+
         foreach (var invalidChar in _invalidPathChars)
         {
-            if (name.IndexOf(invalidChar) == -1)
+            if (!name.Contains(invalidChar))
             {
                 continue;
             }
