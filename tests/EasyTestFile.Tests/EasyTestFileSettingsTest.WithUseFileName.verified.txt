@@ -1,7 +1,6 @@
-{
+﻿{
   Assembly: null,
   AutoCreateMissingTestFileDisabled: false,
-  BaseDirectory: null,
   FileName: filename.txt,
   TestFileNamingSuffix: null,
   UseDotTestFileSuffix: true,

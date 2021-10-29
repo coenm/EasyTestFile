@@ -1,7 +1,4 @@
 ﻿[
-  {EasyTestFile}/.customBaseFolder/CustomPath/CustomProjectPath_CustomPathTest1.testfile.txt,
-  {EasyTestFile}/.customBaseFolder/CustomPath/CustomProjectPath_CustomPathTest3.1.testfile.txt,
-  {EasyTestFile}/.customBaseFolder/CustomPath/CustomProjectPath_CustomPathTest3.2.testfile.txt,
   {EasyTestFile}/Att/Testing_NewtonsoftLoad.testfile.txt,
   {EasyTestFile}/Att/Testing_Settings.testfile.json,
   {EasyTestFile}/Att/Testing_Test1.testfile.txt,

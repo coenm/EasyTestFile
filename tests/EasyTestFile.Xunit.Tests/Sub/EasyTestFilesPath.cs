@@ -9,29 +9,6 @@ using Xunit;
 public class EasyTestFilesPath
 {
     [Fact]
-    public async Task Test1()
-    {
-        var settings = new EasyTestFileSettings();
-        settings.UseEasyTestFileBaseDirectory();
-        settings.UseFileName("test.txt");
-
-        var txt = await EasyTestFile.LoadAsText(settings);
-
-        _ = txt.Should().Be("settings.UseFileName(\"test.txt\");");
-    }
-
-    [Fact]
-    public async Task Test2()
-    {
-        var settings = new EasyTestFileSettings();
-        settings.UseEasyTestFileBaseDirectory();
-
-        var txt = await EasyTestFile.LoadAsText("test.txt", settings);
-
-        _ = txt.Should().Be("settings.UseFileName(\"test.txt\");");
-    }
-        
-    [Fact]
     public async Task Test3()
     {
         var settings = new EasyTestFileSettings();

@@ -31,7 +31,6 @@ public partial class EasyTestFileSettings
         AutoCreateMissingTestFileDisabled = settings.AutoCreateMissingTestFileDisabled;
 
         FileName = settings.FileName;
-        BaseDirectory = settings.BaseDirectory;
         TestFileNamingSuffix = settings.TestFileNamingSuffix;
         UseDotTestFileSuffix = settings.UseDotTestFileSuffix;
         Assembly = settings.Assembly;

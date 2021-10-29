@@ -1,7 +1,4 @@
-[
-  {EasyTestFile}/.customBaseFolder/CustomPath/CustomProjectPath_CustomPathTest1.testfile.txt,
-  {EasyTestFile}/.customBaseFolder/CustomPath/CustomProjectPath_CustomPathTest3.1.testfile.txt,
-  {EasyTestFile}/.customBaseFolder/CustomPath/CustomProjectPath_CustomPathTest3.2.testfile.txt,
+﻿[
   {EasyTestFile}/Att/Testing_NewtonsoftLoad.testfile.txt,
   {EasyTestFile}/Att/Testing_Settings.testfile.json,
   {EasyTestFile}/Att/Testing_Test1.testfile.txt,
@@ -9,7 +6,6 @@
   {EasyTestFile}/CustomPath/CustomProjectPath_CustomPathTest2.1.testfile.txt,
   {EasyTestFile}/CustomPath/CustomProjectPath_CustomPathTest2.2.testfile.txt,
   {EasyTestFile}/EasyTestFiles/EasyTestFilesPath_Test1.testfile.txt,
-  {EasyTestFile}/EasyTestFiles/test.txt,
   {EasyTestFile}/EasyTestFiles/test2.testfile.txt,
   {EasyTestFile}/Folder1/Folder2/PropertyTest_PropertyFile1.testfile.txt,
   {EasyTestFile}/Folder1/Folder2/PropertyTest_PropertyFile2.testfile.json,

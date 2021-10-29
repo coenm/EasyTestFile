@@ -9,8 +9,7 @@ internal static class StreamResolver
     {
         return null
                ?? ResolveFromAssembly(assembly, relativeFilename)
-               ?? ResolveFromSourceFilename(absoluteFilename)
-               ?? ResolveFromOutputDirectory(assembly, relativeFilename);
+               ?? ResolveFromSourceFilename(absoluteFilename);
     }
 
     private static Stream? ResolveFromAssembly(Assembly assembly, string relativeFilename)
@@ -28,12 +27,6 @@ internal static class StreamResolver
             return File.OpenRead(operatingSystemFullFilename);
         }
 
-        return null;
-    }
-
-    private static Stream? ResolveFromOutputDirectory(Assembly assembly, string relativeFilename)
-    {
-        // todo
         return null;
     }
 }

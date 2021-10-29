@@ -130,36 +130,6 @@ public class EasyTestFileSettingsTest
         await VerifyXunit.Verifier.VerifyJson(json);
     }
 
-    [Fact]
-    public async Task WithUseEasyTestFileBaseDirectory()
-    {
-        // arrange
-        var settings1 = new EasyTestFileSettings();
-        settings1.UseEasyTestFileBaseDirectory();
-
-        // act
-        var settings2 = new EasyTestFileSettings(settings1);
-
-        // assert
-        var json = AssertSettingsUsingJson(settings1, settings2);
-        await VerifyXunit.Verifier.VerifyJson(json);
-    }
-
-    [Fact]
-    public async Task WithUseBaseDirectory()
-    {
-        // arrange
-        var settings1 = new EasyTestFileSettings();
-        settings1.UseBaseDirectory("abc/def");
-
-        // act
-        var settings2 = new EasyTestFileSettings(settings1);
-
-        // assert
-        var json = AssertSettingsUsingJson(settings1, settings2);
-        await VerifyXunit.Verifier.VerifyJson(json);
-    }
-
     private static string AssertSettingsUsingJson(EasyTestFileSettings settings1, EasyTestFileSettings settings2)
     {
         var jsonSettings1 = JsonConvert.SerializeObject(settings1, Formatting.Indented, _jsonSettings);

@@ -28,15 +28,8 @@ internal static class FileNameResolver
 
         if (!string.IsNullOrWhiteSpace(settings.FileName))
         {
-            if (string.IsNullOrWhiteSpace(settings.BaseDirectory))
-            {
-                var testMethodDirectory = testMethodInfo.SanitizedDirectory;
-                physicalFilename = DirectorySanitizer.PathCombine(testMethodDirectory, settings.FileName!);
-            }
-            else
-            {
-                physicalFilename = DirectorySanitizer.PathCombine(testAssemblyInfo.ProjectDirectory, settings.FileName!);
-            }
+            var testMethodDirectory = testMethodInfo.SanitizedDirectory;
+            physicalFilename = DirectorySanitizer.PathCombine(testMethodDirectory, settings.FileName!);
         }
         else
         {
@@ -44,15 +37,6 @@ internal static class FileNameResolver
         }
 
         var relativeFilename = StringHelpers.StringReplaceIgnoreCase(physicalFilename, DirectorySanitizer.Sanitize(testAssemblyInfo.ProjectDirectory), string.Empty);
-
-        if (!string.IsNullOrWhiteSpace(settings.BaseDirectory))
-        {
-            relativeFilename = DirectorySanitizer.PathCombine(settings.BaseDirectory!, relativeFilename);
-            physicalFilename = StringHelpers.StringReplaceIgnoreCase(
-                physicalFilename,
-                DirectorySanitizer.Sanitize(testAssemblyInfo.ProjectDirectory),
-                DirectorySanitizer.PathCombine(testAssemblyInfo.ProjectDirectory, settings.BaseDirectory!) + DirectorySanitizer.DIRECTORY_SEPARATOR_CHAR);
-        }
 
         return (relativeFilename, physicalFilename);
     }

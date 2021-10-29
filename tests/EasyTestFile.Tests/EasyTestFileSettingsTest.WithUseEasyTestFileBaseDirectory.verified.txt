@@ -1,9 +1,0 @@
-{
-  Assembly: null,
-  AutoCreateMissingTestFileDisabled: false,
-  BaseDirectory: EasyTestFiles,
-  FileName: null,
-  TestFileNamingSuffix: null,
-  UseDotTestFileSuffix: true,
-  _extension: null
-}

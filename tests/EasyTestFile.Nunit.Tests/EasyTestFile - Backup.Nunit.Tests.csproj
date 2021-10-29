@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>netcoreapp2.1;netcoreapp3.1;net5;net6</TargetFrameworks>
+		<RootNamespace>EasyTestFileNunit.Tests</RootNamespace>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\src\EasyTestFile.Json\EasyTestFile.Json.csproj" />
+		<ProjectReference Include="..\..\src\EasyTestFile.Nunit\EasyTestFile.Nunit.csproj" />
+		<ProjectReference Include="..\..\src\EasyTestFile\EasyTestFile.csproj" />
+	</ItemGroup>
+	
+	<ItemGroup>
+		<PackageReference Include="NUnit" Version="3.13.2" />
+		<PackageReference Include="NUnit3TestAdapter" Version="4.0.0" />
+		<PackageReference Include="Verify" Version="13.3.0" />
+		<PackageReference Include="Verify.NUnit" Version="13.3.0" />
+	</ItemGroup>
+	
+	<ItemGroup>
+	  <Folder Include=".customBaseFolder\" />
+	</ItemGroup>
+</Project>
