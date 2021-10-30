@@ -1,7 +1,3 @@
-// ReSharper disable SuggestVarOrType_BuiltInTypes, justification: sample code.
-#pragma warning disable IDE0059 // Unnecessary assignment of a value
-#pragma warning disable IDE0007 // Use implicit type
-
 namespace EasyTestFileXunit.Tests.Samples1
 {
     using System.Threading.Tasks;
@@ -13,7 +9,7 @@ namespace EasyTestFileXunit.Tests.Samples1
     {
         // The attribute is required when using XUnit.
     }
-    // end-snippet
+// end-snippet
 }
 
 
@@ -75,5 +71,3 @@ namespace EasyTestFileXunit.Tests.Samples2
         // end-snippet
     }
 }
-#pragma warning restore IDE0007 // Use implicit type
-#pragma warning restore IDE0059 // Unnecessary assignment of a value

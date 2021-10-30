@@ -20,7 +20,7 @@ internal static class MethodInfoResolver
     {
         TestContext context = TestContext.CurrentContext;
         TestContext.TestAdapter adapter = context.Test;
-        Test test = (Test)_field.GetValue(adapter)!;
+        var test = (Test)_field.GetValue(adapter)!;
 
         if (test.TypeInfo == null || test.Method is null)
         {
