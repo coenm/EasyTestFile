@@ -16,13 +16,9 @@ public partial class UnitTestClass
 <sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L6-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-xunitattributeusage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-
 ## NUnit
 
 No special attributes or configuration is required to use EasyTestFile in combination with NUnit.
-
-## MS Test
-Todo.
 
 ## API
 
@@ -52,7 +48,7 @@ public async Task LoadAsStream()
 {
     // You can also load the testfile content as a stream.
     Stream stream = await EasyTestFile.LoadAsStream();
-
+    
 }
 ```
 <sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L40-L48' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadasstream' title='Start of snippet'>anchor</a></sup>

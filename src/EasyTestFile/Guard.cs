@@ -12,26 +12,7 @@ internal static class Guard
                                                            .Concat(_invalidFileChars.Except(new[] { '/', '\\', ':', }))
                                                            .Distinct()
                                                            .ToArray();
-
-    public static void FileExists(string path, string argumentName)
-    {
-        AgainstNullOrEmpty(path, argumentName);
-        if (!File.Exists(path))
-        {
-            throw new ArgumentException($"File not found. Path: {path}", argumentName);
-        }
-    }
-        
-    public static void BadFileNameNullable(string? name, string argumentName)
-    {
-        if (name is null)
-        {
-            return;
-        }
-
-        BadFileName(name, argumentName);
-    }
-
+    
     public static void BadFileName(string name, string argumentName)
     {
         AgainstNullOrEmpty(name, argumentName);
@@ -66,7 +47,7 @@ internal static class Guard
         }
     }
 
-    public static void AgainstNullOrEmpty(string value, string argumentName)
+    private static void AgainstNullOrEmpty(string value, string argumentName)
     {
         if (string.IsNullOrWhiteSpace(value))
         {
@@ -74,7 +55,7 @@ internal static class Guard
         }
     }
 
-    public static void AgainstEmpty(string? value, string argumentName)
+    private static void AgainstEmpty(string? value, string argumentName)
     {
         if (value is null)
         {
@@ -84,32 +65,6 @@ internal static class Guard
         if (string.IsNullOrWhiteSpace(value))
         {
             throw new ArgumentNullException(argumentName);
-        }
-    }
-
-    public static void AgainstNullOrEmpty(object?[] value, string argumentName)
-    {
-        if (value is null)
-        {
-            throw new ArgumentNullException(argumentName);
-        }
-
-        if (value.Length == 0)
-        {
-            throw new ArgumentNullException(argumentName, "Argument cannot be empty.");
-        }
-    }
-
-    public static void AgainstNullOrEmpty<T>(T[] value, string argumentName)
-    {
-        if (value is null)
-        {
-            throw new ArgumentNullException(argumentName);
-        }
-
-        if (value.Length == 0)
-        {
-            throw new ArgumentNullException(argumentName, "Argument cannot be empty.");
         }
     }
 
@@ -135,7 +90,7 @@ internal static class Guard
             throw new ArgumentException($"Value: {value} starts with an invalid character (space)", argumentName);
         }
 
-        if (value[IndexX.FromEnd(1)] == invalidChar)
+        if (value[IndexFromEnd(1)] == invalidChar)
         {
             throw new ArgumentException($"Value: {value} ends with an invalid character (space)", argumentName);
         }
@@ -152,14 +107,11 @@ internal static class Guard
             throw new ArgumentException($"Value: {value} contains an invalid character ('{invalidChar}')", argumentName);
         }
     }
-}
-
-internal static class IndexX
-{
+    
     /// <summary>Create an Index from the end at the position indicated by the value.</summary>
     /// <param name="value">The index value from the end.</param>
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    public static Index FromEnd(int value)
+    private static Index IndexFromEnd(int value)
     {
         if (value < 0)
         {

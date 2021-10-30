@@ -15,20 +15,16 @@ public sealed class TestFile
     private readonly Assembly _assembly;
     private readonly string _physicalFilename;
     private readonly string _relativeFilename;
-    private readonly TestAssemblyInfo _testAssemblyInfo;
-    private readonly TestMethodInfo _testMethodInfo;
-
+    
     internal TestFile(
         EasyTestFileSettings? settings,
         TestAssemblyInfo testAssemblyInfo,
         TestMethodInfo testMethodInfo)
     {
         _settings = settings ?? new EasyTestFileSettings();
-        _testAssemblyInfo = testAssemblyInfo;
-        _testMethodInfo = testMethodInfo;
-        _assembly = _settings.Assembly ?? _testAssemblyInfo.Assembly;
+        _assembly = _settings.Assembly ?? testAssemblyInfo.Assembly;
 
-        (_relativeFilename, _physicalFilename) = FileNameResolver.Find(_settings, _testAssemblyInfo, _testMethodInfo);
+        (_relativeFilename, _physicalFilename) = FileNameResolver.Find(_settings, testAssemblyInfo, testMethodInfo);
     }
 
     /// <summary>

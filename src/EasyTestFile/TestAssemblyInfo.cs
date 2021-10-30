@@ -6,11 +6,8 @@ using EasyTestFile.DerivedPaths;
 
 internal readonly struct TestAssemblyInfo
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="assembly"></param>
-    /// <exception cref="ArgumentNullException"></exception>
+    /// <exception cref="ArgumentNullException">Thrown when argument is <c>null</c>.</exception>
+    /// <exception cref="AssemblyMetadataAttributeNotFoundException">Thrown when the <paramref name="assembly"/> doesn't contain an <seealso cref="AssemblyMetadataAttribute"/> with the ProjectDirectory.</exception>
     public TestAssemblyInfo(Assembly assembly)
     {
         Assembly = assembly ?? throw new ArgumentNullException(nameof(assembly));

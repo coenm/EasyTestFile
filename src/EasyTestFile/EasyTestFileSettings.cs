@@ -61,9 +61,10 @@ public partial class EasyTestFileSettings
     /// </summary>
     /// <param name="input">The suffix.</param>
     /// <exception cref="ArgumentNullException">Throw when argument is <c>null</c> or empty.</exception>
+    /// <exception cref="ArgumentException">Thrown when argument has invalid characters.</exception>
     public void SetTestFileNameSuffix(string input)
     {
-        Guard.AgainstNullOrEmpty(input, nameof(input));
+        Guard.BadFileName(input, nameof(input));
         TestFileNamingSuffix = input.Trim();
     }
         

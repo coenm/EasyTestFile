@@ -1,5 +1,6 @@
 namespace EasyTestFileNunit;
 
+using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using global::EasyTestFile;
 /// <summary>
 /// EasyTestFile
 /// </summary>
+[SuppressMessage("ReSharper", "ExplicitCallerInfoArgument", Justification = "Intentional")]
 public static class EasyTestFile
 {
     /// <summary>

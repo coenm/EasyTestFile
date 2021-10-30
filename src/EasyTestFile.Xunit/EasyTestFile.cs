@@ -1,5 +1,6 @@
 namespace EasyTestFileXunit
 {
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Reflection;
     using System.Runtime.CompilerServices;
@@ -10,6 +11,7 @@ namespace EasyTestFileXunit
     /// <summary>
     /// EasyTestFile
     /// </summary>
+    [SuppressMessage("ReSharper", "ExplicitCallerInfoArgument", Justification = "Intentional")]
     public static partial class EasyTestFile
     {
         /// <summary>

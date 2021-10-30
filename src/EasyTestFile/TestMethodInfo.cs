@@ -5,9 +5,6 @@ using System.IO;
 using System.Reflection;
 using EasyTestFile.Internals;
 
-/// <summary>
-/// EasyTestFile Test method information
-/// </summary>
 internal readonly struct TestMethodInfo
 {
     /// <exception cref="ArgumentNullException">Thrown when a parameter is <c>null</c>.</exception>
