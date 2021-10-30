@@ -48,7 +48,7 @@ public async Task LoadAsStream()
 {
     // You can also load the testfile content as a stream.
     Stream stream = await EasyTestFile.LoadAsStream();
-    
+
 }
 ```
 <sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L40-L48' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadasstream' title='Start of snippet'>anchor</a></sup>
