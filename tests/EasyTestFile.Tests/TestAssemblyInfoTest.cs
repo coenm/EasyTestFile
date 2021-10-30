@@ -21,7 +21,7 @@ public class TestAssemblyInfoTest
             {
                 AssemblyName = sut.Assembly.GetName().Name,
                 ProjectDirectory = sut.ProjectDirectory.Replace("\\", "/"),
-                SolutionDirectory = sut.SolutionDirectory.Replace("\\", "/"),
+                SolutionDirectory = sut.SolutionDirectory?.Replace("\\", "/"),
             });
     }
 }   

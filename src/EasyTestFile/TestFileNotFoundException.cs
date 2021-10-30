@@ -28,7 +28,7 @@ public class TestFileNotFoundException : Exception
     private TestFileNotFoundException(SerializationInfo info, StreamingContext context)
         : base(info, context)
     {
-        Filename = info.GetString("Filename");
+        Filename = info.GetString("Filename")!;
         TestFileCreated = info.GetBoolean("TestFileCreated");
     }
 

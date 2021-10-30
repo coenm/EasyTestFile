@@ -19,8 +19,8 @@ public class AssemblyMetadataAttributeNotFoundException : Exception
     private AssemblyMetadataAttributeNotFoundException(SerializationInfo info, StreamingContext context)
         : base(info, context)
     {
-        AssemblyName = info.GetString("AssemblyName");
-        Key = info.GetString("Key");
+        AssemblyName = info.GetString("AssemblyName")!;
+        Key = info.GetString("Key")!;
     }
 
     /// <summary>
