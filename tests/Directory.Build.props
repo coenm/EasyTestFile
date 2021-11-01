@@ -16,6 +16,17 @@
 		<PackageReference Include="FluentAssertions.Analyzers" />
 	</ItemGroup>
 
+	<Choose>
+		<When Condition=" $(TargetFramework)=='netstandard2.1' OR $(TargetFramework)=='net5' OR $(TargetFramework)=='net6' ">
+		</When>
+
+		<Otherwise>
+			<ItemGroup>
+				<PackageReference Include="IndexRange" Version="1.0.0" />
+			</ItemGroup>
+		</Otherwise>
+	</Choose>
+
 	<Import Project="$([MSBuild]::GetPathOfFileAbove('EasyTestFile.props', '$(MSBuildThisFileDirectory)../src/EasyTestFile/buildTransitive/'))" />
 	<Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
 </Project>
