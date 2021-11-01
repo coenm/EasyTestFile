@@ -23,11 +23,12 @@
     <PackageDescription>$(Description)</PackageDescription>
   </PropertyGroup>
 
-  <Target Name="PrepareReleaseNotes" BeforeTargets="GenerateNuspec" DependsOnTargets="GetBuildVersion">
+<!--   <Target Name="PrepareReleaseNotes" BeforeTargets="GenerateNuspec" DependsOnTargets="GetBuildVersion">
     <PropertyGroup>
       <PackageReleaseNotes>$(PackageProjectUrl)releases/tag/v$(Version)</PackageReleaseNotes>
     </PropertyGroup>
   </Target>
+ -->
 
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
 </Project>
