@@ -4,6 +4,7 @@
 		<RootNamespace>EasyTestFile</RootNamespace>
 		<PackageId>EasyTestFile</PackageId>
 		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;TestFiles</PackageTags>
+		<Description>EasyTestFile makes it easy to create and load files used in unittests.</Description>
 	</PropertyGroup>
 
     <ItemGroup>
@@ -24,7 +25,7 @@
 
 		<Otherwise>
 			<ItemGroup>
-				<PackageReference Include="IndexRange" Version="1.0.0" />
+				<PackageReference Include="IndexRange" Version="1.0.0"  PrivateAssets="all" />
 				<PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
 			</ItemGroup>
 		</Otherwise>
