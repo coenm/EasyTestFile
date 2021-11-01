@@ -4,11 +4,11 @@
 		<RootNamespace>EasyTestFile.Json</RootNamespace>
 		<PackageId>EasyTestFile.NewtonsoftJson</PackageId>
 		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;Json</PackageTags>
+		<Description>EasyTestFile NewtonsoftJson extension making it easy to read files as objects.</Description>
 	</PropertyGroup>
 	
 	<ItemGroup>
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-		<!-- <PackageReference Include="IndexRange" Version="1.0.0" Condition="$(TargetFramework) == 'netstandard2.0' OR $(TargetFramework) == 'net472'" PrivateAssets="all" /> -->
 	</ItemGroup>
 
 	<ItemGroup>
