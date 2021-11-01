@@ -23,12 +23,17 @@
     <PackageDescription>$(Description)</PackageDescription>
   </PropertyGroup>
 
-<!--   <Target Name="PrepareReleaseNotes" BeforeTargets="GenerateNuspec" DependsOnTargets="GetBuildVersion">
+  <ItemGroup>
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.4.240" PrivateAssets="all" />
+<!--     <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354" PrivateAssets="all" /> -->
+  </ItemGroup>
+  
+  <Target Name="PrepareReleaseNotes" BeforeTargets="GenerateNuspec" DependsOnTargets="GetBuildVersion">
     <PropertyGroup>
       <PackageReleaseNotes>$(PackageProjectUrl)releases/tag/v$(Version)</PackageReleaseNotes>
     </PropertyGroup>
   </Target>
- -->
 
   <Import Project="$([MSBuild]::GetPathOfFileAbove('Directory.Build.props', '$(MSBuildThisFileDirectory)../'))" />
 </Project>
