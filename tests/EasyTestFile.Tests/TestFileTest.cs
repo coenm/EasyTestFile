@@ -1,12 +1,27 @@
 namespace EasyTestFile.Tests;
 
+using System;
+using System.Reflection;
+using System.Threading.Tasks;
+using EasyTestFile.Internals;
+using FluentAssertions;
+using VerifyXunit;
+using Xunit;
+
 public class TestFileTest
 {
+    [Fact]
     public void Ctor()
     {
-        EasyTestFileSettings settings = new EasyTestFileSettings();
-        TestAssemblyInfo testAssemblyInfo = new TestAssemblyInfo(typeof(TestFileTest).Assembly);
-        TestMethodInfo testMethodInfo = new TestMethodInfo(); //
-        var sut = new TestFile(settings, testAssemblyInfo, testMethodInfo);
+        // arrange
+        var settings = new EasyTestFileSettings();
+        var testAssemblyInfo = new TestAssemblyInfo(typeof(TestFileTest).Assembly);
+        TestMethodInfo testMethodInfo = TestMethodInfoFactory.CreateTestMethodInfo(MethodBase.GetCurrentMethod()!);
+
+        // act
+        Action act = () => _ = new TestFile(settings, testAssemblyInfo, testMethodInfo);
+
+        // assert
+        act.Should().NotThrow();
     }
 }

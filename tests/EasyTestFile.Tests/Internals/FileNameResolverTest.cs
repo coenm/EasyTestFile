@@ -18,7 +18,7 @@ public class FileNameResolverTest
         // arrange
         var settings = new EasyTestFileSettings();
         var testAssemblyInfo = new TestAssemblyInfo(typeof(FileNameResolverTest).Assembly);
-        TestMethodInfo testMethodInfo = CreateTestMethodInfo(MethodBase.GetCurrentMethod()!);
+        TestMethodInfo testMethodInfo = TestMethodInfoFactory.CreateTestMethodInfo(MethodBase.GetCurrentMethod()!);
 
         // act
         (string relativeFilename, string absoluteFilename) = Sut.Find(settings, testAssemblyInfo, testMethodInfo);
@@ -29,10 +29,5 @@ public class FileNameResolverTest
                 relativeFilename,
                 absoluteFilename,
             });
-    }
-
-    private static TestMethodInfo CreateTestMethodInfo(MethodBase getCurrentMethod, [CallerMemberName] string member = "", [CallerFilePath] string file = "")
-    {
-        return new TestMethodInfo((MethodInfo)getCurrentMethod, file, member);
     }
 }
