@@ -7,8 +7,8 @@
 	</PropertyGroup>
 
     <ItemGroup>
-		<Content Include="buildTransitive\EasyTestFile.props" PackagePath="buildTransitive\LoadTestData.props" />
-		<Content Include="buildTransitive\EasyTestFile.targets" PackagePath="buildTransitive\LoadTestData.targets" />
+		<Content Include="buildTransitive\EasyTestFile.props" PackagePath="buildTransitive\EasyTestFile.props" />
+		<Content Include="buildTransitive\EasyTestFile.targets" PackagePath="buildTransitive\EasyTestFile.targets" />
 	</ItemGroup>
 
     <ItemGroup>
