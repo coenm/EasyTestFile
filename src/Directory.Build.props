@@ -4,7 +4,6 @@
     <Nullable>enable</Nullable>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 
-    <Description>..</Description>
     <Authors>Coen van den Munckhof</Authors>
     <Owners>$(Authors)</Owners>
     <Company>$(Authors)</Company>
@@ -25,8 +24,6 @@
 
   <ItemGroup>
     <PackageReference Include="Nerdbank.GitVersioning" Version="3.4.240" PrivateAssets="all" />
-<!--     <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.354" PrivateAssets="all" /> -->
   </ItemGroup>
   
   <Target Name="PrepareReleaseNotes" BeforeTargets="GenerateNuspec" DependsOnTargets="GetBuildVersion">
