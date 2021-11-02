@@ -20,6 +20,7 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <NeutralLanguage>en</NeutralLanguage>
     <PackageDescription>$(Description)</PackageDescription>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,7 +31,12 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)..\docs\icon\EasyTestFile.512.png" Pack="true" PackagePath="$(PackageIcon)" Visible="false" />
   </ItemGroup>
-  
+
+  <PropertyGroup Condition="'$(TF_BUILD)' == 'true' AND $(Configuration) == 'Release'">
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+
   <Target Name="PrepareReleaseNotes" BeforeTargets="GenerateNuspec" DependsOnTargets="GetBuildVersion">
     <PropertyGroup>
       <PackageReleaseNotes>$(PackageProjectUrl)releases/tag/v$(Version)</PackageReleaseNotes>
