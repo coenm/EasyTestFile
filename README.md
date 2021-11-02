@@ -77,3 +77,8 @@ public async Task LoadAsTestFile()
 ```
 <sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L54-L71' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
+
+## Icon
+
+[Photo](https://thenounproject.com/term/photo/2013925) designed by [OCHA Visual](https://thenounproject.com/ochavisual) from [The Noun Project](https://thenounproject.com).
