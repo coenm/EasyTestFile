@@ -5,9 +5,9 @@ Testfiles (like text, json, xml, binary, jpg, etc. etc.) are named based on the 
 
 At this moment, EasyTestFile can be used in combination with XUnit and NUnit.
 
+# Initial setup
 
-## XUnit
-
+Using EasyTestFile in XUnit requires an additional attribute.
 
 <!-- snippet: XUnitAttributeUsage -->
 <a id='snippet-xunitattributeusage'></a>
@@ -21,11 +21,9 @@ public partial class UnitTestClass
 <sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L6-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-xunitattributeusage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-## NUnit
-
 No special attributes or configuration is required to use EasyTestFile in combination with NUnit.
 
-## API
+# API
 
 <!-- snippet: LoadAsText -->
 <a id='snippet-loadastext'></a>
@@ -59,7 +57,6 @@ public async Task LoadAsStream()
 <sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L40-L48' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadasstream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-
 <!-- snippet: LoadAsTestFile -->
 <a id='snippet-loadastestfile'></a>
 ```cs
@@ -82,6 +79,13 @@ public async Task LoadAsTestFile()
 ```
 <sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L54-L71' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
+
+These three test methods produce the following testfiles according to the name convention `{class name}.{method name}.testfile.{extension}`
+
+![Solution Explorer TestFiles](/docs/images/SolutionExplorerTestFiles.png)
+
+
 
 
 # Credits
