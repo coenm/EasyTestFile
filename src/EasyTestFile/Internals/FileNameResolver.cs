@@ -18,7 +18,7 @@ internal static class FileNameResolver
             suffix = "." + settings.TestFileNamingSuffix;
         }
 
-        physicalFilename = physicalFilename + "_" + testMethodInfo.Method + suffix + EasyTestFileConstants.EASY_TEST_FILE_SUFFIX + "." + settings.ExtensionOrTxt();
+        physicalFilename = physicalFilename + "." + testMethodInfo.Method + suffix + EasyTestFileConstants.EASY_TEST_FILE_SUFFIX + "." + settings.ExtensionOrTxt();
         physicalFilename = DirectorySanitizer.Sanitize(physicalFilename);
 
         var relativeFilename = StringHelpers.StringReplaceIgnoreCase(physicalFilename, DirectorySanitizer.Sanitize(testAssemblyInfo.ProjectDirectory), string.Empty);

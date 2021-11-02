@@ -1,3 +1,3 @@
 ﻿[
-  {EasyTestFile}/CustomPath/R_FileX.testfile.txt
+  {EasyTestFile}/CustomPath/R.FileX.testfile.txt
 ]

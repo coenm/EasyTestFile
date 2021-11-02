@@ -1,8 +1,13 @@
 # EasyTestFile
 
-EasyTestFile is a library that simplifies the creation and using external testfiles in unittests.
+EasyTestFile is a library that simplifies the creation and usage of testfiles in unittests. 
+Testfiles (like text, json, xml, binary, jpg, etc. etc.) are named based on the class and method name, are created if not exist, and are embedded as resource making sure the execution of the test is deterministic and do not rely on untracked files etc.
+
+At this moment, EasyTestFile can be used in combination with XUnit and NUnit.
+
 
 ## XUnit
+
 
 <!-- snippet: XUnitAttributeUsage -->
 <a id='snippet-xunitattributeusage'></a>
@@ -78,6 +83,12 @@ public async Task LoadAsTestFile()
 <sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L54-L71' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
+
+# Credits
+
+## VerifyTest
+
+Verify is a snapshot tool that simplifies the assertion of complex data models and documents. Some ideas and parts of the implemntation in this project are based on the [VerifyTest] (http://github.com/verifyTests/Verify/).
 
 ## Icon
 
