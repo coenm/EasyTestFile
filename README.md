@@ -73,11 +73,10 @@ public async Task LoadAsTestFile()
     Person person = await testFile.AsObjectUsingNewtonsoft<Person>();
 
     // or like
-
     string text = await testFile.AsText();
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L39-L56' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L39-L55' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
