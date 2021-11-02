@@ -50,7 +50,6 @@ public class UnitTestClass
         Person person = await testFile.AsObjectUsingNewtonsoft<Person>();
 
         // or like
-
         string text = await testFile.AsText();
     }
     // end-snippet

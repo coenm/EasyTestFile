@@ -85,14 +85,11 @@ These three test methods produce the following testfiles according to the name c
 
 ![Solution Explorer TestFiles](/docs/images/SolutionExplorerTestFiles.png)
 
-
-
-
 # Credits
 
 ## VerifyTest
 
-Verify is a snapshot tool that simplifies the assertion of complex data models and documents. Some ideas and parts of the implemntation in this project are based on the [VerifyTest] (http://github.com/verifyTests/Verify/).
+Verify is a snapshot tool that simplifies the assertion of complex data models and documents. Some ideas and parts of the implementation in this project are based on the [VerifyTest](http://github.com/verifyTests/Verify/).
 
 ## Icon
 
