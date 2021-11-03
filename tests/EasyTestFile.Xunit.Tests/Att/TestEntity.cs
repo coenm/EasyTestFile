@@ -1,11 +1,10 @@
-namespace EasyTestFileXunit.Tests.Att
+namespace EasyTestFileXunit.Tests.Att;
+
+using System;
+
+public class TestEntity
 {
-    using System;
+    public string Name { get; set; }
 
-    public class TestEntity
-    {
-        public string? Name { get; set; }
-
-        public DateTime DateOfBirth { get; set; }
-    }
+    public DateTime DateOfBirth { get; set; }
 }

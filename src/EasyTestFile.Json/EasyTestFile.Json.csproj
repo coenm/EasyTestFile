@@ -4,6 +4,7 @@
 		<RootNamespace>EasyTestFile.Json</RootNamespace>
 		<PackageId>EasyTestFile.NewtonsoftJson</PackageId>
 		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;Json</PackageTags>
+		<Description>EasyTestFile NewtonsoftJson extension making it easy to read files as objects.</Description>
 	</PropertyGroup>
 	
 	<ItemGroup>
@@ -12,5 +13,9 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Update="Nerdbank.GitVersioning" Version="3.4.244" />
 	</ItemGroup>
 </Project>

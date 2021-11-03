@@ -11,8 +11,8 @@
 		<PackageReference Update="xunit.runner.visualstudio" Version="2.4.3" IsImplicitlyDefined="true"/>
 
 		<!--Unittesting-->
-		<PackageReference Update="Microsoft.NET.Test.Sdk" Version="16.11.0" IsImplicitlyDefined="true"/>
-		<PackageReference Update="FluentAssertions" Version="6.1.0" IsImplicitlyDefined="true"/>
-		<PackageReference Update="FluentAssertions.Analyzers" Version="0.12.0" IsImplicitlyDefined="true"/>
+		<PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.0.0" IsImplicitlyDefined="true"/>
+		<PackageReference Update="FluentAssertions" Version="6.2.0" IsImplicitlyDefined="true"/>
+		<PackageReference Update="FluentAssertions.Analyzers" Version="0.12.1" IsImplicitlyDefined="true"/>
 	</ItemGroup>
 </Project>

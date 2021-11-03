@@ -1,0 +1,6 @@
+{
+  Assembly: null,
+  AutoCreateMissingTestFileDisabled: false,
+  TestFileNamingSuffix: null,
+  _extension: null
+}

@@ -1,8 +1,7 @@
-using EasyTestFile;
-
 namespace EasyTestFileXunit.Resources.CustomPath
 {
     using System.Reflection;
+    using global::EasyTestFile;
 
     public static class R
     {

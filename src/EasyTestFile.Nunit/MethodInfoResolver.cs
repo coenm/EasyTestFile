@@ -1,48 +1,45 @@
-namespace EasyTestFileNunit
+namespace EasyTestFileNunit;
+
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Reflection;
+using NUnit.Framework;
+using NUnit.Framework.Internal;
+
+internal static class MethodInfoResolver
 {
-    using System;
-    using System.Diagnostics.CodeAnalysis;
-    using System.Reflection;
-    using NUnit.Framework;
-    using NUnit.Framework.Internal;
+    private static readonly FieldInfo _field;
 
-    internal static class MethodInfoResolver
+    static MethodInfoResolver()
     {
-        private static readonly FieldInfo _field;
+        FieldInfo? temp = typeof(TestContext.TestAdapter).GetField("_test", BindingFlags.Instance | BindingFlags.NonPublic);
+        _field = temp ?? throw new Exception("Could not find field `_test` on TestContext.TestAdapter.");
+    }
 
-        static MethodInfoResolver()
+    public static bool TryGet([NotNullWhen(true)] out MethodInfo? methodInfo)
+    {
+        TestContext context = TestContext.CurrentContext;
+        TestContext.TestAdapter adapter = context.Test;
+        var test = (Test)_field.GetValue(adapter)!;
+
+        if (test.TypeInfo == null || test.Method is null)
         {
-            FieldInfo? temp = typeof(TestContext.TestAdapter).GetField("_test", BindingFlags.Instance | BindingFlags.NonPublic);
-            _field = temp ?? throw new Exception("Could not find field `_test` on TestContext.TestAdapter.");
+            methodInfo = null;
+            return false;
         }
 
-        public static bool TryGet([NotNullWhen(true)] out MethodInfo? methodInfo)
+        // Type type = test.TypeInfo!.Type;
+        methodInfo = test.Method!.MethodInfo;
+        return true;
+    }
+
+    public static MethodInfo Get()
+    {
+        if (!TryGet(out MethodInfo? methodInfo))
         {
-            TestContext context = TestContext.CurrentContext;
-            TestContext.TestAdapter adapter = context.Test;
-            Test test = (Test)_field.GetValue(adapter)!;
-
-            if (test.TypeInfo == null || test.Method is null)
-            {
-                methodInfo = null;
-                return false;
-                // throw new("Expected Test.TypeInfo and Test.Method to not be null. Raise a Pull Request with a test that replicates this problem.");
-            }
-
-            // Type type = test.TypeInfo!.Type;
-
-            methodInfo = test.Method!.MethodInfo;
-            return true;
+            throw new Exception("Expected Test.TypeInfo and Test.Method to not be null. Raise a Pull Request with a test that replicates this problem.");
         }
 
-        public static MethodInfo Get()
-        {
-            if (!TryGet(out MethodInfo? methodInfo))
-            {
-                throw new Exception("Expected Test.TypeInfo and Test.Method to not be null. Raise a Pull Request with a test that replicates this problem.");
-            }
-
-            return methodInfo!;
-        }
+        return methodInfo!;
     }
 }

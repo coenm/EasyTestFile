@@ -1,14 +1,19 @@
 # EasyTestFile
 
-EasyTestFile is a library that simplifies the creation and using external testfiles in unittests.
+EasyTestFile is a library that simplifies the creation and usage of testfiles in unittests. 
+Testfiles (like text, json, xml, binary, jpg, etc. etc.) are named based on the class and method name, are created if not exist, and are embedded as resource making sure the execution of the test is deterministic and do not rely on untracked files etc.
 
-## XUnit
+At this moment, EasyTestFile can be used in combination with XUnit and NUnit.
+
+# Initial setup
+
+Using EasyTestFile in XUnit requires an additional attribute.
 
 <!-- snippet: XUnitAttributeUsage -->
 <a id='snippet-xunitattributeusage'></a>
 ```cs
 [UsesEasyTestFile]
-public partial class UnitTestClass
+public class TestClass1
 {
     // The attribute is required when using XUnit.
 }
@@ -16,15 +21,9 @@ public partial class UnitTestClass
 <sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L6-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-xunitattributeusage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
-
-## NUnit
-
 No special attributes or configuration is required to use EasyTestFile in combination with NUnit.
 
-## MS Test
-Todo.
-
-## API
+# API
 
 <!-- snippet: LoadAsText -->
 <a id='snippet-loadastext'></a>
@@ -40,7 +39,7 @@ public async Task LoadAsText()
     // and do whatever you want
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L26-L37' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastext' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L12-L23' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastext' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -55,9 +54,8 @@ public async Task LoadAsStream()
 
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L39-L47' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadasstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L25-L33' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadasstream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
-
 
 <!-- snippet: LoadAsTestFile -->
 <a id='snippet-loadastestfile'></a>
@@ -78,5 +76,20 @@ public async Task LoadAsTestFile()
     string text = await testFile.AsText();
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L53-L69' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L39-L55' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
+
+These three test methods produce the following testfiles according to the name convention `{class name}.{method name}.testfile.{extension}`
+
+![Solution Explorer TestFiles](/docs/images/SolutionExplorerTestFiles.png)
+
+# Credits
+
+## VerifyTest
+
+Verify is a snapshot tool that simplifies the assertion of complex data models and documents. Some ideas and parts of the implementation in this project are based on the [VerifyTest](http://github.com/verifyTests/Verify/).
+
+## Icon
+
+[Photo](https://thenounproject.com/term/photo/2013925) designed by [OCHA Visual](https://thenounproject.com/ochavisual) from [The Noun Project](https://thenounproject.com).

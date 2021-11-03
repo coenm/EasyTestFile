@@ -1,49 +1,25 @@
-namespace EasyTestFileXunit.Tests.CustomPath
+namespace EasyTestFileXunit.Tests.CustomPath;
+
+using System;
+using System.Threading.Tasks;
+using global::EasyTestFile;
+using FluentAssertions;
+using Xunit;
+
+[UsesEasyTestFile]
+public class CustomProjectPath
 {
-    using System;
-    using System.Threading.Tasks;
-    using global::EasyTestFile;
-    using FluentAssertions;
-    using Xunit;
-
-    [UsesEasyTestFile]
-    public class CustomProjectPath
+    [Theory]
+    [InlineData(1, "CustomPathTest2 1", 1)]
+    [InlineData(2, "CustomPathTest2 2", 1)]
+    [InlineData(2, "CustomPathTest2 2", 2)]
+    #pragma warning disable xUnit1026 // Theory methods should use all of their parameters. Justification: intentional
+    public async Task CustomPathTest2(int input, string expectedContent, int _)
     {
-        [Fact]
-        public async Task CustomPathTest1()
-        {
-            var settings = new EasyTestFileSettings();
-            settings.UseBaseDirectory(".customBaseFolder");
+        var settings = new EasyTestFileSettings();
+        settings.SetTestFileNameSuffix(input);
 
-            var content = await EasyTestFile.LoadAsText(settings);
-            _ = content.Should().Be("CustomPathTest1");
-        }
-
-        [Theory]
-        [InlineData(1, "CustomPathTest2 1", 1)]
-        [InlineData(2, "CustomPathTest2 2", 1)]
-        [InlineData(2, "CustomPathTest2 2", 2)]
-        public async Task CustomPathTest2(int input, string expectedContent, int __)
-        {
-            var settings = new EasyTestFileSettings();
-            settings.SetTestFileNameSuffix(input);
-
-            var content = await EasyTestFile.LoadAsText(settings);
-            _ = content.Should().Be(expectedContent);
-        }
-
-        [Theory]
-        [InlineData(1, "CustomPathTest3 1", 1)]
-        [InlineData(2, "CustomPathTest3 2", 1)]
-        [InlineData(2, "CustomPathTest3 2", 2)]
-        public async Task CustomPathTest3(int input, string expectedContent, int __)
-        {
-            var settings = new EasyTestFileSettings();
-            settings.UseBaseDirectory(".customBaseFolder");
-            settings.SetTestFileNameSuffix(input);
-
-            var content = await EasyTestFile.LoadAsText(settings);
-            _ = content.Should().Be(expectedContent);
-        }
+        var content = await EasyTestFile.LoadAsText(settings);
+        content.Should().Be(expectedContent);
     }
 }

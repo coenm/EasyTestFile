@@ -23,7 +23,7 @@
 				<_Parameter1>EasyTestFile.ProjectDirectory</_Parameter1>
 				<_Parameter2>$(ProjectDir)</_Parameter2>
 			</Attributes>
-			<Attributes Include="System.Reflection.AssemblyMetadata" Condition="$(SolutionDir) != '' And $(SolutionDir) != '*Undefined*'">
+			<Attributes Include="System.Reflection.AssemblyMetadata" Condition="'$(SolutionDir)' != '' And '$(SolutionDir)' != '*Undefined*'">
 				<_Parameter1>EasyTestFile.SolutionDirectory</_Parameter1>
 				<_Parameter2>$(SolutionDir)</_Parameter2>
 			</Attributes>

@@ -20,8 +20,8 @@ public class TestAssemblyInfoTest
         await VerifyXunit.Verifier.Verify(new
             {
                 AssemblyName = sut.Assembly.GetName().Name,
-                sut.ProjectDirectory,
-                sut.SolutionDirectory,
+                ProjectDirectory = sut.ProjectDirectory.Replace("\\", "/"),
+                SolutionDirectory = sut.SolutionDirectory?.Replace("\\", "/"),
             });
     }
-}
+}   

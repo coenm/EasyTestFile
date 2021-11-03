@@ -4,10 +4,17 @@
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml
 
 trigger:
-  - main
-  # - feature/*
-  - release/*
-  
+  batch: true
+  branches:
+    include:
+    - main
+    - 'validate/*'
+    - 'release/*'
+  paths:
+    exclude:
+    - doc/
+    - '*.md'
+    - .vscode/    
 
 pr: none
 

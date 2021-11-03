@@ -4,15 +4,16 @@
 		<RootNamespace>EasyTestFile</RootNamespace>
 		<PackageId>EasyTestFile</PackageId>
 		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;TestFiles</PackageTags>
+		<Description>EasyTestFile makes it easy to create and load files used in unittests.</Description>
 	</PropertyGroup>
 
     <ItemGroup>
-		<Content Include="buildTransitive\EasyTestFile.props" PackagePath="buildTransitive\LoadTestData.props" />
-		<Content Include="buildTransitive\EasyTestFile.targets" PackagePath="buildTransitive\LoadTestData.targets" />
+		<Content Include="buildTransitive\EasyTestFile.props" PackagePath="buildTransitive\EasyTestFile.props" />
+		<Content Include="buildTransitive\EasyTestFile.targets" PackagePath="buildTransitive\EasyTestFile.targets" />
 	</ItemGroup>
 
     <ItemGroup>
-	    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" Condition="$(Configuration) == 'Release'" />
+      <PackageReference Update="Nerdbank.GitVersioning" Version="3.4.244" />
     </ItemGroup>
 
 	<Choose>
@@ -29,8 +30,4 @@
 			</ItemGroup>
 		</Otherwise>
 	</Choose>
-
-	<ItemGroup>
-	  <Folder Include="Internals\" />
-	</ItemGroup>
 </Project>

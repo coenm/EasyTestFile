@@ -11,8 +11,8 @@ public static class TestFileAsText
     /// <summary>
     /// Returns content of <paramref name="testFile"/> as string.
     /// </summary>
-    /// <param name="testFile"></param>
-    /// <returns></returns>
+    /// <param name="testFile">TestFile instance.</param>
+    /// <returns>The text content of the test file.</returns>
     public static Task<string> AsText(this TestFile testFile)
     {
         return AsText(testFile.AsStream());
