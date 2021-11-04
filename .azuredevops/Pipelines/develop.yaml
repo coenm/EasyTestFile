@@ -44,11 +44,11 @@ stages:
             version: 2.1.x
             includePreviewVersions: false
 
-        # - task: UseDotNet@2
-        #   displayName: "Use dotnet sdk 3.1.x"
-        #   inputs:
-        #     version: "3.1.x"
-        #     includePreviewVersions: false    
+        - task: UseDotNet@2
+          displayName: "Use dotnet sdk 3.1.x"
+          inputs:
+            version: "3.1.x"
+            includePreviewVersions: false
 
         - task: UseDotNet@2
           displayName: "Use dotnet sdk 5.0.x"
