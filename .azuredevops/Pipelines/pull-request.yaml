@@ -24,13 +24,11 @@ stages:
             value: 1
           - name: DOTNET_SKIP_FIRST_TIME_EXPERIENCE
             value: 1
-          - name: COENM_FRIENDLY_BANCHNAME
-            value: $[replace(variables['Build.SourceBranch'], 'refs/heads/', '')]
-          - name: COENM_IS_FEATURE_BRANCH
-            value: $[contains(variables['Build.SourceBranch'], 'refs/heads/feature/')]
-          - name: COENM_IS_DEVELOP_BRANCH
-            value: $[contains(variables['Build.SourceBranch'], 'refs/heads/develop')]
-
+          - name: BuildConfiguration
+            value: Release
+          - name: ci_feed
+            value: 39ce9363-a308-4580-8610-ee11f4953539/01001223-8651-4b73-a7ca-ba27c3e10a3c
+ 
         steps:
         - task: UseDotNet@2
           displayName: "Use dotnet sdk 2.1.x"
@@ -59,33 +57,11 @@ stages:
         - script: dotnet --info
           displayName: Show dotnet SDK info
       
-        - task: PowerShell@2
-          displayName: "Use JDK11 by default"
-          inputs:
-            targetType: 'inline'
-            script: |
-              $jdkPath = $env:JAVA_HOME_11_X64
-              Write-Host "##vso[task.setvariable variable=JAVA_HOME]$jdkPath"
-
         - task: NuGetToolInstaller@1
           displayName: Install Nuget 5x
           inputs:
             versionSpec: '5.*'
             checkLatest: true
-
-        - task: DotNetCoreCLI@2
-          displayName: "Install tool: dotnet-sonarscanner"
-          inputs:
-            command: "custom"
-            custom: "tool"
-            arguments: "update --global dotnet-sonarscanner"
-
-        - task: DotNetCoreCLI@2
-          displayName: "Install tool: dotnet-reportgenerator-globaltool"
-          inputs:
-            command: "custom"
-            custom: "tool"
-            arguments: "update --global dotnet-reportgenerator-globaltool"
 
         - pwsh: |
             dotnet tool install --tool-path . nbgv
@@ -117,21 +93,21 @@ stages:
           inputs:
             command: 'build'
             projects: '**/*.sln'
-            configuration: 'release'
+            configuration: $(BuildConfiguration) 
 
         - task: DotNetCoreCLI@2
           displayName: "DotNet Test"
           inputs:
             command: test
             projects: '**/*[Tt]ests/*.csproj'
-            configuration: 'release'
+            configuration: $(BuildConfiguration) 
             nobuild: true
 
         - task: DotNetCoreCLI@2
           displayName: 'DotNet Pack'
           inputs:
             command: pack
-            configuration: 'release'
+            configuration: $(BuildConfiguration) 
             nobuild: false
             includesymbols: true
 
@@ -144,9 +120,11 @@ stages:
           displayName: Nuget authenticate
 
         - task: DotNetCoreCLI@2
-          displayName: DotNet Push
+          displayName: Push packages to CI feed
           inputs:
-            command: 'push'
+            command: push
             packagesToPush: '$(Pipeline.Workspace)/**/*.nupkg;$(Pipeline.Workspace)/**/*.snupkg;!$(Pipeline.Workspace)/**/*.symbols.nupkg'
-            nuGetFeedType: 'internal'
-            publishVstsFeed: '39ce9363-a308-4580-8610-ee11f4953539/01001223-8651-4b73-a7ca-ba27c3e10a3c'        
+            nuGetFeedType: internal
+            publishVstsFeed: $(ci_feed)
+            allowPackageConflicts: true
+            condition: and(succeeded(), ne(variables['ci_feed'], ''), ne(variables['Build.Reason'], 'PullRequest'))
