@@ -57,7 +57,7 @@ stages:
           steps:
           - download: CI
             artifact: packages
-            displayName: Download deployables-Windows artifact
+            displayName: Download nuget packages artifact
             patterns: 'packages/*'
           - task: NuGetToolInstaller@1
             displayName: Use NuGet 5.x
