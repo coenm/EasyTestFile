@@ -90,7 +90,7 @@ internal static class Guard
             throw new ArgumentException($"Value: {value} starts with an invalid character (space)", argumentName);
         }
 
-        if (value[IndexFromEnd(1)] == invalidChar)
+        if (value[value.Length - 1] == invalidChar)
         {
             throw new ArgumentException($"Value: {value} ends with an invalid character (space)", argumentName);
         }
@@ -106,18 +106,5 @@ internal static class Guard
         {
             throw new ArgumentException($"Value: {value} contains an invalid character ('{invalidChar}')", argumentName);
         }
-    }
-    
-    /// <summary>Create an Index from the end at the position indicated by the value.</summary>
-    /// <param name="value">The index value from the end.</param>
-    [MethodImpl(MethodImplOptions.AggressiveInlining)]
-    private static Index IndexFromEnd(int value)
-    {
-        if (value < 0)
-        {
-            throw new ArgumentOutOfRangeException(nameof(value), "value must be non-negative");
-        }
-
-        return new Index(value, true);
     }
 }
