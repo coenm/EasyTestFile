@@ -9,7 +9,7 @@ internal static class FileNameResolver
         var physicalFilename = testMethodInfo.SanitizedFullSourceFile;
         if (physicalFilename.EndsWith(".cs"))
         {
-            physicalFilename = physicalFilename[..(testMethodInfo.SanitizedFullSourceFile.Length - 3)];
+            physicalFilename = physicalFilename.Substring(0, physicalFilename.Length - 3);
         }
 
         var suffix = string.Empty;
