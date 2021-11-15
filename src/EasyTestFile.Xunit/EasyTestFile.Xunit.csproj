@@ -5,6 +5,7 @@
 		<PackageId>EasyTestFile.XUnit</PackageId>
 		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;XUnit</PackageTags>
 		<Description>Enables EasyTestFile when writing test using XUnit.</Description>
+		<PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -15,5 +16,9 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)" Visible="false" />
 	</ItemGroup>
 </Project>

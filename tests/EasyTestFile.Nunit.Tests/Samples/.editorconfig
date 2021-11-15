@@ -1,0 +1,10 @@
+[*.cs]
+#
+# Rules disabled due to sample code.
+#
+
+# IDE0007: Use implicit type
+dotnet_diagnostic.IDE0007.severity = none
+
+# IDE0059: Unnecessary assignment of a value
+dotnet_diagnostic.IDE0059.severity = none

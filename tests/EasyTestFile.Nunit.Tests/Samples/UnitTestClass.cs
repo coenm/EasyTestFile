@@ -1,16 +1,15 @@
-namespace EasyTestFileXunit.Tests.Samples;
+namespace EasyTestFileNunit.Tests.Samples;
 
 using System.IO;
 using System.Threading.Tasks;
 using global::EasyTestFile;
 using global::EasyTestFile.Json;
-using Xunit;
+using NUnit.Framework;
 
-[UsesEasyTestFile]
 public class UnitTestClass
 {
-    // begin-snippet: LoadAsText
-    [Fact]
+    // begin-snippet: NunitLoadAsText
+    [Test]
     public async Task LoadAsText()
     {
         // Executing this test for the first time will create an empty testfile and throw an exception.
@@ -22,8 +21,8 @@ public class UnitTestClass
     }
     // end-snippet
 
-    // begin-snippet: LoadAsStream
-    [Fact]
+    // begin-snippet: NunitLoadAsStream
+    [Test]
     public async Task LoadAsStream()
     {
         // You can also load the testfile content as a stream.
@@ -32,9 +31,9 @@ public class UnitTestClass
     }
     // end-snippet
 
-    
-    // begin-snippet: LoadJson
-    [Fact] // or [Test]
+
+    // begin-snippet: NunitLoadJson
+    [Test]
     public async Task JsonTestFile()
     {
         // load testfile
@@ -56,8 +55,8 @@ public class UnitTestClass
     // end-snippet
 
 
-    // begin-snippet: LoadAsTestFileBasic
-    [Fact]
+    // begin-snippet: NunitLoadAsTestFileBasic
+    [Test]
     public async Task LoadAsTestFile()
     {
         // You can also load the test file as a TestFile object.
@@ -72,8 +71,8 @@ public class UnitTestClass
     // end-snippet
 
 
-    // begin-snippet: LoadAsTestFile
-    [Fact]
+    // begin-snippet: NunitLoadAsTestFile
+    [Test]
     public async Task LoadAsTestFileWithJson()
     {
         // You can also load the test file as a TestFile object.
