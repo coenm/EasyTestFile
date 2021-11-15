@@ -61,7 +61,7 @@ public async Task LoadAsStream()
 <a id='snippet-loadastestfile'></a>
 ```cs
 [Fact]
-public async Task LoadAsTestFile()
+public async Task LoadAsTestFileWithJson()
 {
     // You can also load the test file as a TestFile object.
     TestFile testFile = EasyTestFile.Load();
@@ -76,7 +76,7 @@ public async Task LoadAsTestFile()
     string text = await testFile.AsText();
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L39-L55' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L75-L91' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
