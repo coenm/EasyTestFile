@@ -7,8 +7,16 @@ Testfiles (like text, json, xml, binary, jpg, etc. etc.) are named based on the 
 
 This package is required when your project uses NUnit for unittesting. No setup is required.
 
-<!-- snippet: Nunit -->
-```
-** Could not find snippet 'Nunit' **
-```
+## Samples
+
+<!-- snippet: NunitLoadAsText -->
 <!-- endSnippet -->
+
+<!-- snippet: NunitLoadAsStream -->
+<!-- endSnippet -->
+
+Or load the TestFile object first
+
+<!-- snippet: NunitLoadAsTestFileBasic -->
+<!-- endSnippet -->
+
