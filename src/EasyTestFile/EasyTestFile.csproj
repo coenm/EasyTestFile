@@ -5,6 +5,7 @@
 		<PackageId>EasyTestFile</PackageId>
 		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;TestFiles</PackageTags>
 		<Description>EasyTestFile makes it easy to create and load files used in unittests.</Description>
+		<PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
 	</PropertyGroup>
 
     <ItemGroup>
@@ -25,4 +26,8 @@
 			</ItemGroup>
 		</Otherwise>
 	</Choose>
+
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)" Visible="false" />
+	</ItemGroup>
 </Project>

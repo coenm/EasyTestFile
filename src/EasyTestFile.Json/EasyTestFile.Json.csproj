@@ -5,6 +5,7 @@
 		<PackageId>EasyTestFile.NewtonsoftJson</PackageId>
 		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;Json</PackageTags>
 		<Description>EasyTestFile NewtonsoftJson extension making it easy to read files as objects.</Description>
+		<PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
 	</PropertyGroup>
 	
 	<ItemGroup>
@@ -13,5 +14,9 @@
 
 	<ItemGroup>
 		<ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)" Visible="false" />
 	</ItemGroup>
 </Project>
