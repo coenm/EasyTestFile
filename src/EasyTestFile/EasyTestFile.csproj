@@ -22,7 +22,7 @@
 
 		<Otherwise>
 			<ItemGroup>
-				<PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
+				<PackageReference Include="Nullable" PrivateAssets="all" />
 			</ItemGroup>
 		</Otherwise>
 	</Choose>
