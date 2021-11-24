@@ -92,7 +92,7 @@ These three test methods produce the following testfiles according to the name c
 
 # Compile time Configuration
 
-There is an optional option to control how tsetfiles are included in your artifacts. This can be controlled using the property `EasyTestFileMode`.
+There is an optional option to control how testfiles are included in your artifacts. This can be controlled using the property `EasyTestFileMode`.
 The options are:
 - `None` TestFiles are not copied or embedded on compilation. EasyTestFile will load the files from the original source. This will speedup the compilation process but might be less reliable as files can be altered or deleted after compilation and before executing tests. Creating artifacts on buildservers in order to run the test in other environments might also be problematic as the testfiles are not included as artifact.
 - `Embed` The testfiles are embedded as resource in the `dll` file. This will produce larger binaries, takes a little bit more time to compile but   makes the test deterministic as testfiles cannot be altered or deleted after compilation and before testing.
