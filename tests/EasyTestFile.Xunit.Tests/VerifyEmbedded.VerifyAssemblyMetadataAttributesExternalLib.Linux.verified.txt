@@ -1,5 +1,10 @@
 ﻿[
   {
+    Key: EasyTestFile.EasyTestFileMode,
+    Value: Embed,
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
     Key: EasyTestFile.ProjectDirectory,
     Value: {SolutionDirectory}tests/EasyTestFile.Xunit.Resources/,
     TypeId: AssemblyMetadataAttribute
