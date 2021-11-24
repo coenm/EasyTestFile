@@ -103,7 +103,15 @@ When no (valid) value is provided, the `Embed` mode will be used.
 
 Configuration is done like:
 
-snippet: CompiletimeConfigurationEasyTestFileMode
+<!-- snippet: CompiletimeConfigurationEasyTestFileMode -->
+<a id='snippet-compiletimeconfigurationeasytestfilemode'></a>
+```csproj
+<PropertyGroup>
+	<EasyTestFileMode>CopyAlways</EasyTestFileMode>
+</PropertyGroup>
+```
+<sup><a href='/tests/EasyTestFile.Xunit.CopyAlways.Tests/EasyTestFile.Xunit.CopyAlways.Tests.csproj#L28-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-compiletimeconfigurationeasytestfilemode' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 # Credits
 
