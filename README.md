@@ -107,10 +107,11 @@ Configuration is done like:
 <a id='snippet-compiletimeconfigurationeasytestfilemode'></a>
 ```csproj
 <PropertyGroup>
-	<EasyTestFileMode>CopyAlways</EasyTestFileMode>
+  <!-- Embed;CopyAlways;CopyPreserveNewest;None -->
+  <EasyTestFileMode>CopyAlways</EasyTestFileMode>
 </PropertyGroup>
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.CopyAlways.Tests/EasyTestFile.Xunit.CopyAlways.Tests.csproj#L28-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-compiletimeconfigurationeasytestfilemode' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.CopyAlways.Tests/EasyTestFile.Xunit.CopyAlways.Tests.csproj#L26-L31' title='Snippet source file'>snippet source</a> | <a href='#snippet-compiletimeconfigurationeasytestfilemode' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 # Credits
