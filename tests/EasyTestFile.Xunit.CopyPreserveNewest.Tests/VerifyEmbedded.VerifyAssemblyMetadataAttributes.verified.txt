@@ -1,16 +1,26 @@
 ﻿[
   {
     Key: EasyTestFile.EasyTestFileMode,
-    Value: Embed,
+    Value: CopyPreserveNewest,
     TypeId: AssemblyMetadataAttribute
   },
   {
     Key: EasyTestFile.ProjectDirectory,
-    Value: {SolutionDirectory}tests\EasyTestFile.Xunit.Resources\,
+    Value: {ProjectDirectory},
     TypeId: AssemblyMetadataAttribute
   },
   {
     Key: EasyTestFile.SolutionDirectory,
+    Value: {SolutionDirectory},
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
+    Key: Verify.ProjectDirectory,
+    Value: {ProjectDirectory},
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
+    Key: Verify.SolutionDirectory,
     Value: {SolutionDirectory},
     TypeId: AssemblyMetadataAttribute
   }

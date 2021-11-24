@@ -1,0 +1,3 @@
+﻿[
+  {EasyTestFile}/Folder1/Folder2/EmbedMode.LoadFile.testfile.json
+]

@@ -20,6 +20,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7F514257-78A1-47F0-B75C-B9832A5496FA}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		README.md = README.md
 		version.json = version.json
 	EndProjectSection
 EndProject
@@ -36,6 +37,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Xunit.Resources", "tests\EasyTestFile.Xunit.Resources\EasyTestFile.Xunit.Resources.csproj", "{82529167-644B-4BAF-9105-3132F7FE8CE4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Tests", "tests\EasyTestFile.Tests\EasyTestFile.Tests.csproj", "{1C89726B-517D-40AC-A2C2-7BB1DC477EE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Xunit.Embed.Tests", "tests\EasyTestFile.Xunit.Embed.Tests\EasyTestFile.Xunit.Embed.Tests.csproj", "{521F5548-DE4E-4A1F-9DA1-EE2743F1864C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Xunit.CopyAlways.Tests", "tests\EasyTestFile.Xunit.CopyAlways.Tests\EasyTestFile.Xunit.CopyAlways.Tests.csproj", "{14927A45-6D1C-4B15-A18C-06AB7C7E97FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Xunit.CopyPreserveNewest.Tests", "tests\EasyTestFile.Xunit.CopyPreserveNewest.Tests\EasyTestFile.Xunit.CopyPreserveNewest.Tests.csproj", "{B72DBB51-A84C-4E1A-A70E-3677971A04E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Xunit.ModeNone.Tests", "tests\EasyTestFile.Xunit.ModeNone.Tests\EasyTestFile.Xunit.ModeNone.Tests.csproj", "{42805355-871E-4B35-9BB7-D168417D8860}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +84,22 @@ Global
 		{1C89726B-517D-40AC-A2C2-7BB1DC477EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C89726B-517D-40AC-A2C2-7BB1DC477EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C89726B-517D-40AC-A2C2-7BB1DC477EE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{521F5548-DE4E-4A1F-9DA1-EE2743F1864C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{521F5548-DE4E-4A1F-9DA1-EE2743F1864C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{521F5548-DE4E-4A1F-9DA1-EE2743F1864C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{521F5548-DE4E-4A1F-9DA1-EE2743F1864C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14927A45-6D1C-4B15-A18C-06AB7C7E97FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14927A45-6D1C-4B15-A18C-06AB7C7E97FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14927A45-6D1C-4B15-A18C-06AB7C7E97FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14927A45-6D1C-4B15-A18C-06AB7C7E97FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B72DBB51-A84C-4E1A-A70E-3677971A04E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72DBB51-A84C-4E1A-A70E-3677971A04E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72DBB51-A84C-4E1A-A70E-3677971A04E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72DBB51-A84C-4E1A-A70E-3677971A04E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42805355-871E-4B35-9BB7-D168417D8860}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42805355-871E-4B35-9BB7-D168417D8860}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42805355-871E-4B35-9BB7-D168417D8860}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42805355-871E-4B35-9BB7-D168417D8860}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -88,6 +113,10 @@ Global
 		{10B5E000-BA89-40B2-96C6-3628AF08F089} = {FA1F5DF0-A7AC-4E68-B875-E7F1D71329B6}
 		{82529167-644B-4BAF-9105-3132F7FE8CE4} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
 		{1C89726B-517D-40AC-A2C2-7BB1DC477EE7} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
+		{521F5548-DE4E-4A1F-9DA1-EE2743F1864C} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
+		{14927A45-6D1C-4B15-A18C-06AB7C7E97FB} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
+		{B72DBB51-A84C-4E1A-A70E-3677971A04E5} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
+		{42805355-871E-4B35-9BB7-D168417D8860} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E0B06F3E-E0CF-486F-9251-DB617317FE44}
