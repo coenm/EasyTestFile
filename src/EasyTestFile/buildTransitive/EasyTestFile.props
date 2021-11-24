@@ -6,7 +6,7 @@
         <DeterministicSourcePaths>false</DeterministicSourcePaths>
         <EasyTestFileAttributesFile>EasyTestFile.Attributes$(MSBuildProjectExtension.Replace('proj', ''))</EasyTestFileAttributesFile>
 		
-		<!-- Valid values are 'Embed', 'CopyAlways', 'CopyPreseverNewest', 'None' -->
+		<!-- Valid values are 'Embed', 'CopyAlways', 'CopyPreserveNewest', 'None' -->
 		<EasyTestFileMode>Embed</EasyTestFileMode>
 	</PropertyGroup>
 	
@@ -19,13 +19,17 @@
 			<EasyTestFileAttributesFilePath>$(IntermediateOutputPath)$(EasyTestFileAttributesFile)</EasyTestFileAttributesFilePath>
 		</PropertyGroup>
 		<ItemGroup>
-			<Attributes Include="System.Reflection.AssemblyMetadata">
+			<Attributes Include="System.Reflection.AssemblyMetadata" Condition="'$(ProjectDir)' != '' And '$(ProjectDir)' != '*Undefined*'">
 				<_Parameter1>EasyTestFile.ProjectDirectory</_Parameter1>
 				<_Parameter2>$(ProjectDir)</_Parameter2>
 			</Attributes>
 			<Attributes Include="System.Reflection.AssemblyMetadata" Condition="'$(SolutionDir)' != '' And '$(SolutionDir)' != '*Undefined*'">
 				<_Parameter1>EasyTestFile.SolutionDirectory</_Parameter1>
 				<_Parameter2>$(SolutionDir)</_Parameter2>
+			</Attributes>
+			<Attributes Include="System.Reflection.AssemblyMetadata" Condition="'$(EasyTestFileMode)' != '' And '$(EasyTestFileMode)' != '*Undefined*'">
+				<_Parameter1>EasyTestFile.EasyTestFileMode</_Parameter1>
+				<_Parameter2>$(EasyTestFileMode)</_Parameter2>
 			</Attributes>
 			
 			<!-- Ensure not part of Compile, as a workaround for https://github.com/dotnet/sdk/issues/114 -->
