@@ -23,7 +23,11 @@ public static class NewtonsoftDeserialize
             throw new ArgumentNullException(nameof(testFile));
         }
 
-        return Task.FromResult(DeserializeFromStream<T>(testFile.AsStream(), new JsonSerializer()));
+        JsonSerializer? jsonSerializer = testFile.GetSettings().GetNewtonSoftJsonSerializerSettings();
+
+        return Task.FromResult(DeserializeFromStream<T>(
+            testFile.AsStream(),
+            jsonSerializer ?? new JsonSerializer()));
     }
 
     /// <summary>

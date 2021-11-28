@@ -1,6 +1,8 @@
 {
+  <Context>k__BackingField: {},
   Assembly: null,
   AutoCreateMissingTestFileDisabled: false,
+  Context: {},
   TestFileNamingSuffix: null,
   _extension: null
 }

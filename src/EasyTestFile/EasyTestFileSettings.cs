@@ -31,10 +31,27 @@ public partial class EasyTestFileSettings
         AutoCreateMissingTestFileDisabled = settings.AutoCreateMissingTestFileDisabled;
         TestFileNamingSuffix = settings.TestFileNamingSuffix;
         Assembly = settings.Assembly;
+
+        foreach (KeyValuePair<string, object> pair in settings.Context)
+        {
+            if (pair.Value is ICloneable cloneable)
+            {
+                Context.Add(pair.Key, cloneable.Clone());
+            }
+            else
+            {
+                Context.Add(pair.Key, pair.Value);
+            }
+        }
     }
 
     internal bool AutoCreateMissingTestFileDisabled = false;
 
+    /// <summary>
+    /// Allows extensions to EasyTestFile to pass config via <see cref="EasyTestFileSettings"/>.
+    /// </summary>
+    public Dictionary<string, object> Context { get; } = new();
+    
     /// <summary>
     /// Disable the creation of an empty test file when the file could not have been found.
     /// </summary>
