@@ -5,7 +5,7 @@ Testfiles (like text, json, xml, binary, jpg, etc. etc.) are named based on the 
 
 # EasyTestFile.Json
 
-This package contains extension method(s) to deserialize TestFiles using json.
+This package contains extension methods to deserialize TestFiles using json.
 
 <!-- snippet: LoadJson -->
 <a id='snippet-loadjson'></a>

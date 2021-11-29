@@ -9,12 +9,12 @@ using Newtonsoft.Json;
 public static class EasyTestFileSettingsExtension
 {
     /// <summary>
-    /// 
+    /// Set <paramref name="jsonSerializer"/> as the default json serializer when deserializing testfiles.
     /// </summary>
-    /// <param name="settings"></param>
-    /// <param name="jsonSerializer"></param>
-    /// <exception cref="ArgumentNullException"></exception>
-    /// <exception cref="Exception"></exception>
+    /// <param name="settings">The settings.</param>
+    /// <param name="jsonSerializer">The serializer.</param>
+    /// <exception cref="ArgumentNullException">Thrown when <paramref name="settings"/> or when <paramref name="jsonSerializer"/> is <c>null</c>.</exception>
+    /// <exception cref="Exception">Thrown when key cannot be inserted.</exception>
     public static void SetNewtonSoftJsonSerializerSettings(this EasyTestFileSettings settings, JsonSerializer jsonSerializer)
     {
         if (settings == null)
@@ -43,13 +43,7 @@ public static class EasyTestFileSettingsExtension
         }
     }
 
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <param name="settings"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentNullException"></exception>
-    public static JsonSerializer? GetNewtonSoftJsonSerializerSettings(this EasyTestFileSettings settings)
+    internal static JsonSerializer? GetNewtonSoftJsonSerializerSettings(this EasyTestFileSettings settings)
     {
         if (settings == null)
         {

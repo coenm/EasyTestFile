@@ -15,21 +15,6 @@ using Sut = EasyTestFileSettingsExtension;
 public class EasyTestFileSettingsExtensionTest
 {
     [Fact]
-    public void SetNewtonSoftJsonSerializerSettings1()
-    {
-        // arrange
-        var settings1 = new EasyTestFileSettings();
-        var jsonSerializer = new JsonSerializer();
-        Sut.SetNewtonSoftJsonSerializerSettings(settings1, jsonSerializer);
-
-        // act
-        JsonSerializer result = Sut.GetNewtonSoftJsonSerializerSettings(settings1);
-
-        // assert
-        result.Should().BeSameAs(jsonSerializer);
-    }
-    
-    [Fact]
     public void SetNewtonSoftJsonSerializerSettings_ShouldSaveSettingsInContext()
     {
         // arrange
