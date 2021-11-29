@@ -1,6 +1,7 @@
-{
+﻿{
   Assembly: null,
   AutoCreateMissingTestFileDisabled: false,
+  Context: {},
   TestFileNamingSuffix: test123,
   _extension: null
 }

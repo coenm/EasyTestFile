@@ -13,7 +13,7 @@ public static class NewtonsoftDeserialize
     /// <summary>
     /// Deserializes the <paramref name="testFile"/> using <see cref="Newtonsoft"/>.
     /// </summary>
-    /// <param name="testFile">The TestFile. Cannot be null</param>
+    /// <param name="testFile">The TestFile. Cannot be <c>null</c>.</param>
     /// <typeparam name="T">The type of the object to deserialize.</typeparam>
     /// <returns>The instance of <typeparamref name="T"/> being deserialized.</returns>
     public static Task<T> AsObjectUsingNewtonsoft<T>(this TestFile testFile)
@@ -23,14 +23,39 @@ public static class NewtonsoftDeserialize
             throw new ArgumentNullException(nameof(testFile));
         }
 
-        return Task.FromResult(DeserializeFromStream<T>(testFile.AsStream()));
+        JsonSerializer? jsonSerializer = testFile.GetSettings().GetNewtonSoftJsonSerializerSettings();
+
+        return Task.FromResult(DeserializeFromStream<T>(
+            testFile.AsStream(),
+            jsonSerializer ?? new JsonSerializer()));
     }
 
-    internal static T DeserializeFromStream<T>(Stream stream)
+    /// <summary>
+    /// Deserializes the <paramref name="testFile"/> using <see cref="Newtonsoft"/>.
+    /// </summary>
+    /// <param name="testFile">The TestFile. Cannot be <c>null</c>.</param>
+    /// <param name="serializer">Json serializer. Cannot be <c>null</c>.</param>
+    /// <typeparam name="T">The type of the object to deserialize.</typeparam>
+    /// <returns>The instance of <typeparamref name="T"/> being deserialized.</returns>
+    public static Task<T> AsObjectUsingNewtonsoft<T>(this TestFile testFile, JsonSerializer serializer)
     {
-        var serializer = new JsonSerializer();
+        if (testFile == null)
+        {
+            throw new ArgumentNullException(nameof(testFile));
+        }
+
+        if (serializer == null)
+        {
+            throw new ArgumentNullException(nameof(serializer));
+        }
+
+        return Task.FromResult(DeserializeFromStream<T>(testFile.AsStream(), serializer));
+    }
+
+    internal static T DeserializeFromStream<T>(Stream stream, JsonSerializer jsonSerializer)
+    {
         using var sr = new StreamReader(stream);
         using var jsonTextReader = new JsonTextReader(sr);
-        return serializer.Deserialize<T>(jsonTextReader)!;
+        return jsonSerializer.Deserialize<T>(jsonTextReader)!;
     }
 }
