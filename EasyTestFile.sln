@@ -46,6 +46,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Xunit.CopyPres
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Xunit.ModeNone.Tests", "tests\EasyTestFile.Xunit.ModeNone.Tests\EasyTestFile.Xunit.ModeNone.Tests.csproj", "{42805355-871E-4B35-9BB7-D168417D8860}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyTestFile.Json.Tests", "tests\EasyTestFile.Json.Tests\EasyTestFile.Json.Tests.csproj", "{CF26070C-860B-421D-8697-1D04367BC3DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -100,6 +102,10 @@ Global
 		{42805355-871E-4B35-9BB7-D168417D8860}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42805355-871E-4B35-9BB7-D168417D8860}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42805355-871E-4B35-9BB7-D168417D8860}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF26070C-860B-421D-8697-1D04367BC3DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF26070C-860B-421D-8697-1D04367BC3DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF26070C-860B-421D-8697-1D04367BC3DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF26070C-860B-421D-8697-1D04367BC3DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +123,7 @@ Global
 		{14927A45-6D1C-4B15-A18C-06AB7C7E97FB} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
 		{B72DBB51-A84C-4E1A-A70E-3677971A04E5} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
 		{42805355-871E-4B35-9BB7-D168417D8860} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
+		{CF26070C-860B-421D-8697-1D04367BC3DD} = {3A849D71-FEE8-4494-A8A6-C303AAB18A42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E0B06F3E-E0CF-486F-9251-DB617317FE44}

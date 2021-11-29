@@ -1,5 +1,6 @@
 namespace EasyTestFile.Tests;
 
+using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json;

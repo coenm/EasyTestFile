@@ -1,5 +1,4 @@
 ﻿{
-  <Context>k__BackingField: {},
   Assembly: null,
   AutoCreateMissingTestFileDisabled: true,
   Context: {},

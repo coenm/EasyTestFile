@@ -6,6 +6,6 @@ namespace EasyTestFile.Json
 
     internal static class ExtensionKey
     {
-        internal const string JSON_SERIALIZER = "Newtonsoft.Json.JsonSerializer.Key";
+        internal const string JSON_SERIALIZER = "Newtonsoft.Json.JsonSerializer";
     }
 }
