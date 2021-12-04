@@ -5,15 +5,20 @@
 		<PackageId>EasyTestFile.XUnit</PackageId>
 		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;XUnit</PackageTags>
 		<Description>Enables EasyTestFile when writing test using XUnit.</Description>
+		<PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="xunit.assert" Version="2.4.1" />
-		<PackageReference Include="xunit.abstractions" Version="2.0.3" />
-		<PackageReference Include="xunit.extensibility.execution" Version="2.4.1" />
+		<PackageReference Include="xunit.assert" />
+		<PackageReference Include="xunit.abstractions" />
+		<PackageReference Include="xunit.extensibility.execution" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)" Visible="false" />
 	</ItemGroup>
 </Project>

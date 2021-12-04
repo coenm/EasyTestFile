@@ -5,13 +5,18 @@
 		<PackageId>EasyTestFile.NUnit</PackageId>
 		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;NUnit</PackageTags>
 		<Description>Enables EasyTestFile when writing test using NUnit.</Description>
+		<PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="NUnit" Version="3.13.2" />
+		<PackageReference Include="NUnit" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)" Visible="false" />
 	</ItemGroup>
 </Project>

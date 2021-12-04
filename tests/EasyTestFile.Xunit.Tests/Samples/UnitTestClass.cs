@@ -32,13 +32,49 @@ public class UnitTestClass
     }
     // end-snippet
 
+    
+    // begin-snippet: LoadJson
+    [Fact] // or [Test]
+    public async Task JsonTestFile()
+    {
+        // load testfile
+        var settings = new EasyTestFileSettings();
+        settings.UseExtension("json");
+        TestFile testFile = EasyTestFile.Load(settings);
+
+        // deserialize testfile using Newtonsoft Json.
+        Person person = await testFile.AsObjectUsingNewtonsoft<Person>();
+
+        // do something with person object
+        // i.e. sut.Process(person);
+    }
+
     public class Person
     {
+        public string Name { get; set; }
     }
+    // end-snippet
+
+
+    // begin-snippet: LoadAsTestFileBasic
+    [Fact]
+    public async Task LoadAsTestFile()
+    {
+        // You can also load the test file as a TestFile object.
+        TestFile testFile = EasyTestFile.Load();
+
+        // then you can load the content as a stream
+        Stream stream = testFile.AsStream();
+
+        // or like
+        string text = await testFile.AsText();
+    }
+    // end-snippet
+
 
     // begin-snippet: LoadAsTestFile
     [Fact]
-    public async Task LoadAsTestFile()
+    public async Task LoadAsTestFileWithJson()
     {
         // You can also load the test file as a TestFile object.
         TestFile testFile = EasyTestFile.Load();

@@ -1,6 +1,7 @@
 namespace EasyTestFile;
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -69,4 +70,10 @@ public sealed class TestFile
 
         throw new TestFileNotFoundException(operatingSystemFullFilename, created);
     }
+
+    internal EasyTestFileSettings GetSettings()
+    {
+        return _settings;
+    }
+
 }

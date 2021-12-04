@@ -1,0 +1,22 @@
+{
+  "$type": "EasyTestFile.Json.Tests.TestEntities.TestEntity, EasyTestFile.Json.Tests",
+  "Name": "CoenM",
+  "DateOfBirth": "2020-03-05T04:14:12",
+  "Subs": {
+    "$type": "System.Collections.Generic.List`1[[EasyTestFile.Json.Tests.TestEntities.SubTestEntity, EasyTestFile.Json.Tests]], System.Private.CoreLib",
+    "$values": [
+      {
+        "$type": "EasyTestFile.Json.Tests.TestEntities.SubTestEntity, EasyTestFile.Json.Tests",
+        "Id": "073633d2-edd1-4a1d-93b7-fa4a8b1b1a03"
+      },
+      {
+        "$type": "EasyTestFile.Json.Tests.TestEntities.SubTestEntity, EasyTestFile.Json.Tests",
+        "Id": "841e3836-b1b2-4e45-979e-e0b2ad8fad38"
+      },
+      {
+        "$type": "EasyTestFile.Json.Tests.TestEntities.SubTestEntity, EasyTestFile.Json.Tests",
+        "Id": "86e2fb0b-30a8-4688-ad24-f7da9385c43c"
+      }
+    ]
+  }
+}

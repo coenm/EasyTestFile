@@ -1,0 +1,27 @@
+﻿[
+  {
+    Key: EasyTestFile.EasyTestFileMode,
+    Value: CopyPreserveNewest,
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
+    Key: EasyTestFile.ProjectDirectory,
+    Value: {ProjectDirectory},
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
+    Key: EasyTestFile.SolutionDirectory,
+    Value: {SolutionDirectory},
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
+    Key: Verify.ProjectDirectory,
+    Value: {ProjectDirectory},
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
+    Key: Verify.SolutionDirectory,
+    Value: {SolutionDirectory},
+    TypeId: AssemblyMetadataAttribute
+  }
+]
