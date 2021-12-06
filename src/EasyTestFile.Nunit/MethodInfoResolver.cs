@@ -3,18 +3,15 @@ namespace EasyTestFileNunit;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using global::EasyTestFile;
 using NUnit.Framework;
 using NUnit.Framework.Internal;
 
 internal static class MethodInfoResolver
 {
-    private static readonly FieldInfo _field;
-
-    static MethodInfoResolver()
-    {
-        FieldInfo? temp = typeof(TestContext.TestAdapter).GetField("_test", BindingFlags.Instance | BindingFlags.NonPublic);
-        _field = temp ?? throw new Exception("Could not find field `_test` on TestContext.TestAdapter.");
-    }
+    private static readonly FieldInfo _field = typeof(TestContext.TestAdapter).GetField("_test", BindingFlags.Instance | BindingFlags.NonPublic)
+                                               ??
+                                               throw new InternalErrorRaisePullRequestException("Could not find field `_test` on TestContext.TestAdapter.");
 
     public static bool TryGet([NotNullWhen(true)] out MethodInfo? methodInfo)
     {
@@ -37,7 +34,7 @@ internal static class MethodInfoResolver
     {
         if (!TryGet(out MethodInfo? methodInfo))
         {
-            throw new Exception("Expected Test.TypeInfo and Test.Method to not be null. Raise a Pull Request with a test that replicates this problem.");
+            throw new InternalErrorRaisePullRequestException("Expected Test.TypeInfo and Test.Method to not be null.");
         }
 
         return methodInfo!;

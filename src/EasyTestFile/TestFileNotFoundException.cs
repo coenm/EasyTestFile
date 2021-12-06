@@ -9,7 +9,7 @@ using System.Security.Permissions;
 /// Exception when TestFile cannot be found.
 /// </summary>
 [Serializable]
-public class TestFileNotFoundException : Exception
+public sealed class TestFileNotFoundException : Exception
 {
     internal TestFileNotFoundException(string filename, bool created)
         : base(CreateExceptionMessage(filename, created))
