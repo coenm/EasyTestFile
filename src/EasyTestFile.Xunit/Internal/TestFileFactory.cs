@@ -1,8 +1,8 @@
-namespace EasyTestFileNunit.Internal
+namespace EasyTestFileXunit.Internal
 {
     using System.Reflection;
     using System.Runtime.CompilerServices;
-    using EasyTestFile;
+    using global::EasyTestFile;
 
     internal static class TestFileFactory
     {

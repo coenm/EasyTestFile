@@ -5,7 +5,7 @@ namespace EasyTestFileXunit
     using System.Reflection;
     using System.Runtime.CompilerServices;
     using System.Threading.Tasks;
-    using EasyTestFileNunit.Internal;
+    using EasyTestFileXunit.Internal;
     using global::EasyTestFile;
 
     /// <summary>

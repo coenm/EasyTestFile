@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;netstandard2.1;net5;net6</TargetFrameworks>
-		<RootNamespace>EasyTestFileNunit</RootNamespace>
+		<RootNamespace>EasyTestFileXunit</RootNamespace>
 		<PackageId>EasyTestFile.XUnit</PackageId>
 		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;XUnit</PackageTags>
 		<Description>Enables EasyTestFile when writing test using XUnit.</Description>

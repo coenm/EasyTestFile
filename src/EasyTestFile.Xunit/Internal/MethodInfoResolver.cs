@@ -1,4 +1,4 @@
-namespace EasyTestFileNunit.Internal
+namespace EasyTestFileXunit.Internal
 {
     using System;
     using System.Reflection;
