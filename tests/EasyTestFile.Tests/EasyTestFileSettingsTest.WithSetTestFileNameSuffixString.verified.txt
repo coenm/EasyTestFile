@@ -2,6 +2,9 @@
   Assembly: null,
   AutoCreateMissingTestFileDisabled: false,
   Context: {},
+  Directory: null,
+  FileName: null,
+  MethodName: null,
   TestFileNamingSuffix: test123,
   _extension: null
 }

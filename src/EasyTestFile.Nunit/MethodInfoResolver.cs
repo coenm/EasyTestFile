@@ -25,7 +25,7 @@ internal static class MethodInfoResolver
             return false;
         }
 
-        // Type type = test.TypeInfo!.Type;
+        // Type type = test.TypeInfo!.Type
         methodInfo = test.Method!.MethodInfo;
         return true;
     }

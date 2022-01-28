@@ -1,10 +1,9 @@
-namespace EasyTestFile.DerivedPaths;
+namespace EasyTestFile.Internals;
 
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
-using EasyTestFile.Internals;
 
 internal static class AttributeReader
 {

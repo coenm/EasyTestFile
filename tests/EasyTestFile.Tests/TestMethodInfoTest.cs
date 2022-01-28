@@ -1,4 +1,4 @@
-namespace EasyTestFile.Tests.Internals;
+namespace EasyTestFile.Tests;
 
 using System;
 using System.Diagnostics;

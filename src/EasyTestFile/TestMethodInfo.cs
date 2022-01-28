@@ -13,6 +13,7 @@ internal readonly struct TestMethodInfo
     internal TestMethodInfo(MethodInfo info, string sourceFile, string method) :
         this(sourceFile, method)
     {
+        _ = info;
     }
 
     /// <exception cref="ArgumentNullException">Thrown when a parameter is <c>null</c>.</exception>
@@ -41,11 +42,26 @@ internal readonly struct TestMethodInfo
             throw new Exception("Could not determine directory.");
         }
 
+        dirName = dirName.TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;
         SanitizedDirectory = DirectorySanitizer.Sanitize(dirName);
         SanitizedFullSourceFile = DirectorySanitizer.Sanitize(sourceFile);
-                                         
+
+        if (fi!.Name.Length >= fi!.Extension.Length && fi!.Name.EndsWith(fi!.Extension))
+        {
+            FileName = fi!.Name.Substring(0, fi!.Name.Length - fi!.Extension.Length);
+        }
+        else
+        {
+            FileName = fi!.Name;
+        }
+        
         Method = method;
     }
+
+    /// <summary>
+    /// Filename without extension.
+    /// </summary>
+    public string FileName { get; }
 
     /// <summary>
     /// Caller full filename with '\' path separators.
@@ -53,7 +69,7 @@ internal readonly struct TestMethodInfo
     public string SanitizedFullSourceFile { get; }
 
     /// <summary>
-    /// 
+    /// Caller full directory with '\' path separators. Ends with '\'.
     /// </summary>
     public string SanitizedDirectory { get; }
 

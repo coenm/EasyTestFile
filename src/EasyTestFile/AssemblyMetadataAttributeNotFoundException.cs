@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 /// Exception thrown when an expected AssemblyMetadataAttribute was not found.
 /// </summary>
 [Serializable]
-public class AssemblyMetadataAttributeNotFoundException : Exception
+public sealed class AssemblyMetadataAttributeNotFoundException : Exception
 {
     internal AssemblyMetadataAttributeNotFoundException(string assemblyName, string key)
     {

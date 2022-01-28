@@ -1,28 +1,45 @@
 namespace EasyTestFile.Internals;
 
-using System;
+using System.IO;
 
 internal static class FileNameResolver
 {
-    internal static (string RelativeFilename, string AbsoluteFilename) Find(EasyTestFileSettings settings, TestAssemblyInfo testAssemblyInfo, TestMethodInfo testMethodInfo)
+    internal static string GetFileNamePrefix(EasyTestFileSettings settings, TestAssemblyInfo testAssemblyInfo, TestMethodInfo testMethodInfo)
     {
-        var physicalFilename = testMethodInfo.SanitizedFullSourceFile;
-        if (physicalFilename.EndsWith(".cs"))
+        _ = testAssemblyInfo;
+
+        if (settings.FileName is not null)
         {
-            physicalFilename = physicalFilename.Substring(0, physicalFilename.Length - 3);
+            return settings.FileName;
         }
 
+        // var typeName = settings.typeName ?? pathInfo.TypeName ?? GetTypeName(type)
+        var typeName = testMethodInfo.FileName;
+        var methodName = settings.MethodName ?? testMethodInfo.Method;
+        
         var suffix = string.Empty;
         if (!string.IsNullOrWhiteSpace(settings.TestFileNamingSuffix))
         {
             suffix = "." + settings.TestFileNamingSuffix;
         }
+        
+        return $"{typeName}.{methodName}{suffix}";
+    }
 
-        physicalFilename = physicalFilename + "." + testMethodInfo.Method + suffix + EasyTestFileConstants.EASY_TEST_FILE_SUFFIX + "." + settings.ExtensionOrTxt();
-        physicalFilename = DirectorySanitizer.Sanitize(physicalFilename);
+    internal static (string Relative, string Absolute) GetDirectories(EasyTestFileSettings settings, TestAssemblyInfo testAssemblyInfo, TestMethodInfo testMethodInfo)
+    {
+        _ = testAssemblyInfo;
+        var absoluteDir = testMethodInfo.SanitizedDirectory;
+        if (settings.Directory is not null)
+        {
+            absoluteDir = DirectorySanitizer.Sanitize(Path.Combine(DirectorySanitizer.ToOperatingSystemPath(absoluteDir), settings.Directory));
+        }
 
-        var relativeFilename = StringHelpers.StringReplaceIgnoreCase(physicalFilename, DirectorySanitizer.Sanitize(testAssemblyInfo.ProjectDirectory), string.Empty);
+        absoluteDir = absoluteDir.TrimEnd('\\', '/');
+        absoluteDir += DirectorySanitizer.DIRECTORY_SEPARATOR_CHAR;
 
-        return (relativeFilename, physicalFilename);
+        var relativeFilename = StringHelpers.StringReplaceIgnoreCase(absoluteDir, DirectorySanitizer.Sanitize(testAssemblyInfo.ProjectDirectory), string.Empty);
+
+        return (relativeFilename, absoluteDir);
     }
 }

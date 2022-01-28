@@ -2,7 +2,6 @@ namespace EasyTestFileXunit.CopyAlways.Tests;
 
 using FluentAssertions;
 using global::EasyTestFile;
-using global::EasyTestFile.DerivedPaths;
 using global::EasyTestFile.Internals;
 using Xunit;
 
