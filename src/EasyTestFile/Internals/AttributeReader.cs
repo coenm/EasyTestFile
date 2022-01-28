@@ -95,7 +95,7 @@ internal static class AttributeReader
     {
         if (TryGetValue(assembly, key, out value))
         {
-            value = value.Replace('/', '\\');
+            value = value.Replace('\\', DirectorySanitizer.DIRECTORY_SEPARATOR_CHAR);
             return true;
         }
 

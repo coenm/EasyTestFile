@@ -33,7 +33,7 @@ public class AttributeReaderTest
         // assert
         result.Should().BeTrue();
         projectDirectory.Should().NotBeNullOrWhiteSpace();
-        projectDirectory.Should().EndWith($"{Path.DirectorySeparatorChar}");
+        projectDirectory.Should().EndWith($"{DirectorySanitizer.DIRECTORY_SEPARATOR_CHAR}");
     }
 
     [Fact]
@@ -50,7 +50,7 @@ public class AttributeReaderTest
 
         // assert
         result.Should().NotBeNullOrWhiteSpace();
-        result.Should().EndWith($"{Path.DirectorySeparatorChar}");
+        result.Should().EndWith($"{DirectorySanitizer.DIRECTORY_SEPARATOR_CHAR}");
     }
 
     [Fact]
@@ -68,6 +68,6 @@ public class AttributeReaderTest
         // assert
         result.Should().BeTrue();
         solutionDirectory.Should().NotBeNullOrWhiteSpace();
-        solutionDirectory.Should().EndWith($"{Path.DirectorySeparatorChar}");
+        solutionDirectory.Should().EndWith($"{DirectorySanitizer.DIRECTORY_SEPARATOR_CHAR}");
     }
 }
