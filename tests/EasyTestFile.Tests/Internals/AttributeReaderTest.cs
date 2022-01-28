@@ -19,7 +19,7 @@ public class AttributeReaderTest
 
         // assert
         result.Should().NotBeNullOrWhiteSpace();
-        result.Should().EndWith($"{Path.DirectorySeparatorChar}");
+        result.Should().EndWith($"{DirectorySanitizer.DIRECTORY_SEPARATOR_CHAR}");
     }
 
     [Fact]
