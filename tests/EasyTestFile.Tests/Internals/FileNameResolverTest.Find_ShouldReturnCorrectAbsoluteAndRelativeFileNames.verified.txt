@@ -1,4 +1,0 @@
-{
-  relativeFilename: Internals/FileNameResolverTest.Find_ShouldReturnCorrectAbsoluteAndRelativeFileNames.testfile.txt,
-  absoluteFilename: {ProjectDirectory}Internals/FileNameResolverTest.Find_ShouldReturnCorrectAbsoluteAndRelativeFileNames.testfile.txt
-}

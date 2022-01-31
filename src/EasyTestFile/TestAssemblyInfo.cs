@@ -2,7 +2,7 @@ namespace EasyTestFile;
 
 using System;
 using System.Reflection;
-using EasyTestFile.DerivedPaths;
+using EasyTestFile.Internals;
 
 internal readonly struct TestAssemblyInfo
 {

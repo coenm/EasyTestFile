@@ -1,10 +1,9 @@
-namespace EasyTestFile.DerivedPaths;
+namespace EasyTestFile.Internals;
 
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
-using EasyTestFile.Internals;
 
 internal static class AttributeReader
 {
@@ -21,7 +20,7 @@ internal static class AttributeReader
     /// <exception cref="AssemblyMetadataAttributeNotFoundException">Thrown when the `CallingAssembly` doesn't contain an <seealso cref="AssemblyMetadataAttribute"/> with the ProjectDirectory.</exception>
     public static string GetProjectDirectory(Assembly assembly)
     {
-        return GetEscapedPathValue(assembly, PROJECT_DIRECTORY).Replace('/', '\\');
+        return GetEscapedPathValue(assembly, PROJECT_DIRECTORY);
     }
 
     public static bool TryGetProjectDirectory([NotNullWhen(true)] out string? projectDirectory)
@@ -96,7 +95,7 @@ internal static class AttributeReader
     {
         if (TryGetValue(assembly, key, out value))
         {
-            value = value.Replace('/', '\\');
+            value = value.Replace('\\', DirectorySanitizer.DIRECTORY_SEPARATOR_CHAR);
             return true;
         }
 

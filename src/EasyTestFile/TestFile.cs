@@ -1,10 +1,8 @@
 namespace EasyTestFile;
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using System.Threading.Tasks;
 using EasyTestFile.Internals;
 
 /// <summary>
@@ -14,9 +12,10 @@ public sealed class TestFile
 {
     private readonly EasyTestFileSettings _settings;
     private readonly Assembly _assembly;
-    private readonly string _physicalFilename;
-    private readonly string _relativeFilename;
-    
+    private readonly string _filenamePrefix;
+    private readonly string _relativeDirectory;
+    private readonly string _absoluteDirectory;
+
     internal TestFile(
         EasyTestFileSettings? settings,
         TestAssemblyInfo testAssemblyInfo,
@@ -25,7 +24,8 @@ public sealed class TestFile
         _settings = settings ?? new EasyTestFileSettings();
         _assembly = _settings.Assembly ?? testAssemblyInfo.Assembly;
 
-        (_relativeFilename, _physicalFilename) = FileNameResolver.Find(_settings, testAssemblyInfo, testMethodInfo);
+        _filenamePrefix = FileNameResolver.GetFileNamePrefix(_settings, testAssemblyInfo, testMethodInfo);
+        (_relativeDirectory, _absoluteDirectory) = FileNameResolver.GetDirectories(_settings, testAssemblyInfo, testMethodInfo);
     }
 
     /// <summary>
@@ -35,14 +35,18 @@ public sealed class TestFile
     /// <exception cref="TestFileNotFoundException">Thrown when stream cannot be found.</exception>
     public Stream AsStream()
     {
-        Stream? stream =  StreamResolver.Resolve(_relativeFilename, _physicalFilename, _assembly);
+        var filename = _filenamePrefix + EasyTestFileConstants.EASY_TEST_FILE_SUFFIX + "." + _settings.ExtensionOrTxt();
+        var relativeFilename = DirectorySanitizer.PathCombine(_relativeDirectory, filename);
+        var physicalFilename = DirectorySanitizer.PathCombine(_absoluteDirectory, filename);
+
+        Stream? stream =  StreamResolver.Resolve(relativeFilename, physicalFilename, _assembly);
 
         if (stream != null)
         {
             return stream;
         }
         
-        var operatingSystemFullFilename = DirectorySanitizer.ToOperatingSystemPath(_physicalFilename);
+        var operatingSystemFullFilename = DirectorySanitizer.ToOperatingSystemPath(physicalFilename);
         var created = false;
 
         if (!_settings.AutoCreateMissingTestFileDisabled)
@@ -75,5 +79,4 @@ public sealed class TestFile
     {
         return _settings;
     }
-
 }

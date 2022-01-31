@@ -1,0 +1,4 @@
+﻿{
+  relative: Internals/,
+  absolute: {ProjectDirectory}Internals/
+}

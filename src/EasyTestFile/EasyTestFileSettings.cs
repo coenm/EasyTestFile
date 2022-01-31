@@ -28,6 +28,9 @@ public partial class EasyTestFileSettings
         }
 
         _extension = settings._extension;
+        FileName = settings.FileName;
+        Directory = settings.Directory;
+        MethodName = settings.MethodName;
         AutoCreateMissingTestFileDisabled = settings.AutoCreateMissingTestFileDisabled;
         TestFileNamingSuffix = settings.TestFileNamingSuffix;
         Assembly = settings.Assembly;
@@ -64,7 +67,7 @@ public partial class EasyTestFileSettings
 
     /// <summary>
     /// Use <paramref name="input"/>  as suffix for naming the testfile.
-    /// In this case, the testfile will be named `{Directory}/{TestClassName}.{TestMethodName}_{Suffix}.testfile.{extension}`.
+    /// In this case, the testfile will be named `{Directory}/{TestClassName}.{TestMethodName}{Suffix}.testfile.{extension}`.
     /// </summary>
     /// <param name="input">The suffix.</param>
     public void SetTestFileNameSuffix(int input)

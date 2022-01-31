@@ -1,8 +1,6 @@
 namespace EasyTestFile.Tests.Internals;
 
-using System.Diagnostics;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using FluentAssertions;
 using VerifyXunit;
@@ -13,7 +11,7 @@ using Sut = EasyTestFile.Internals.FileNameResolver;
 public class FileNameResolverTest
 {
     [Fact]
-    public async Task Find_ShouldReturnCorrectAbsoluteAndRelativeFileNames()
+    public void GetFileNamePrefix_ShouldReturnCorrectString()
     {
         // arrange
         var settings = new EasyTestFileSettings();
@@ -21,13 +19,28 @@ public class FileNameResolverTest
         TestMethodInfo testMethodInfo = TestMethodInfoFactory.CreateTestMethodInfo(MethodBase.GetCurrentMethod()!);
 
         // act
-        (string relativeFilename, string absoluteFilename) = Sut.Find(settings, testAssemblyInfo, testMethodInfo);
+        var result = Sut.GetFileNamePrefix(settings, testAssemblyInfo, testMethodInfo);
+
+        // assert
+        result.Should().Be("FileNameResolverTest.GetFileNamePrefix_ShouldReturnCorrectString");
+    }
+
+    [Fact]
+    public async Task GetDirectories_ShouldReturnCorrectAbsoluteAndRelativeFileNames()
+    {
+        // arrange
+        var settings = new EasyTestFileSettings();
+        var testAssemblyInfo = new TestAssemblyInfo(typeof(FileNameResolverTest).Assembly);
+        TestMethodInfo testMethodInfo = TestMethodInfoFactory.CreateTestMethodInfo(MethodBase.GetCurrentMethod()!);
+
+        // act
+        var (relative, absolute) = Sut.GetDirectories(settings, testAssemblyInfo, testMethodInfo);
 
         // assert
         await VerifyXunit.Verifier.Verify(new
             {
-                relativeFilename,
-                absoluteFilename,
+                relative,
+                absolute,
             });
     }
 }

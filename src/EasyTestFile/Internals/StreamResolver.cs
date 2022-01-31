@@ -2,7 +2,6 @@ namespace EasyTestFile.Internals;
 
 using System.IO;
 using System.Reflection;
-using EasyTestFile.DerivedPaths;
 
 internal static class StreamResolver
 {
