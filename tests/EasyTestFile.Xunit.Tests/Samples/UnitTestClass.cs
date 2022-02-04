@@ -89,9 +89,8 @@ public class UnitTestClass
     }
     // end-snippet
 
-    
-    [Fact]
-    public async Task Configuration()
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "Used for markdown")]
+    private async Task Configuration()
     {
         // begin-snippet: Configuration
         var settings = new EasyTestFileSettings();
@@ -109,8 +108,6 @@ public class UnitTestClass
 
         settings.UseExtension("jpg");
         settings.DisableAutoCreateMissingTestFile();
-
-
 
         // Load testfile as object with settings.
         TestFile testFile = EasyTestFile.Load(settings);
