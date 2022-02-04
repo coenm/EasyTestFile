@@ -121,7 +121,7 @@ TestFile testFile = EasyTestFile.Load(settings);
 // or directly as content with settings.
 var text = await EasyTestFile.LoadAsText(settings);
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L96-L120' title='Snippet source file'>snippet source</a> | <a href='#snippet-configuration' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L95-L117' title='Snippet source file'>snippet source</a> | <a href='#snippet-configuration' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
