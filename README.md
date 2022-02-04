@@ -73,7 +73,7 @@ public async Task LoadAsTestFileWithJson()
     TestFile testFile = EasyTestFile.Load();
 
     // then you can load the content as a stream
-    Stream stream = testFile.AsStream();
+    Stream stream = await testFile.AsStream();
 
     // or use extension methods like
     Person person = await testFile.AsObjectUsingNewtonsoft<Person>();
@@ -82,7 +82,7 @@ public async Task LoadAsTestFileWithJson()
     string text = await testFile.AsText();
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L75-L91' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L74-L90' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -97,7 +97,31 @@ These three test methods produce the following testfiles according to the name c
 Loading testfiles can be done with specific configuration using the `EasyTestFileSettings`.
 
 <!-- snippet: Configuration -->
-Configuration
+<a id='snippet-configuration'></a>
+```cs
+var settings = new EasyTestFileSettings();
+
+// specify assembly containing the testfiles (only applicable when embedded).
+settings.UseAssembly(typeof(Person).Assembly);
+
+// custom directory where testfiles are stored.
+settings.UseDirectory("myTestFiles");
+
+settings.UseFileName("filename");
+// or
+settings.UseMethodName("Configuration2");
+settings.SetTestFileNameSuffix("suffix");
+
+settings.UseExtension("jpg");
+settings.DisableAutoCreateMissingTestFile();
+
+// Load testfile as object with settings.
+TestFile testFile = EasyTestFile.Load(settings);
+
+// or directly as content with settings.
+var text = await EasyTestFile.LoadAsText(settings);
+```
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L96-L120' title='Snippet source file'>snippet source</a> | <a href='#snippet-configuration' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
