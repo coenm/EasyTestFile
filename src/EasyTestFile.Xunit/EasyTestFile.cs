@@ -36,13 +36,13 @@ namespace EasyTestFileXunit
         /// <param name="sourceFile">The source filename, should not be overridden. Default value is <c>[CallerFilePath]</c>.</param>
         /// <param name="method">The caller, (normally the test method). Should not be overridden. Default value is <c>CallerMemberName</c>.</param>
         /// <returns>The text content of the test file.</returns>
-        public static async Task<string> LoadAsText(
+        public static Task<string> LoadAsText(
             EasyTestFileSettings? settings = null,
             [CallerFilePath] string sourceFile = "",
             [CallerMemberName] string method = "")
         {
             TestFile testFile = TestFileFactory.Create(settings, sourceFile, method);
-            return await testFile.AsText();
+            return testFile.AsText();
         }
 
         /// <summary>
@@ -58,7 +58,7 @@ namespace EasyTestFileXunit
             [CallerMemberName] string method = "")
         {
             TestFile testFile = TestFileFactory.Create(settings, sourceFile, method);
-            return Task.FromResult(testFile.AsStream());
+            return testFile.AsStream();
         }
     }
 }

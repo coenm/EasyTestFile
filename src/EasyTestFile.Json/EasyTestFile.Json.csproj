@@ -1,22 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;netstandard2.1;net5;net6</TargetFrameworks>
-		<RootNamespace>EasyTestFile.Json</RootNamespace>
-		<PackageId>EasyTestFile.NewtonsoftJson</PackageId>
-		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;Json</PackageTags>
-		<Description>EasyTestFile NewtonsoftJson extension making it easy to read files as objects.</Description>
-		<PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
-	</PropertyGroup>
-	
-	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" />
-	</ItemGroup>
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5;net6</TargetFrameworks>
+    <RootNamespace>EasyTestFile.Json</RootNamespace>
+    <PackageId>EasyTestFile.NewtonsoftJson</PackageId>
+    <PackageTags>EasyTestFile;UnitTests;IntegrationTests;Json</PackageTags>
+    <Description>EasyTestFile NewtonsoftJson extension making it easy to read files as objects.</Description>
+    <PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)" Visible="false" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)" Visible="false" />
+  </ItemGroup>
 </Project>

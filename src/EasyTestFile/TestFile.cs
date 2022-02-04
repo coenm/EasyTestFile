@@ -3,6 +3,7 @@ namespace EasyTestFile;
 using System;
 using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using EasyTestFile.Internals;
 
 /// <summary>
@@ -33,7 +34,7 @@ public sealed class TestFile
     /// </summary>
     /// <returns>Returns a read-only <see cref="Stream"/> if exists.</returns>
     /// <exception cref="TestFileNotFoundException">Thrown when stream cannot be found.</exception>
-    public Stream AsStream()
+    public Task<Stream> AsStream()
     {
         var filename = _filenamePrefix + EasyTestFileConstants.EASY_TEST_FILE_SUFFIX + "." + _settings.ExtensionOrTxt();
         var relativeFilename = DirectorySanitizer.PathCombine(_relativeDirectory, filename);
@@ -43,40 +44,49 @@ public sealed class TestFile
 
         if (stream != null)
         {
-            return stream;
+            return Task.FromResult(stream);
         }
         
         var operatingSystemFullFilename = DirectorySanitizer.ToOperatingSystemPath(physicalFilename);
-        var created = false;
-
-        if (!_settings.AutoCreateMissingTestFileDisabled)
+        
+        if (_settings.AutoCreateMissingTestFileDisabled)
         {
-            try
-            {
-                var dir = new FileInfo(operatingSystemFullFilename).DirectoryName;
+            throw new TestFileNotFoundException(operatingSystemFullFilename, false);
+        }
 
-                if (dir != null)
-                {
-                    if (!Directory.Exists(dir))
-                    {
-                        Directory.CreateDirectory(dir);
-                    }
+        bool created;
 
-                    File.Create(operatingSystemFullFilename);
-                    created = true;
-                }
-            }
-            catch (Exception exception)
-            {
-                throw new TestFileNotFoundException(operatingSystemFullFilename, created, exception);
-            }
+        try
+        {
+            created = CreateTestFile(operatingSystemFullFilename);
+        }
+        catch (Exception exception)
+        {
+            throw new TestFileNotFoundException(operatingSystemFullFilename, false, exception);
         }
 
         throw new TestFileNotFoundException(operatingSystemFullFilename, created);
     }
-
     internal EasyTestFileSettings GetSettings()
     {
         return _settings;
+    }
+
+    private static bool CreateTestFile(string operatingSystemFullFilename)
+    {
+        var dir = new FileInfo(operatingSystemFullFilename).DirectoryName;
+
+        if (dir != null)
+        {
+            if (!Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
+
+            File.Create(operatingSystemFullFilename);
+            return true;
+        }
+
+        return false;
     }
 }

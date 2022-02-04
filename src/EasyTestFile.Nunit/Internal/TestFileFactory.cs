@@ -1,9 +1,9 @@
-namespace EasyTestFileNunit;
+namespace EasyTestFileNunit.Internal;
 
-using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using global::EasyTestFile;
+using global::EasyTestFile.Internals;
 
 internal static class TestFileFactory
 {

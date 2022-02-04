@@ -32,10 +32,10 @@ public class PropertyTest
     }
 
     [Test]
-    public void UsePropertyTwice_ShouldReloadStream()
+    public async Task UsePropertyTwice_ShouldReloadStream()
     {
-        Stream s1 = PropertyFile1.AsStream();
-        Stream s2 = PropertyFile1.AsStream();
+        Stream s1 = await PropertyFile1.AsStream();
+        Stream s2 = await PropertyFile1.AsStream();
         s1.Position = s1.Length - 1;
         s1.Dispose();
 

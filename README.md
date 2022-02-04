@@ -90,7 +90,18 @@ These three test methods produce the following testfiles according to the name c
 
 ![Solution Explorer TestFiles](/docs/images/SolutionExplorerTestFiles.png)
 
-# Compile time Configuration
+# Configuration
+
+## API configuration
+
+Loading testfiles can be done with specific configuration using the `EasyTestFileSettings`.
+
+<!-- snippet: Configuration -->
+Configuration
+<!-- endSnippet -->
+
+
+## Compile time configuration
 
 There is an optional option to control how testfiles are included in your artifacts. This can be controlled using the property `EasyTestFileMode`.
 The options are:

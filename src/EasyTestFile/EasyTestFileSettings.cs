@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+using EasyTestFile.Internals;
 
 /// <summary>
 /// Settings for EasyTestFile

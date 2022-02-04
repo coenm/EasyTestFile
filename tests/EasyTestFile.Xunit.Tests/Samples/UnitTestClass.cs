@@ -64,13 +64,12 @@ public class UnitTestClass
         TestFile testFile = EasyTestFile.Load();
 
         // then you can load the content as a stream
-        Stream stream = testFile.AsStream();
+        Stream stream = await testFile.AsStream();
 
         // or like
         string text = await testFile.AsText();
     }
     // end-snippet
-
 
     // begin-snippet: LoadAsTestFile
     [Fact]
@@ -80,7 +79,7 @@ public class UnitTestClass
         TestFile testFile = EasyTestFile.Load();
 
         // then you can load the content as a stream
-        Stream stream = testFile.AsStream();
+        Stream stream = await testFile.AsStream();
 
         // or use extension methods like
         Person person = await testFile.AsObjectUsingNewtonsoft<Person>();
@@ -89,4 +88,35 @@ public class UnitTestClass
         string text = await testFile.AsText();
     }
     // end-snippet
+
+    
+    [Fact]
+    public async Task Configuration()
+    {
+        // begin-snippet: Configuration
+        var settings = new EasyTestFileSettings();
+        
+        // specify assembly containing the testfiles (only applicable when embedded).
+        settings.UseAssembly(typeof(Person).Assembly);
+
+        // custom directory where testfiles are stored.
+        settings.UseDirectory("myTestFiles");
+
+        settings.UseFileName("filename");
+        // or
+        settings.UseMethodName("Configuration2");
+        settings.SetTestFileNameSuffix("suffix");
+
+        settings.UseExtension("jpg");
+        settings.DisableAutoCreateMissingTestFile();
+
+
+
+        // Load testfile as object with settings.
+        TestFile testFile = EasyTestFile.Load(settings);
+
+        // or directly as content with settings.
+        var text = await EasyTestFile.LoadAsText(settings);
+        // end-snippet
+    }
 }

@@ -2,6 +2,7 @@ namespace EasyTestFile.Tests.Internals;
 
 using System.Reflection;
 using System.Threading.Tasks;
+using EasyTestFile.Internals;
 using FluentAssertions;
 using VerifyXunit;
 using Xunit;

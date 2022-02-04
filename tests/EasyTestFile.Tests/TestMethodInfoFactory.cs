@@ -2,6 +2,7 @@ namespace EasyTestFile.Tests;
 
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using EasyTestFile.Internals;
 
 static class TestMethodInfoFactory
 {

@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using EasyTestFileNunit.Internal;
 using global::EasyTestFile;
 
 /// <summary>
@@ -56,6 +57,6 @@ public static class EasyTestFile
         [CallerMemberName] string method = "")
     {
         TestFile dataLoader = Load(settings, sourceFile, method);
-        return Task.FromResult(dataLoader.AsStream());
+        return dataLoader.AsStream();
     }
 }
