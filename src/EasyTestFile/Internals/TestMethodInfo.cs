@@ -1,9 +1,8 @@
-namespace EasyTestFile;
+namespace EasyTestFile.Internals;
 
 using System;
 using System.IO;
 using System.Reflection;
-using EasyTestFile.Internals;
 
 internal readonly struct TestMethodInfo
 {

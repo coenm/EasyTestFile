@@ -4,7 +4,7 @@ using System;
 using Newtonsoft.Json;
 
 /// <summary>
-/// 
+/// Extension methods for <see cref="EasyTestFileSettings"/>.
 /// </summary>
 public static class EasyTestFileSettingsExtension
 {
@@ -57,5 +57,4 @@ public static class EasyTestFileSettingsExtension
 
         return value as JsonSerializer;
     }
-
 }

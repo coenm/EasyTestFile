@@ -1,6 +1,7 @@
 namespace EasyTestFile;
 
 using System;
+using EasyTestFile.Internals;
 
 public partial class EasyTestFileSettings
 {

@@ -23,11 +23,8 @@ public static class NewtonsoftDeserialize
             throw new ArgumentNullException(nameof(testFile));
         }
 
-        JsonSerializer? jsonSerializer = testFile.GetSettings().GetNewtonSoftJsonSerializerSettings();
-
-        return Task.FromResult(DeserializeFromStream<T>(
-            testFile.AsStream(),
-            jsonSerializer ?? new JsonSerializer()));
+        JsonSerializer jsonSerializer = testFile.GetSettings().GetNewtonSoftJsonSerializerSettings() ?? new JsonSerializer();
+        return AsObjectUsingNewtonsoft<T>(testFile, jsonSerializer);
     }
 
     /// <summary>
@@ -37,7 +34,7 @@ public static class NewtonsoftDeserialize
     /// <param name="serializer">Json serializer. Cannot be <c>null</c>.</param>
     /// <typeparam name="T">The type of the object to deserialize.</typeparam>
     /// <returns>The instance of <typeparamref name="T"/> being deserialized.</returns>
-    public static Task<T> AsObjectUsingNewtonsoft<T>(this TestFile testFile, JsonSerializer serializer)
+    public static async Task<T> AsObjectUsingNewtonsoft<T>(this TestFile testFile, JsonSerializer serializer)
     {
         if (testFile == null)
         {
@@ -49,7 +46,8 @@ public static class NewtonsoftDeserialize
             throw new ArgumentNullException(nameof(serializer));
         }
 
-        return Task.FromResult(DeserializeFromStream<T>(testFile.AsStream(), serializer));
+        Stream stream = await testFile.AsStream().ConfigureAwait(false);
+        return DeserializeFromStream<T>(stream, serializer);
     }
 
     internal static T DeserializeFromStream<T>(Stream stream, JsonSerializer jsonSerializer)

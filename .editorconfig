@@ -1,5 +1,5 @@
-# Remove the line below if you want to inherit .editorconfig settings from higher directories
 root = true
+# Remove the line below if you want to inherit .editorconfig settings from higher directories
 
 # Code files
 [*.{cs,csx,vb,vbx}]
@@ -8,6 +8,17 @@ tab_width = 4
 trim_trailing_whitespace = true
 charset = utf-8
 insert_final_newline = false
+indent_size = 4
+
+[*.{csproj,sln}]
+indent_style = space
+indent_size = 2
+tab_width = 2
+
+[{Directory.Build.props,Directory.Build.targets}]
+indent_style = space
+indent_size = 2
+tab_width = 2
 
 [{appsettings*json,package.json}]
 indent_style = space
@@ -16,10 +27,13 @@ indent_size = 4
 [*.xml]
 indent_style = space
 
-# C# files
 [*.cs]
 
 #### .NET Coding Conventions ####
+
+indent_style = space
+indent_size = 4
+tab_width = 4
 
 # Organize usings
 dotnet_separate_import_directive_groups = false
@@ -277,45 +291,45 @@ dotnet_naming_rule.all.severity = error
 ###############################
 
 # CS8604: Possible null reference argument.
-dotnet_diagnostic.CS8604.severity = error
+dotnet_diagnostic.cs8604.severity = error
 
 # IDE0052: Remove unread private members
-dotnet_diagnostic.IDE0052.severity = warning
+dotnet_diagnostic.ide0052.severity = warning
 
 #### StyleCops Options ####
 
 # SA0001: XML comment analysis disabled
-dotnet_diagnostic.SA0001.severity = none
+dotnet_diagnostic.sa0001.severity = none
 
 # Normally, this rule should not be set to none.
 # Due to a 'bug' it conflicts with rule SA1018 (nullable type symbols should be spaced correctly)
 # when using a nullable array like this:
 # public string[]? Names { get; set; }
 # SA1011: Closing square brackets should be spaced correctly
-dotnet_diagnostic.SA1011.severity = none
+dotnet_diagnostic.sa1011.severity = none
 
 # SA1101: Prefix local calls with this
-dotnet_diagnostic.SA1101.severity = none
+dotnet_diagnostic.sa1101.severity = none
 
 # SA1309: Field names should not begin with underscore
-dotnet_diagnostic.SA1309.severity = none
+dotnet_diagnostic.sa1309.severity = none
 
 # SA1310: Field names should not contain underscore
 # Justification: StyleCop also triggers this for constants and our convention is to write
 # constant names in upper case so they can be readily distinguished from camel case variable names.
-dotnet_diagnostic.SA1310.severity = none
+dotnet_diagnostic.sa1310.severity = none
 
 # SA1503: Braces should not be omitted
-dotnet_diagnostic.SA1503.severity = none
+dotnet_diagnostic.sa1503.severity = none
 
 # SA1600: Elements should be documented
-dotnet_diagnostic.SA1600.severity = none
+dotnet_diagnostic.sa1600.severity = none
 
 # SA1633: File should have header
-dotnet_diagnostic.SA1633.severity = none
+dotnet_diagnostic.sa1633.severity = none
 
 # SA1303: Const field names should begin with upper-case letter
-dotnet_diagnostic.SA1303.severity = none
+dotnet_diagnostic.sa1303.severity = none
 
 ###############################
 # ReSharper                   #
@@ -348,3 +362,4 @@ resharper_align_multiline_for_stmt = true
 resharper_max_array_initializer_elements_on_line = 3
 resharper_max_initializer_elements_on_line = 1
 resharper_wrap_array_initializer_style = chop_if_long
+

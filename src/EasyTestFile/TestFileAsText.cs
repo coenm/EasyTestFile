@@ -13,9 +13,10 @@ public static class TestFileAsText
     /// </summary>
     /// <param name="testFile">TestFile instance.</param>
     /// <returns>The text content of the test file.</returns>
-    public static Task<string> AsText(this TestFile testFile)
+    public static async Task<string> AsText(this TestFile testFile)
     {
-        return AsText(testFile.AsStream());
+        Stream stream = await testFile.AsStream().ConfigureAwait(false);
+        return await AsText(stream).ConfigureAwait(false);
     }
 
     internal static async Task<string> AsText(Stream stream)

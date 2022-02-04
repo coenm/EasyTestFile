@@ -52,7 +52,7 @@ public async Task LoadAsTestFile()
     TestFile testFile = EasyTestFile.Load();
 
     // then you can load the content as a stream
-    Stream stream = testFile.AsStream();
+    Stream stream = await testFile.AsStream();
 
     // or like
     string text = await testFile.AsText();

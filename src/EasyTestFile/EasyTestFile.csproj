@@ -1,33 +1,34 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;netstandard2.1;net5;net6</TargetFrameworks>
-		<RootNamespace>EasyTestFile</RootNamespace>
-		<PackageId>EasyTestFile</PackageId>
-		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;TestFiles</PackageTags>
-		<Description>EasyTestFile makes it easy to create and load files used in unittests.</Description>
-		<PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
-	</PropertyGroup>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5;net6</TargetFrameworks>
+    <RootNamespace>EasyTestFile</RootNamespace>
+    <PackageId>EasyTestFile</PackageId>
+    <PackageTags>EasyTestFile;UnitTests;IntegrationTests;TestFiles</PackageTags>
+    <Description>EasyTestFile makes it easy to create and load files used in unittests.</Description>
+    <PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
+  </PropertyGroup>
 
-    <ItemGroup>
-		<Content Include="buildTransitive\EasyTestFile.props" PackagePath="buildTransitive\EasyTestFile.props" />
-		<Content Include="buildTransitive\EasyTestFile.targets" PackagePath="buildTransitive\EasyTestFile.targets" />
-	</ItemGroup>
+  <ItemGroup>
+    <Content Include="buildTransitive\EasyTestFile.props" PackagePath="buildTransitive\EasyTestFile.props" />
+    <Content Include="buildTransitive\EasyTestFile.targets" PackagePath="buildTransitive\EasyTestFile.targets" />
+  </ItemGroup>
 
-	<Choose>
-		<When Condition=" $(TargetFramework)=='netstandard2.1' OR $(TargetFramework)=='net5' OR $(TargetFramework)=='net6' ">
-			<PropertyGroup>
-				<DefineConstants>$(DefineConstants);FEATURE_STRING_REPLACE_IGNORE_CASE</DefineConstants>
-			</PropertyGroup>
-		</When>
+  <Choose>
+    <When Condition=" $(TargetFramework)=='netstandard2.1' OR $(TargetFramework)=='net5' OR $(TargetFramework)=='net6' ">
+      <PropertyGroup>
+        <DefineConstants>$(DefineConstants);FEATURE_STRING_REPLACE_IGNORE_CASE</DefineConstants>
+      </PropertyGroup>
+    </When>
 
-		<Otherwise>
-			<ItemGroup>
-				<PackageReference Include="Nullable" PrivateAssets="all" />
-			</ItemGroup>
-		</Otherwise>
-	</Choose>
+    <Otherwise>
+      <ItemGroup>
+        <PackageReference Include="Nullable" PrivateAssets="all" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
 
-	<ItemGroup>
-		<None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)" Visible="false" />
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)"
+          Visible="false" />
+  </ItemGroup>
 </Project>

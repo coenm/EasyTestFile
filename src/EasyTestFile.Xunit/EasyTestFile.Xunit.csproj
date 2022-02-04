@@ -1,24 +1,25 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;netstandard2.1;net5;net6</TargetFrameworks>
-		<RootNamespace>EasyTestFileXunit</RootNamespace>
-		<PackageId>EasyTestFile.XUnit</PackageId>
-		<PackageTags>EasyTestFile;UnitTests;IntegrationTests;XUnit</PackageTags>
-		<Description>Enables EasyTestFile when writing test using XUnit.</Description>
-		<PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
-	</PropertyGroup>
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5;net6</TargetFrameworks>
+    <RootNamespace>EasyTestFileXunit</RootNamespace>
+    <PackageId>EasyTestFile.XUnit</PackageId>
+    <PackageTags>EasyTestFile;UnitTests;IntegrationTests;XUnit</PackageTags>
+    <Description>Enables EasyTestFile when writing test using XUnit.</Description>
+    <PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
+  </PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="xunit.assert" />
-		<PackageReference Include="xunit.abstractions" />
-		<PackageReference Include="xunit.extensibility.execution" />
-	</ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="xunit.assert" />
+    <PackageReference Include="xunit.abstractions" />
+    <PackageReference Include="xunit.extensibility.execution" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
-	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)" Visible="false" />
-	</ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)"
+          Visible="false" />
+  </ItemGroup>
 </Project>
