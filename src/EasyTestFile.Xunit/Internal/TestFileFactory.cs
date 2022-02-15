@@ -10,7 +10,7 @@ namespace EasyTestFileXunit.Internal
         public static TestFile Create(
             EasyTestFileSettings? settings,
             Assembly testAssembly,
-            MethodInfo methodInfo,
+            MethodInfo? methodInfo,
             [CallerFilePath] string sourceFile = "",
             [CallerMemberName] string method = "")
         {
@@ -32,12 +32,18 @@ namespace EasyTestFileXunit.Internal
         }
 
         public static TestFile Create(
+            Assembly callingAssembly,
             EasyTestFileSettings? settings = null,
             [CallerFilePath] string sourceFile = "",
             [CallerMemberName] string method = "")
         {
-            MethodInfo methodInfo = MethodInfoResolver.Get();
-            Assembly assembly = AssemblyResolver.Get(methodInfo);
+            Assembly assembly = callingAssembly;
+
+            if (MethodInfoResolver.TryGet(out MethodInfo? methodInfo))
+            {
+                assembly = AssemblyResolver.Get(methodInfo!);
+            }
+
             return Create(settings, assembly, methodInfo, sourceFile, method);
         }
     }

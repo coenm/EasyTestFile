@@ -28,7 +28,6 @@ internal static class FileNameResolver
 
     internal static (string Relative, string Absolute) GetDirectories(EasyTestFileSettings settings, TestAssemblyInfo testAssemblyInfo, TestMethodInfo testMethodInfo)
     {
-        _ = testAssemblyInfo;
         var absoluteDir = testMethodInfo.SanitizedDirectory;
         if (settings.Directory is not null)
         {

@@ -9,7 +9,7 @@ internal readonly struct TestMethodInfo
     /// <exception cref="ArgumentNullException">Thrown when a parameter is <c>null</c>.</exception>
     /// <exception cref="ArgumentException">Thrown when a parameter contains an invalid value..</exception>
     /// <exception cref="Exception">Thrown when something else goes wrong.</exception>
-    internal TestMethodInfo(MethodInfo info, string sourceFile, string method) :
+    internal TestMethodInfo(MethodInfo? info, string sourceFile, string method) :
         this(sourceFile, method)
     {
         _ = info;
@@ -38,7 +38,7 @@ internal readonly struct TestMethodInfo
 
         if (string.IsNullOrEmpty(dirName))
         {
-            throw new Exception("Could not determine directory.");
+            throw new InternalErrorRaisePullRequestException($"Could not determine directory name of the sourcefile '{sourceFile}'.");
         }
 
         dirName = dirName.TrimEnd(Path.DirectorySeparatorChar) + Path.DirectorySeparatorChar;
