@@ -146,7 +146,7 @@ Configuration is done like:
   <EasyTestFileMode>CopyAlways</EasyTestFileMode>
 </PropertyGroup>
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.CopyAlways.Tests/EasyTestFile.Xunit.CopyAlways.Tests.csproj#L26-L31' title='Snippet source file'>snippet source</a> | <a href='#snippet-compiletimeconfigurationeasytestfilemode' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.CopyAlways.Tests/EasyTestFile.Xunit.CopyAlways.Tests.csproj#L27-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-compiletimeconfigurationeasytestfilemode' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 # Credits
