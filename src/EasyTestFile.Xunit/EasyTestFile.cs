@@ -26,7 +26,8 @@ namespace EasyTestFileXunit
             [CallerFilePath] string sourceFile = "",
             [CallerMemberName] string method = "")
         {
-            return TestFileFactory.Create(settings, sourceFile, method);
+            var callingAssembly = Assembly.GetCallingAssembly();
+            return TestFileFactory.Create(callingAssembly, settings, sourceFile, method);
         }
 
         /// <summary>
@@ -41,7 +42,8 @@ namespace EasyTestFileXunit
             [CallerFilePath] string sourceFile = "",
             [CallerMemberName] string method = "")
         {
-            TestFile testFile = TestFileFactory.Create(settings, sourceFile, method);
+            var callingAssembly = Assembly.GetCallingAssembly();
+            TestFile testFile = TestFileFactory.Create(callingAssembly, settings, sourceFile, method);
             return testFile.AsText();
         }
 
@@ -57,7 +59,8 @@ namespace EasyTestFileXunit
             [CallerFilePath] string sourceFile = "",
             [CallerMemberName] string method = "")
         {
-            TestFile testFile = TestFileFactory.Create(settings, sourceFile, method);
+            var callingAssembly = Assembly.GetCallingAssembly();
+            TestFile testFile = TestFileFactory.Create(callingAssembly, settings, sourceFile, method);
             return testFile.AsStream();
         }
     }

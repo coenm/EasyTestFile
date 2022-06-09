@@ -2,6 +2,7 @@ namespace EasyTestFileXunit.Internal
 {
     using System;
     using System.Reflection;
+    using System.Threading;
 
     internal static class AssemblyResolver
     {

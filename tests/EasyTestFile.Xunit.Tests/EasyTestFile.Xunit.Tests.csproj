@@ -9,6 +9,7 @@
     <ProjectReference Include="..\..\src\EasyTestFile.Xunit\EasyTestFile.Xunit.csproj" />
     <ProjectReference Include="..\..\src\EasyTestFile\EasyTestFile.csproj" />
     <ProjectReference Include="..\EasyTestFile.Xunit.Resources\EasyTestFile.Xunit.Resources.csproj" />
+    <PackageReference Include="Meziantou.Xunit.ParallelTestFramework" />
     <PackageReference Include="Verify.Xunit" />
     <PackageReference Include="xunit" />
     <PackageReference Include="xunit.analyzers" />

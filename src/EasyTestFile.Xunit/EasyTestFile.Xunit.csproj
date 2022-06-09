@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Meziantou.Xunit.ParallelTestFramework" />
     <PackageReference Include="xunit.assert" />
     <PackageReference Include="xunit.abstractions" />
     <PackageReference Include="xunit.extensibility.execution" />
@@ -19,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)"
-          Visible="false" />
+    <None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)" Visible="false" />
   </ItemGroup>
 </Project>
