@@ -24,7 +24,7 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <PackageReference Include="IndexRange" Version="1.0.0" />
+        <PackageReference Include="IndexRange" />
       </ItemGroup>
     </Otherwise>
   </Choose>

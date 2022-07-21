@@ -9,7 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Meziantou.Xunit.ParallelTestFramework" />
     <PackageReference Include="xunit.assert" />
     <PackageReference Include="xunit.abstractions" />
     <PackageReference Include="xunit.extensibility.execution" />
