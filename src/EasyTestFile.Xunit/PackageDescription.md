@@ -9,7 +9,7 @@ This package is required when your project uses NUnit for unittesting. Make sure
 
 ## Attribute usage
 <!-- snippet: XUnitAttributeUsage -->
-<a id='snippet-xunitattributeusage'></a>
+<a id='snippet-XUnitAttributeUsage'></a>
 ```cs
 [UsesEasyTestFile]
 public class TestClass1
@@ -17,7 +17,7 @@ public class TestClass1
     // The attribute is required when using XUnit.
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L6-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-xunitattributeusage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L6-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-XUnitAttributeUsage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 ## Usage
@@ -25,7 +25,7 @@ public class TestClass1
 Default options to load as text or load as stream:
 
 <!-- snippet: LoadAsText -->
-<a id='snippet-loadastext'></a>
+<a id='snippet-LoadAsText'></a>
 ```cs
 [Fact]
 public async Task LoadAsText()
@@ -38,11 +38,11 @@ public async Task LoadAsText()
     // and do whatever you want
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L12-L23' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastext' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L12-L23' title='Snippet source file'>snippet source</a> | <a href='#snippet-LoadAsText' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 <!-- snippet: LoadAsStream -->
-<a id='snippet-loadasstream'></a>
+<a id='snippet-LoadAsStream'></a>
 ```cs
 [Fact]
 public async Task LoadAsStream()
@@ -52,13 +52,13 @@ public async Task LoadAsStream()
 
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L25-L33' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadasstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L25-L33' title='Snippet source file'>snippet source</a> | <a href='#snippet-LoadAsStream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Or load the TestFile object first
 
 <!-- snippet: LoadAsTestFileBasic -->
-<a id='snippet-loadastestfilebasic'></a>
+<a id='snippet-LoadAsTestFileBasic'></a>
 ```cs
 [Fact]
 public async Task LoadAsTestFile()
@@ -73,5 +73,5 @@ public async Task LoadAsTestFile()
     string text = await testFile.AsText();
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L59-L72' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfilebasic' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L59-L72' title='Snippet source file'>snippet source</a> | <a href='#snippet-LoadAsTestFileBasic' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
