@@ -1,0 +1,22 @@
+﻿[
+  {EasyTestFile}/Att/Testing.NewtonsoftLoad.testfile.txt,
+  {EasyTestFile}/Att/Testing.Settings.testfile.json,
+  {EasyTestFile}/Att/Testing.Test1.testfile.txt,
+  {EasyTestFile}/Att/Testing.Test2.testfile.txt,
+  {EasyTestFile}/CustomPath/CustomProjectPath.CustomPathTest2.1.testfile.txt,
+  {EasyTestFile}/CustomPath/CustomProjectPath.CustomPathTest2.2.testfile.txt,
+  {EasyTestFile}/Folder1/Folder2/PropertyTest.PropertyFile1.testfile.txt,
+  {EasyTestFile}/Folder1/Folder2/PropertyTest.PropertyFile2.testfile.json,
+  {EasyTestFile}/Folder1/Partial/MyPartialTest.Test1.testfile.txt,
+  {EasyTestFile}/Folder1/Partial/MyPartialTest.Test2.testfile.txt,
+  {EasyTestFile}/Folder1/Partial/Sub/MyPartialTest.Test2.testfile.txt,
+  {EasyTestFile}/Folder1/Partial/Sub/MyPartialTest.Test4.testfile.txt,
+  {EasyTestFile}/Property/PropertyLoading.MyData.testfile.txt,
+  {EasyTestFile}/Property/PropertyLoading.MyData2.testfile.txt,
+  {EasyTestFile}/Property/PropertyLoading.MyData3.testfile.txt,
+  {EasyTestFile}/Samples/UnitTestClass.JsonTestFile.testfile.json,
+  {EasyTestFile}/Samples/UnitTestClass.LoadAsStream.testfile.txt,
+  {EasyTestFile}/Samples/UnitTestClass.LoadAsTestFile.testfile.txt,
+  {EasyTestFile}/Samples/UnitTestClass.LoadAsTestFileWithJson.testfile.txt,
+  {EasyTestFile}/Samples/UnitTestClass.LoadAsText.testfile.txt
+]

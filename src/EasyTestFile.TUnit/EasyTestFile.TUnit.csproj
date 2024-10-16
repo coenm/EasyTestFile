@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net8</TargetFrameworks>
+    <RootNamespace>EasyTestFileTUnit</RootNamespace>
+    <PackageId>EasyTestFile.TUnit</PackageId>
+    <PackageTags>EasyTestFile;UnitTests;IntegrationTests;TUnit</PackageTags>
+    <Description>Enables EasyTestFile when writing test using TUnit.</Description>
+    <PackageReadmeFile>PackageDescription.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EasyTestFile\EasyTestFile.csproj" PrivateAssets="None" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)\PackageDescription.md" Pack="true" PackagePath="$(PackageReadmeFile)" Visible="false" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TUnit.Core" Version="0.1.1051" />
+  </ItemGroup>
+</Project>

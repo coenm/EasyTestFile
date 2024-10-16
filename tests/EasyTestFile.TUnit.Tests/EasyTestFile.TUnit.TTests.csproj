@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8</TargetFramework>
+    <RootNamespace>EasyTestFileTUnit.Tests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\EasyTestFile.Json\EasyTestFile.Json.csproj" />
+    <ProjectReference Include="..\..\src\EasyTestFile.TUnit\EasyTestFile.TUnit.csproj" />
+    <ProjectReference Include="..\..\src\EasyTestFile\EasyTestFile.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TUnit" Version="0.1.1051" />
+    <PackageReference Include="Verify.TUnit" Version="27.0.1" />
+  </ItemGroup>
+
+</Project>
