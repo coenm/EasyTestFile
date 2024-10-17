@@ -6,7 +6,6 @@ using global::EasyTestFile.Internals;
 using VerifyXunit;
 using Xunit;
 
-[UsesVerify]
 public class AttributeReaderTest
 {
     [Fact]

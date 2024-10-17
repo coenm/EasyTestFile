@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
   <ItemGroup>
-    <PackageReference Update="Nullable" Version="1.3.0" IsImplicitlyDefined="true" />
-	  <PackageReference Update="Newtonsoft.Json" Version="13.0.1" IsImplicitlyDefined="true" />
+    <PackageReference Update="Nullable" Version="1.3.1" IsImplicitlyDefined="true" />
+	  <PackageReference Update="Newtonsoft.Json" Version="13.0.3" IsImplicitlyDefined="true" />
 
     <!-- xunit -->
-    <PackageReference Update="xunit" Version="2.4.1" IsImplicitlyDefined="true"/>
-    <PackageReference Update="xunit.analyzers" Version="0.10.0" IsImplicitlyDefined="true"/>
-    <PackageReference Update="xunit.categories" Version="2.0.5" IsImplicitlyDefined="true"/>
-    <PackageReference Update="xunit.extensibility.core" Version="2.4.1" IsImplicitlyDefined="true"/>
-    <PackageReference Update="xunit.runner.console" Version="2.4.1" IsImplicitlyDefined="true"/>
-    <PackageReference Update="xunit.runner.reporters" Version="2.4.1" IsImplicitlyDefined="true"/>
-    <PackageReference Update="xunit.runner.visualstudio" Version="2.4.3" IsImplicitlyDefined="true"/>
-    <PackageReference Update="xunit.assert" Version="2.4.1" IsImplicitlyDefined="true"/>
+    <PackageReference Update="xunit" Version="2.9.2" IsImplicitlyDefined="true"/>
+    <PackageReference Update="xunit.analyzers" Version="1.16.0" IsImplicitlyDefined="true"/>
+    <PackageReference Update="xunit.categories" Version="2.0.8" IsImplicitlyDefined="true"/>
+    <PackageReference Update="xunit.extensibility.core" Version="2.9.2" IsImplicitlyDefined="true"/>
+    <PackageReference Update="xunit.runner.console" Version="2.9.2" IsImplicitlyDefined="true"/>
+    <PackageReference Update="xunit.runner.reporters" Version="2.9.2" IsImplicitlyDefined="true"/>
+    <PackageReference Update="xunit.runner.visualstudio" Version="2.8.2" IsImplicitlyDefined="true"/>
+    <PackageReference Update="xunit.assert" Version="2.9.2" IsImplicitlyDefined="true"/>
     <PackageReference Update="xunit.abstractions" Version="2.0.3" IsImplicitlyDefined="true"/>
-    <PackageReference Update="xunit.extensibility.execution" Version="2.4.1" IsImplicitlyDefined="true"/>
-    <PackageReference Update="Meziantou.Xunit.ParallelTestFramework" Version="1.0.0" IsImplicitlyDefined="true"/>
+    <PackageReference Update="xunit.extensibility.execution" Version="2.9.2" IsImplicitlyDefined="true"/>
+    <PackageReference Update="Meziantou.Xunit.ParallelTestFramework" Version="2.3.0" IsImplicitlyDefined="true"/>
 
-    <PackageReference Update="NUnit" Version="3.13.2" IsImplicitlyDefined="true"/>
-    <PackageReference Update="NUnit3TestAdapter" Version="4.0.0" IsImplicitlyDefined="true"/>
+    <PackageReference Update="NUnit" Version="4.2.2" IsImplicitlyDefined="true"/>
+    <PackageReference Update="NUnit3TestAdapter" Version="4.6.0" IsImplicitlyDefined="true"/>
     
     <!--Unittesting-->
-    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.0.0" IsImplicitlyDefined="true"/>
-    <PackageReference Update="FluentAssertions" Version="6.2.0" IsImplicitlyDefined="true"/>
-    <PackageReference Update="FluentAssertions.Analyzers" Version="0.12.1" IsImplicitlyDefined="true"/>
-    <PackageReference Update="Verify.Xunit" Version="14.0.1" IsImplicitlyDefined="true"/>
-    <PackageReference Update="Verify.NUnit" Version="14.0.1" IsImplicitlyDefined="true"/>
+    <PackageReference Update="Microsoft.NET.Test.Sdk" Version="17.11.1" IsImplicitlyDefined="true"/>
+    <PackageReference Update="FluentAssertions" Version="6.12.1" IsImplicitlyDefined="true"/>
+    <PackageReference Update="FluentAssertions.Analyzers" Version="0.34.1" IsImplicitlyDefined="true"/>
+    <PackageReference Update="Verify.Xunit" Version="27.0.1" IsImplicitlyDefined="true"/>
+    <PackageReference Update="Verify.NUnit" Version="27.0.1" IsImplicitlyDefined="true"/>
 
     <!-- Misc -->
-    <PackageReference IsImplicitlyDefined="true" Update="Microsoft.SourceLink.GitHub" Version="1.0.0" />
-    <PackageReference IsImplicitlyDefined="true" Update="Nerdbank.GitVersioning" Version="3.4.240" />
+    <PackageReference IsImplicitlyDefined="true" Update="Microsoft.SourceLink.GitHub" Version="8.0.0" />
+    <PackageReference IsImplicitlyDefined="true" Update="Nerdbank.GitVersioning" Version="3.6.143" />
   </ItemGroup>
 </Project>

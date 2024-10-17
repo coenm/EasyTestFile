@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using VerifyXunit;
 using Xunit;
 
-[UsesVerify]
 [UsesEasyTestFile]
 public class VerifyEmbedded
 {

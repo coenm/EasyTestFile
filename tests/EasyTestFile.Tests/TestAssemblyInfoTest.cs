@@ -5,7 +5,6 @@ using FluentAssertions;
 using VerifyXunit;
 using Xunit;
 
-[UsesVerify]
 public class TestAssemblyInfoTest
 {
     [Fact]

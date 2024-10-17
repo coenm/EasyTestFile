@@ -10,7 +10,6 @@ using VerifyXunit;
 using Xunit;
 using Sut = EasyTestFileSettingsExtension;
 
-[UsesVerify]
 [SuppressMessage("ReSharper", "InvokeAsExtensionMethod", Justification = "Improves readability SUT.")]
 public class EasyTestFileSettingsExtensionTest
 {
