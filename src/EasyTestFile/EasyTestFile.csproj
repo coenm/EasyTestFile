@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1;net6;net8</TargetFrameworks>
     <RootNamespace>EasyTestFile</RootNamespace>
@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <Choose>
-    <When Condition=" $(TargetFramework)=='netstandard2.1' OR $(TargetFramework)=='net5' OR $(TargetFramework)=='net6' ">
+    <When Condition=" $(TargetFramework)=='netstandard2.1' OR $(TargetFramework)=='net6' OR $(TargetFramework)=='net8' ">
       <PropertyGroup>
         <DefineConstants>$(DefineConstants);FEATURE_STRING_REPLACE_IGNORE_CASE</DefineConstants>
       </PropertyGroup>

@@ -6,6 +6,7 @@ using FluentAssertions;
 using global::EasyTestFile;
 using global::EasyTestFile.Json;
 
+[System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "TUnitAssertions0003:Compiler argument populated", Justification = "Intentional")]
 public class Testing
 {
     [Test]
