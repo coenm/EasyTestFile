@@ -10,6 +10,11 @@
     TypeId: AssemblyMetadataAttribute
   },
   {
+    Key: EasyTestFile.SolutionDirectory,
+    Value: {SolutionDirectory},
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
     Key: Microsoft.Testing.Platform.Application,
     Value: True,
     TypeId: AssemblyMetadataAttribute
@@ -22,6 +27,16 @@
   {
     Key: Verify.ProjectName,
     Value: EasyTestFile.TUnit.TTests,
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
+    Key: Verify.SolutionDirectory,
+    Value: {SolutionDirectory},
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
+    Key: Verify.SolutionName,
+    Value: EasyTestFile,
     TypeId: AssemblyMetadataAttribute
   },
   {
