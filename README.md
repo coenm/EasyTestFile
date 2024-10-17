@@ -3,7 +3,7 @@
 [![Nuget Status](https://img.shields.io/nuget/v/EasyTestFile.svg?label=EasyTestFile&style=flat-square)](https://www.nuget.org/packages/EasyTestFile/)
 [![Nuget Status](https://img.shields.io/nuget/v/EasyTestFile.XUnit.svg?label=EasyTestFile.XUnit&style=flat-square)](https://www.nuget.org/packages/EasyTestFile.XUnit/)
 [![Nuget Status](https://img.shields.io/nuget/v/EasyTestFile.NUnit.svg?label=EasyTestFile.NUnit&style=flat-square)](https://www.nuget.org/packages/EasyTestFile.NUnit/)
-[![Nuget Status](https://img.shields.io/nuget/v/EasyTestFile.XUnit.svg?label=EasyTestFile.TUnit&style=flat-square)](https://www.nuget.org/packages/EasyTestFile.TUnit/)
+[![Nuget Status](https://img.shields.io/nuget/v/EasyTestFile.TUnit.svg?label=EasyTestFile.TUnit&style=flat-square)](https://www.nuget.org/packages/EasyTestFile.TUnit/)
 [![Nuget Status](https://img.shields.io/nuget/v/EasyTestFile.NewtonsoftJson.svg?label=EasyTestFile.NewtonsoftJson&style=flat-square)](https://www.nuget.org/packages/EasyTestFile.NewtonsoftJson/)
 
 EasyTestFile is a library that simplifies the creation and usage of testfiles in unittests. 
