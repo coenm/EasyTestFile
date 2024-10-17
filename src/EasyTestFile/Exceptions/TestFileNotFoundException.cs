@@ -9,7 +9,6 @@ using System.Security.Permissions;
 /// <summary>
 /// Exception when TestFile cannot be found.
 /// </summary>
-[Serializable]
 public sealed class TestFileNotFoundException : Exception
 {
     internal TestFileNotFoundException(string filename, bool created)
@@ -26,13 +25,6 @@ public sealed class TestFileNotFoundException : Exception
         TestFileCreated = created;
     }
 
-    private TestFileNotFoundException(SerializationInfo info, StreamingContext context)
-        : base(info, context)
-    {
-        Filename = info.GetString("Filename")!;
-        TestFileCreated = info.GetBoolean("TestFileCreated");
-    }
-
     /// <summary>
     /// Name of the missing filename.
     /// </summary>
@@ -42,20 +34,6 @@ public sealed class TestFileNotFoundException : Exception
     /// Boolean specifying if the TestFile was created. If so, the path of the filename is visible through the <seealso cref="Filename"/> property.
     /// </summary>
     public bool TestFileCreated { get; private set; }
-
-    /// <inheritdoc />
-    public override void GetObjectData(SerializationInfo info, StreamingContext context)
-    {
-        if (info == null)
-        {
-            throw new ArgumentNullException(nameof(info));
-        }
-
-        info.AddValue("Filename", Filename);
-        info.AddValue("TestFileCreated", TestFileCreated);
-
-        base.GetObjectData(info, context);
-    }
 
     private static string CreateExceptionMessage(string filename, bool created)
     {

@@ -3,8 +3,8 @@
 [![Nuget Status](https://img.shields.io/nuget/v/EasyTestFile.svg?label=EasyTestFile&style=flat-square)](https://www.nuget.org/packages/EasyTestFile/)
 [![Nuget Status](https://img.shields.io/nuget/v/EasyTestFile.XUnit.svg?label=EasyTestFile.XUnit&style=flat-square)](https://www.nuget.org/packages/EasyTestFile.XUnit/)
 [![Nuget Status](https://img.shields.io/nuget/v/EasyTestFile.NUnit.svg?label=EasyTestFile.NUnit&style=flat-square)](https://www.nuget.org/packages/EasyTestFile.NUnit/)
+[![Nuget Status](https://img.shields.io/nuget/v/EasyTestFile.XUnit.svg?label=EasyTestFile.TUnit&style=flat-square)](https://www.nuget.org/packages/EasyTestFile.TUnit/)
 [![Nuget Status](https://img.shields.io/nuget/v/EasyTestFile.NewtonsoftJson.svg?label=EasyTestFile.NewtonsoftJson&style=flat-square)](https://www.nuget.org/packages/EasyTestFile.NewtonsoftJson/)
-
 
 EasyTestFile is a library that simplifies the creation and usage of testfiles in unittests. 
 Testfiles (like text, json, xml, binary, jpg, etc. etc.) are named based on the class and method name, are created if not exist, and are embedded as resource making sure the execution of the test is deterministic and do not rely on untracked files etc.
@@ -16,7 +16,7 @@ At this moment, EasyTestFile can be used in combination with XUnit and NUnit.
 Using EasyTestFile in XUnit requires an additional attribute.
 
 <!-- snippet: XUnitAttributeUsage -->
-<a id='snippet-xunitattributeusage'></a>
+<a id='snippet-XUnitAttributeUsage'></a>
 ```cs
 [UsesEasyTestFile]
 public class TestClass1
@@ -24,7 +24,7 @@ public class TestClass1
     // The attribute is required when using XUnit.
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L6-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-xunitattributeusage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/Samples.cs#L6-L12' title='Snippet source file'>snippet source</a> | <a href='#snippet-XUnitAttributeUsage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 No special attributes or configuration is required to use EasyTestFile in combination with NUnit.
@@ -32,7 +32,7 @@ No special attributes or configuration is required to use EasyTestFile in combin
 # API
 
 <!-- snippet: LoadAsText -->
-<a id='snippet-loadastext'></a>
+<a id='snippet-LoadAsText'></a>
 ```cs
 [Fact]
 public async Task LoadAsText()
@@ -45,12 +45,12 @@ public async Task LoadAsText()
     // and do whatever you want
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L12-L23' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastext' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L12-L23' title='Snippet source file'>snippet source</a> | <a href='#snippet-LoadAsText' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 <!-- snippet: LoadAsStream -->
-<a id='snippet-loadasstream'></a>
+<a id='snippet-LoadAsStream'></a>
 ```cs
 [Fact]
 public async Task LoadAsStream()
@@ -60,11 +60,11 @@ public async Task LoadAsStream()
 
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L25-L33' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadasstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L25-L33' title='Snippet source file'>snippet source</a> | <a href='#snippet-LoadAsStream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 <!-- snippet: LoadAsTestFile -->
-<a id='snippet-loadastestfile'></a>
+<a id='snippet-LoadAsTestFile'></a>
 ```cs
 [Fact]
 public async Task LoadAsTestFileWithJson()
@@ -82,7 +82,7 @@ public async Task LoadAsTestFileWithJson()
     string text = await testFile.AsText();
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L74-L90' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadastestfile' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L74-L90' title='Snippet source file'>snippet source</a> | <a href='#snippet-LoadAsTestFile' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -97,7 +97,7 @@ These three test methods produce the following testfiles according to the name c
 Loading testfiles can be done with specific configuration using the `EasyTestFileSettings`.
 
 <!-- snippet: Configuration -->
-<a id='snippet-configuration'></a>
+<a id='snippet-Configuration'></a>
 ```cs
 var settings = new EasyTestFileSettings();
 
@@ -121,7 +121,7 @@ TestFile testFile = EasyTestFile.Load(settings);
 // or directly as content with settings.
 var text = await EasyTestFile.LoadAsText(settings);
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L95-L117' title='Snippet source file'>snippet source</a> | <a href='#snippet-configuration' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L95-L117' title='Snippet source file'>snippet source</a> | <a href='#snippet-Configuration' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -139,14 +139,14 @@ When no (valid) value is provided, the `Embed` mode will be used.
 Configuration is done like:
 
 <!-- snippet: CompiletimeConfigurationEasyTestFileMode -->
-<a id='snippet-compiletimeconfigurationeasytestfilemode'></a>
+<a id='snippet-CompiletimeConfigurationEasyTestFileMode'></a>
 ```csproj
 <PropertyGroup>
   <!-- Embed;CopyAlways;CopyPreserveNewest;None -->
   <EasyTestFileMode>CopyAlways</EasyTestFileMode>
 </PropertyGroup>
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.CopyAlways.Tests/EasyTestFile.Xunit.CopyAlways.Tests.csproj#L27-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-compiletimeconfigurationeasytestfilemode' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.CopyAlways.Tests/EasyTestFile.Xunit.CopyAlways.Tests.csproj#L27-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-CompiletimeConfigurationEasyTestFileMode' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 # Credits

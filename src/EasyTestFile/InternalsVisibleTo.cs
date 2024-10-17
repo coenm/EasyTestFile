@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 
+[assembly:InternalsVisibleTo("EasyTestFile.TUnit")]
 [assembly:InternalsVisibleTo("EasyTestFile.Xunit")]
 [assembly:InternalsVisibleTo("EasyTestFile.Xunit.CopyAlways.Tests")]
 [assembly:InternalsVisibleTo("EasyTestFile.Xunit.CopyPreserveNewest.Tests")]
