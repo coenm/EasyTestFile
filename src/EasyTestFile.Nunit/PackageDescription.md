@@ -10,7 +10,7 @@ This package is required when your project uses NUnit for unittesting. No setup 
 ## Samples
 
 <!-- snippet: NunitLoadAsText -->
-<a id='snippet-nunitloadastext'></a>
+<a id='snippet-NunitLoadAsText'></a>
 ```cs
 [Test]
 public async Task LoadAsText()
@@ -23,11 +23,11 @@ public async Task LoadAsText()
     // and do whatever you want
 }
 ```
-<sup><a href='/tests/EasyTestFile.Nunit.Tests/Samples/UnitTestClass.cs#L11-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-nunitloadastext' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Nunit.Tests/Samples/UnitTestClass.cs#L11-L22' title='Snippet source file'>snippet source</a> | <a href='#snippet-NunitLoadAsText' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 <!-- snippet: NunitLoadAsStream -->
-<a id='snippet-nunitloadasstream'></a>
+<a id='snippet-NunitLoadAsStream'></a>
 ```cs
 [Test]
 public async Task LoadAsStream()
@@ -37,13 +37,13 @@ public async Task LoadAsStream()
 
 }
 ```
-<sup><a href='/tests/EasyTestFile.Nunit.Tests/Samples/UnitTestClass.cs#L24-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-nunitloadasstream' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Nunit.Tests/Samples/UnitTestClass.cs#L24-L32' title='Snippet source file'>snippet source</a> | <a href='#snippet-NunitLoadAsStream' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Or load the TestFile object first
 
 <!-- snippet: NunitLoadAsTestFileBasic -->
-<a id='snippet-nunitloadastestfilebasic'></a>
+<a id='snippet-NunitLoadAsTestFileBasic'></a>
 ```cs
 [Test]
 public async Task LoadAsTestFile()
@@ -58,6 +58,6 @@ public async Task LoadAsTestFile()
     string text = await testFile.AsText();
 }
 ```
-<sup><a href='/tests/EasyTestFile.Nunit.Tests/Samples/UnitTestClass.cs#L58-L71' title='Snippet source file'>snippet source</a> | <a href='#snippet-nunitloadastestfilebasic' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Nunit.Tests/Samples/UnitTestClass.cs#L58-L71' title='Snippet source file'>snippet source</a> | <a href='#snippet-NunitLoadAsTestFileBasic' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 

@@ -8,7 +8,7 @@ Testfiles (like text, json, xml, binary, jpg, etc. etc.) are named based on the 
 This package contains extension methods to deserialize TestFiles using json.
 
 <!-- snippet: LoadJson -->
-<a id='snippet-loadjson'></a>
+<a id='snippet-LoadJson'></a>
 ```cs
 [Fact] // or [Test]
 public async Task JsonTestFile()
@@ -30,5 +30,5 @@ public class Person
     public string Name { get; set; }
 }
 ```
-<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L36-L56' title='Snippet source file'>snippet source</a> | <a href='#snippet-loadjson' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/tests/EasyTestFile.Xunit.Tests/Samples/UnitTestClass.cs#L36-L56' title='Snippet source file'>snippet source</a> | <a href='#snippet-LoadJson' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
