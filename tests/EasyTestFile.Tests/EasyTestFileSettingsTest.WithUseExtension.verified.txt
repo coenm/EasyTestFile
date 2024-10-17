@@ -1,10 +1,9 @@
 ﻿{
-  Assembly: null,
-  AutoCreateMissingTestFileDisabled: false,
-  Context: {},
   Directory: null,
-  FileName: null,
-  MethodName: null,
+  AutoCreateMissingTestFileDisabled: false,
   TestFileNamingSuffix: null,
-  _extension: json
+  Assembly: null,
+  _extension: json,
+  MethodName: null,
+  FileName: null
 }

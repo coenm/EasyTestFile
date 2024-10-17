@@ -20,8 +20,23 @@
     TypeId: AssemblyMetadataAttribute
   },
   {
+    Key: Verify.ProjectName,
+    Value: EasyTestFile.Xunit.Embed.Tests,
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
     Key: Verify.SolutionDirectory,
     Value: {SolutionDirectory},
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
+    Key: Verify.SolutionName,
+    Value: EasyTestFile,
+    TypeId: AssemblyMetadataAttribute
+  },
+  {
+    Key: Verify.TargetFrameworks,
+    Value: ,
     TypeId: AssemblyMetadataAttribute
   }
 ]

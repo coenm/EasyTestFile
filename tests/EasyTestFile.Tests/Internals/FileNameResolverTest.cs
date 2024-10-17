@@ -8,7 +8,6 @@ using VerifyXunit;
 using Xunit;
 using Sut = EasyTestFile.Internals.FileNameResolver;
 
-[UsesVerify]
 public class FileNameResolverTest
 {
     [Fact]

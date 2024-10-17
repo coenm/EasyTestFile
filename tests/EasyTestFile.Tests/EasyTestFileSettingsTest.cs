@@ -7,7 +7,6 @@ using Newtonsoft.Json;
 using VerifyXunit;
 using Xunit;
 
-[UsesVerify]
 public class EasyTestFileSettingsTest
 {
     private static readonly JsonSerializerSettings _jsonSettings = new () { ContractResolver = new AllDataContractResolver(), };

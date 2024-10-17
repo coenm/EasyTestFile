@@ -27,7 +27,7 @@ public class VerifyEmbedded
     private static Assembly GetAssemblyOfType(Type t)
     {
         var currentAssembly = Assembly.GetAssembly(t);
-        Assert.NotNull(currentAssembly);
+        Assert.That(currentAssembly, Is.Not.Null);
         return currentAssembly!;
     }
 }

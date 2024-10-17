@@ -8,7 +8,6 @@ using EasyTestFileXunit.Resources.CustomPath;
 using VerifyXunit;
 using Xunit;
 
-[UsesVerify]
 [UsesEasyTestFile]
 public class VerifyEmbedded
 {
